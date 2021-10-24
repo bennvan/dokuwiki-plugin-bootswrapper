@@ -516,6 +516,7 @@ i.bs-callout-icon { font-size: 2em; }
   flex-direction: column;
   border-radius: 0 0 .4rem .4rem;
   height: 100%;
+  font-size: 16px;
 }
 
 .card.card-link {
