@@ -11,7 +11,7 @@ This plugin include the original Callout from Bootstrap documentation for //info
 
 ===== Basic usage =====
 
-<code html5>
+<code html>
 <callout>
 === Default Callout ===
 This is a default callout.
@@ -20,7 +20,7 @@ This is a default callout.
 
 OR
 
-<code html5>
+<code html>
 <callout title="Default Callout">
 This is a default callout.
 </callout>
@@ -32,85 +32,120 @@ This is a default callout.
 </callout>
 
 ===== Contextual colors =====
+Create contextual colours and backgrounds by adding the ''type'' and ''background="true"'' attribute.
 
-<callout type="primary">
+<callout type="primary" background="true">
 === Primary Callout ===
 This is a primary callout.
 </callout>
 
-<callout type="success">
+<callout type="success" background="true">
 === Success Callout ===
 This is a success callout.
 </callout>
 
-<callout type="info">
+<callout type="info" background="true">
 === Info Callout ===
 This is an info callout.
 </callout>
 
-<callout type="warning">
+<callout type="warning" background="true">
 === Warning Callout ===
 This is a warning callout.
 </callout>
 
-<callout type="danger">
+<callout type="danger" background="true">
 === Danger Callout ===
 This is a danger callout.
 </callout>
 
+<code html>
+<callout type="primary" background="true"> [...] </callout>
+</code>
 
 ===== Contextual Icons =====
+Create a contextual icons callout by adding ''icon="true"'' attribute.
 
-Create a contextual colors callout by adding ''icon="true"'' attribute.
-
-<callout type="primary" icon="true">
+<callout type="primary" icon="true" background="true">
 === Primary Callout ===
 This is a primary callout.
 </callout>
 
-<callout type="success" icon="true">
+<callout type="success" icon="true" background="true">
 === Success Callout ===
 This is a success callout.
 </callout>
 
-<callout type="info" icon="true">
+<callout type="info" icon="true" background="true">
 === Info Callout ===
 This is an info callout.
 </callout>
 
-<callout type="warning" icon="true">
+<callout type="warning" icon="true" background="true">
 === Warning Callout ===
 This is a warning callout.
 </callout>
 
-<callout type="danger" icon="true">
+<callout type="danger" icon="true" background="true">
 === Danger Callout ===
 This is a danger callout.
 </callout>
 
-<code html5>
-<callout type="primary" icon="true"> [...] </callout>
-<callout type="success" icon="true"> [...] </callout>
-<callout type="info" icon="true"> [...] </callout>
-<callout type="warning" icon="true"> [...] </callout>
-<callout type="danger" icon="true"> [...] </callout>
+== Primary ==
+<code html>
+<callout type="primary" icon="true" background="true">
+=== Primary Callout ===
+
+</callout>
+</code>
+
+== Success ==
+<code html>
+<callout type="success" icon="true" background="true">
+=== Success Callout ===
+
+</callout>
+</code>
+
+== Info ==
+<code html>
+<callout type="info" icon="true" background="true">
+=== Info Callout ===
+
+</callout>
+</code>
+
+== Warning ==
+<code html>
+<callout type="warning" icon="true" background="true">
+=== Warning Callout ===
+
+</callout>
+</code>
+
+== Danger ==
+<code html>
+<callout type="danger" icon="true" background="true">
+=== Danger Callout ===
+
+</callout>
 </code>
 
 ==== Additional contextual icons ====
 
-<callout type="question" icon="true">
+<callout type="question" icon="true" background="true">
 === Question Callout ===
 This is a question callout (alias of ''important'').
 </callout>
 
-<callout type="tip" icon="true">
+<callout type="tip" icon="true" background="true">
 === Tip Callout ===
 This is a tip callout (alias of ''warning'').
 </callout>
 
-<code html5>
-<callout type="question" icon="true"> [...] </callout>
-<callout type="tip" icon="true"> [...] </callout>
+<code html>
+<callout type="question" icon="true" background="true"> [...] </callout>
+<callout type="tip" icon="true" background="true"> [...] </callout>
 </code>
 
 ===== Custom icons =====
@@ -121,22 +156,22 @@ Add custom icon via ''icon'' attribute.
 This is default callout with ''fa fa-user'' icon
 </callout>
 
-<code html5><callout icon="fa fa-user"> [...] </callout></code>
+<code html><callout icon="fa fa-user"> [...] </callout></code>
 
 <callout type="success" icon="fa fa-plus">
 This is success callout with ''fa fa-plus'' icon
 </callout>
 
-<code html5><callout type="success" icon="fa fa-plus"> [...] </callout></code>
+<code html><callout type="success" icon="fa fa-plus"> [...] </callout></code>
 
 ===== Custom colors =====
 
-<callout icon="fa fa-user" color="blue" title="Custom color + icon">
-This is callout with custom color (''blue'') and icon (''fa fa-user'')
+<callout icon="fa fa-user" color="blue" background="#d184e4" title="Custom color + icon">
+This is callout with custom color (''blue''), icon (''fa fa-user''), and background (''#d184e4'')
 </callout>
 
-<code html5>
-<callout icon="fa fa-user" color="blue" title="Custom color + icon"> [...] </callout>
+<code html>
+<callout icon="fa fa-user" color="blue" background="#d184e4" title="Custom color + icon"> [...] </callout>
 </code>
 
 ===== Options =====
@@ -146,5 +181,6 @@ This is callout with custom color (''blue'') and icon (''fa fa-user'')
 | ''type''  | ''default'' | ''default'' ''primary'' ''success'' ''info'' ''warning'' ''danger'' (''question'' ''tip'') | Type of callout  \\ \\ ''question'' and ''tip'' are available only for ''icon'' attribute. |
 | ''title'' |  |  | Title of callout |
 | ''icon'' |  | ''true'' or icon class from Glyphicon or FontAwesome (eg. ''fa fa-plus'') | Icon of callout |
+| ''background'' |  | ''true'' or W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'') | Background color of callout |
 | ''color'' | | W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'') | Color of callout |
 </datatable>

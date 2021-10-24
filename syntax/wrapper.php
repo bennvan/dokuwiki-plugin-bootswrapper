@@ -47,11 +47,11 @@ class syntax_plugin_bootswrapper_wrapper extends syntax_plugin_bootswrapper_boot
         global $wrapper_tag;
 
         if ($state == DOKU_LEXER_ENTER) {
-            $wrapper_tag        = ($is_block) ? 'div' : 'span';
-            $wrap_classes       = $attributes['class'];
-            $wrap_classes[]     = 'bs-wrapper';
-            $wrapper_attributes = $this->buildAttributes($attributes, array('class' => $wrap_classes));
-            $markup             = "<$wrapper_tag $wrapper_attributes>";
+            $wrapper_tag                    = ($is_block) ? 'div' : 'span';
+            $html_attributes                = $this->mergeCoreAttributes($attributes);
+            $html_attributes['class'][]     = 'bs-wrapper';
+            $styles                         = (($attributes['style']) ? 'style="'.$attributes['style'].'"' : '');
+            $markup             = '<'.$wrapper_tag.' '.$this->buildAttributes($html_attributes).' '.$styles.'>';
 
             $renderer->doc .= $markup;
 

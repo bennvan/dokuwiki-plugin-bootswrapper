@@ -4,7 +4,7 @@
 
 <panel type="default">Basic panel example</panel>
 \\
-<code html5><panel type="default">Basic panel example</panel></code>
+<code html><panel type="default">Basic panel example</panel></code>
 
 ===== Panel with heading =====
 
@@ -12,7 +12,7 @@
 Panel content
 </panel>
 \\
-<code html5><panel type="default" title="Panel title">
+<code html><panel type="default" title="Panel title">
 Panel content
 </panel></code>
 
@@ -22,7 +22,7 @@ Panel content
 Panel content
 </panel>
 \\
-<code html5><panel type="default" title="Panel title" subtitle="Panel subtitle">
+<code html><panel type="default" title="Panel title" subtitle="Panel subtitle">
 Panel content
 </panel></code>
 
@@ -36,7 +36,7 @@ Like other components, easily make a panel more meaningful to a particular conte
 <panel type="warning" title="Panel title">Panel content</panel>
 <panel type="danger" title="Panel title">Panel content</panel>
 \\
-<code html5>
+<code html>
 <panel type="primary" title="Panel title">Panel content</panel>
 <panel type="success" title="Panel title">Panel content</panel>
 <panel type="info" title="Panel title">Panel content</panel>
@@ -58,7 +58,7 @@ Add any non-bordered table within a panel for a seamless design. If there is a '
 
 \\
 
-<code html5><panel type="default" title="Panel title" no-body="true">
+<code html><panel type="default" title="Panel title" no-body="true">
 <panel-body>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</panel-body>
 ^ # ^ First Name ^ Last Name ^ Username ^
 ^ 1 | Mark       | Otto	     | @mdo     |
@@ -77,7 +77,7 @@ If there is no panel body, the component moves from panel header to table withou
 
 \\
 
-<code html5><panel type="default" title="Panel title" no-body="true">
+<code html><panel type="default" title="Panel title" no-body="true">
 ^ # ^ First Name ^ Last Name ^ Username ^
 ^ 1 | Mark       | Otto	     | @mdo     |
 ^ 2 | Jacob      | Thornton  | @fat     |
@@ -100,7 +100,7 @@ Easily include full-width [[list-group|list groups]] within any panel.
 
 \\
 
-<code html5><panel type="default" title="Panel title" no-body="true">
+<code html><panel type="default" title="Panel title" no-body="true">
 <panel-body>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</panel-body>
 <list-group>
   * Cras justo odio
@@ -117,7 +117,7 @@ Easily include full-width [[list-group|list groups]] within any panel.
 Panel content
 </panel>
 \\
-<code html5><panel type="default" title="Panel title" subtitle="Panel subtitle" icon="glyphicon glyphicon-home">
+<code html><panel type="default" title="Panel title" subtitle="Panel subtitle" icon="glyphicon glyphicon-home">
 Panel content
 </panel></code>
 

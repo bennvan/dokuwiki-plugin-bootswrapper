@@ -4,6 +4,11 @@ jQuery(document).ready(function() {
 jQuery('.help-btn').on('click', function(e) {
   jQuery('#help-modal .modal-body').load(jQuery(this).data('help'), function(){
     jQuery.getScript('../script.js');
+    // Fix to reload code blocks with highlighting.
+    // ToDo: Proper fix needed. 
+    if(typeof initHighlightJS === "function"){
+    initHighlightJS();
+}
   });
 });
 

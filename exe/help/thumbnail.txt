@@ -1,5 +1,7 @@
 ====== Thumbnails ======
 
+''<nowiki><bscaption></nowiki>'' can be used if ''<nowiki><caption></nowiki>'' does not give the desired results in the context of its usage. Both apply the same css classes.
+
 ==== Basic usage ====
 
 <code html><grid>

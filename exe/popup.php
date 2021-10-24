@@ -154,6 +154,8 @@ header('X-UA-Compatible: IE=edge,chrome=1');
                 <?php
                     switch ($data['type']) {
 
+                        case 'media':
+                        case 'link':
                         case 'string':
                             if (is_array($data['values'])) {
                                 echo '<select class="form-control">';

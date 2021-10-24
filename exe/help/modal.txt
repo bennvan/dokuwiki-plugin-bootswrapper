@@ -45,7 +45,7 @@ Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, ve
 
 \\
 
-<code html5>
+<code html>
 <btn type="primary" size="lg" modal="modal-demo">Launch demo modal</btn>
 
 <modal id="modal-demo" title="Modal title">
@@ -68,7 +68,7 @@ Modals have two optional sizes, available via ''size'' attribute.
 
 \\
 
-<code html5>
+<code html>
 <btn type="primary" modal="modal-large">Large modal</btn> <btn type="primary" modal="modal-small">Small modal</btn>
 
 <modal id="modal-large" size="lg" title="Large modal">...</modal>
@@ -88,7 +88,7 @@ For modals that simply appear rather than fade in to view, set to ''false'' the 
 
 \\
 
-<code html5>
+<code html>
 <btn type="primary" modal="modal-no-fade">No fade animation</btn>
 
 <modal id="modal-no-fade" fade="false" title="No fade animation">...</modal>
@@ -106,7 +106,7 @@ Use ''remote'' attribute to display DokuWiki pages inside a modal window.
 
 \\
 
-<code html5>
+<code html>
 <btn type="primary" modal="modal-remote">Welcome to DokuWiki!</btn>
 
 <modal id="modal-remote" remote=":wiki:welcome"></modal>

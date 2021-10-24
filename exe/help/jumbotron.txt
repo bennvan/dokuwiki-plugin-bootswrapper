@@ -9,12 +9,12 @@ This is a simple hero unit, a simple jumbotron-style
 component for calling extra attention to featured
 content or information.
 
-<btn type="primary">[[#|Learn more]]</btn>
+<btn type="primary">Learn more</btn>
 </jumbotron>
 
 \\
 
-<code html5><jumbotron>
+<code html><jumbotron>
 ====== Hello, world! ======
 
 This is a simple hero unit, a simple jumbotron-style 
@@ -26,20 +26,23 @@ content or information.
 
 ===== Background and text colors =====
 
-<code html><jumbotron background=":wiki:plugin:bootswrapper:35723-fielx.jpg" color="#fff">
+<jumbotron background="black" color="#fff">
+====== Lorem ipsum! ======
+
+Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.
+
+<btn type="primary">Link</btn>
+</jumbotron>
+
+<code html><jumbotron background="black" color="#fff">
 ====== Lorem ipsum! ======
 
 Lorem ipsum dolor sit amet, [...]
 </jumbotron></code>
 
-<jumbotron background=":wiki:plugin:bootswrapper:35723-fielx.jpg" color="#fff">
-====== Lorem ipsum! ======
-
-Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-<btn type="primary">Link</btn>
-</jumbotron>
 
 ^ Attribute ^ Description ^
-| ''background'' | Background URL or DokuWiki Media link (eg '':wiki:logo.png'') |
-| ''color''      | Color name or HEX (eg. ''#ffffff'') of text |
+| ''background'' | Background color. Can be a W3C color name/HEX (eg. ''lightblue'' or ''#4098f6'' or ''none''). |
+| ''background-image'' | Background image. Can be a URL or relative/absolute DokuWiki Media link (eg '':wiki:logo.png''). |
+| ''color''      | Color name or HEX (eg. ''#ffffff'') of text. |
+| ''class''      | Any additional classes to apply to element (eg. ''bg-info'' or ''border''). Default is ''bg-grey''. |

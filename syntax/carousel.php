@@ -10,7 +10,7 @@
 class syntax_plugin_bootswrapper_carousel extends syntax_plugin_bootswrapper_bootstrap
 {
 
-    public $p_type         = 'block';
+    public $p_type         = 'normal';
     public $pattern_start  = '<carousel.*?>(?=.*?</carousel>)';
     public $pattern_end    = '</carousel>';
     public $tag_name       = 'carousel';
@@ -39,6 +39,24 @@ class syntax_plugin_bootswrapper_carousel extends syntax_plugin_bootswrapper_boo
             'values'   => null,
             'required' => false,
             'default'  => true),
+        // Not data-
+        'width'  => array(
+            'type'     => 'string',
+            'values'   => null,
+            'required' => true,
+            'default'  => 'fit-content'),
+
+        'height'  => array(
+            'type'     => 'string',
+            'values'   => null,
+            'required' => true,
+            'default'  => 'fit-content'),
+
+        'transition'  => array(
+            'type'     => 'string',
+            'values'   => array('none','slide', 'blend'),
+            'required' => true,
+            'default'  => 'blend'),
 
     );
 
@@ -57,15 +75,42 @@ class syntax_plugin_bootswrapper_carousel extends syntax_plugin_bootswrapper_boo
         list($state, $match, $pos, $attributes) = $data;
 
         if ($state == DOKU_LEXER_ENTER) {
+            $width = $attributes['width'];
+            unset($attributes['width']); 
+            $height = $attributes['height'];
+            unset($attributes['height']);
+            $transition = $attributes['transition'];
+            unset($attributes['transition']); 
+
+            switch ($transition) {
+                case 'blend':
+                    $transition = "slide $transition";
+                    break;
+                case 'none':
+                    $transition = '';
+                    break;
+                default:
+                    break;
+            }
+
             $html5_attributes = array();
 
             foreach ($attributes as $attribute => $value) {
                 $html5_attributes[] = 'data-' . $attribute . '="' . $value . '"';
             }
 
-            $markup = '<div class="bs-wrap bs-wrap-carousel carousel slide" data-ride="carousel" ' . implode(' ', $html5_attributes) . '><ol class="carousel-indicators"></ol><div class="carousel-inner" role="listbox">';
+            $markup  = '<div class="bs-wrap bs-wrap-carousel carousel '.$transition.'" ';
+            $markup .= 'style="width:'.$width.';height:'.$height.';"';
+            $markup .= 'data-ride="carousel" '.implode(' ',$html5_attributes).'><ol class="carousel-indicators"></ol><div class="carousel-inner" role="listbox">';
 
             $renderer->doc .= $markup;
+
+            // Place the edit buttons 
+            if (defined('SEC_EDIT_PATTERN')) { // for DokuWiki Greebo and more recent versions
+                $renderer->startSectionEdit($pos, array('target' => 'plugin_bootswrapper_carousel', 'name' => $state));
+            } else {
+                $renderer->startSectionEdit($pos, 'plugin_bootswrapper_carousel', $state);
+            }
             return true;
         }
 
@@ -79,6 +124,8 @@ class syntax_plugin_bootswrapper_carousel extends syntax_plugin_bootswrapper_boo
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a></div>';
+
+            $renderer->finishSectionEdit($pos + strlen($match));
             return true;
         }
 

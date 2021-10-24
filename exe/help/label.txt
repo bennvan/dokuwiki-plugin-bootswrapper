@@ -16,7 +16,7 @@ See the samples.
 <label type="warning">warning</label>
 <label type="danger">danger</label>
 
-<code html5>
+<code html>
 <label type="default">default</label>
 <label type="primary">primary</label>
 <label type="success">success</label>

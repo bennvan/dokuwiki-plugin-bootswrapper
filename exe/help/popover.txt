@@ -8,7 +8,7 @@ Popovers whose both title and content are zero-length are never displayed.
 
 <popover title="Popover title" content="And here's some amazing content. It's very engaging. Right?"><btn type="danger" size="lg">Click to toggle popover</btn></popover>
 
-<code html5>
+<code html>
 <popover title="Popover title" content="And here's some amazing content. It's very engaging. Right?"><btn type="danger" size="lg">Click to toggle popover</btn></popover>
 </code>
 
@@ -29,7 +29,7 @@ Four options are available: ''top'', ''right'', ''bottom'', and ''left'' aligned
 <btn>Popover on left</btn>
 </popover>
 
-<code html5>
+<code html>
 <popover placement="right" content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
 <btn>Popover on right</btn>
 </popover>
@@ -53,7 +53,7 @@ Use the ''focus'' trigger to dismiss popovers on the next click that the user ma
 
 <popover trigger="focus" title="Dismissible popover" content="And here's some amazing content. It's very engaging. Right?"><btn type="danger" size="lg">Dismissible popover</btn></popover>
 
-<code html5>
+<code html>
 <popover trigger="focus" title="Dismissible popover" content="And here's some amazing content. It's very engaging. Right?"><btn type="danger" size="lg">Dismissible popover</btn></popover>
 </code>
 
@@ -61,7 +61,7 @@ Use the ''focus'' trigger to dismiss popovers on the next click that the user ma
 
 <popover html="true" title="**Dismissible** popover" content="And here's some amazing content. \\ **It's very engaging**. \\ Right?">Dismissible Popover</popover>
 
-<code html5>
+<code html>
 <popover html="true" title="**Dismissible** popover" content="And here's some amazing content. \\ **It's very engaging**. \\ Right?">Dismissible Popover</popover>
 </code>
 

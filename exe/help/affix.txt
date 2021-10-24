@@ -5,7 +5,7 @@ The affix plugin toggles ''position: fixed;'' on and off, emulating the effect f
 
 ==== Sample ====
 
-<code html5>
+<code html>
 <affix offset-top="50" position-top="100" position-right="20">
 <panel title="Affix">
 Scroll the page!

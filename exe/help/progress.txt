@@ -14,7 +14,7 @@ Default progress bar.
 
 \\
 
-<code html5>
+<code html>
 <progress>
 <bar value="60"></bar>
 </progress>
@@ -30,7 +30,7 @@ Default progress bar.
 
 \\
 
-<code html5><progress>
+<code html><progress>
 <bar value="60" showvalue="true"></bar>
 </progress></code>
 
@@ -58,7 +58,7 @@ Progress bars use some of the same button and alert classes for consistent style
 
 \\
 
-<code html5>
+<code html>
 <progress>
 <bar value="40" type="success"></bar>
 </progress>
@@ -100,7 +100,7 @@ Uses a gradient to create a striped effect. Not available in IE9 and below.
 
 \\
 
-<code html5>
+<code html>
 <progress>
 <bar value="40" type="success" striped="true"></bar>
 </progress>
@@ -130,7 +130,7 @@ Add ''animate="true"'' to a striped progress bar to animate the stripes right to
 
 \\
 
-<code html5><progress>
+<code html><progress>
 <bar value="45" type="info" striped="true" animate="true"></bar>
 </progress></code>
 
@@ -148,7 +148,7 @@ Place multiple bars into the same ''<nowiki><progress/></nowiki>'' tag to stack 
 
 \\
 
-<code html5><progress>
+<code html><progress>
 <bar value="35" type="success" striped="true"></bar>
 <bar value="20" type="warning" striped="true"></bar>
 <bar value="10" type="danger" striped="true"></bar>

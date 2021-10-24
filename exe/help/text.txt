@@ -28,7 +28,7 @@ Easily realign text to components with text alignment attribute.
 
 \\
 
-<code html5>
+<code html>
 <TEXT align="left">Left aligned text.</TEXT>
 <TEXT align="center">Center aligned text.</TEXT>
 <TEXT align="right">Right aligned text.</TEXT>
@@ -50,7 +50,7 @@ Transform text in components with text capitalization attribute.
 
 \\
 
-<code html5>
+<code html>
 <text transform="lowercase">Lowercased text.</text>
 <text transform="uppercase">Uppercased text.</text>
 <text transform="capitalize">Capitalized text.</text>
@@ -76,7 +76,7 @@ Convey meaning through color with a handful of emphasis utility attributes. Thes
 
 \\
 
-<code html5>
+<code html>
 <text type="muted"> [...] </text>
 <text type="primary"> [...] </text>
 <text type="success"> [...] </text>
@@ -103,7 +103,7 @@ Similar to the contextual text color attributes, easily set the background of an
 
 \\
 
-<code html5>
+<code html>
 <text background="primary"> [...] </text>
 <text background="success"> [...] </text>
 <text background="info"> [...] </text>

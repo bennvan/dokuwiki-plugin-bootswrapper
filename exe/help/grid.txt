@@ -1,7 +1,7 @@
 ====== Grids ======
 
 \\
-**Note:** Instead of ''<nowiki><grid></nowiki>'' you can use ''<nowiki><row></nowiki>'' alias.
+The use of grids is identical to ''<nowiki><row></nowiki>'', although grid uses flex to align its contents, wheras ''row'' does not.
 \\
 
 <code html><grid>

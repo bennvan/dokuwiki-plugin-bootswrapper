@@ -110,7 +110,7 @@ Instead of ''<nowiki><nav type="pills"></nowiki>'' you can use ''<nowiki><pills>
 
 ===== Tabs justified =====
 
-<code html5><nav type="tabs" justified="true">
+<code html><nav type="tabs" justified="true">
   * [[:start]]
   * [[:wiki:plugin:bootswrapper:nav|Nav Plugin]]
   * [[playground:playground]]
@@ -164,7 +164,7 @@ Instead of ''<nowiki><nav type="pills"></nowiki>'' you can use ''<nowiki><pills>
 
 \\
 
-<code html5>
+<code html>
 <tabs>
   * File
     * {{fa>file-o?fw}} [[#new|New]]

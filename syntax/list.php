@@ -13,7 +13,7 @@ class syntax_plugin_bootswrapper_list extends syntax_plugin_bootswrapper_bootstr
     public $p_type         = 'block';
     public $pattern_start  = '<list-group>';
     public $pattern_end    = '</list-group>';
-    public $template_start = '<div class="bs-wrap bs-wrap-list-group hide">';
+    public $template_start = '<div class="bs-wrap bs-wrap-list-group">';
     public $template_end   = '</div>';
     public $tag_name       = 'list-group';
 

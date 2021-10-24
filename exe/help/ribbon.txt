@@ -1,0 +1,84 @@
+====== Ribbon ======
+A ribbon that is added with reference to the top right of the parent element. 
+See end for full list of attributes.
+===== Basic usage =====
+<code html>
+<ribbon></ribbon>
+</code>
+
+==== Types and Background ====
+
+<jumbotron>
+<ribbon type="check" background="green"></ribbon>
+<ribbon right="40px" type="slant-down" background="orange"></ribbon>
+<ribbon right="75px" type="slant-up" background="purple"></ribbon>
+<ribbon right="110px" type="down" background="black"></ribbon>
+<ribbon right="145px" type="flat" background="red"></ribbon>
+<ribbon right="180px"></ribbon>
+Types: ''up'', ''flat'', ''down'', ''slant-up'', ''slant-down'', ''check''. \\ Default: ''up''.
+</jumbotron>
+
+<code html>
+<ribbon type="check" background="green" icon="fa fa-check"></ribbon>
+<ribbon right="40px" type="slant-down" background="orange"></ribbon>
+<ribbon right="70px" type="slant-up" background="purple"></ribbon>
+<ribbon right="100px" type="down" background="black"></ribbon>
+<ribbon right="130px" type="flat" background="red"></ribbon>
+<ribbon right="160px"></ribbon>
+</code>
+
+==== Icons and Colors ====
+You can add any FontAwesome or Material Design icons to a ribbon and set the color. Color also applies to any text. The extra included types ''tick'' and ''cogs'' are a convenient method of settings these automatically. Only one icon is allowed when setting this attribute.
+
+<jumbotron>
+<ribbon type="tick"></ribbon>
+<ribbon right="40px" type="cogs"></ribbon>
+<ribbon right="80px" icon="fa fa-certificate" color="yellow" background="black"></ribbon>
+<ribbon right="120px" icon="fa fa-bicycle" color="red">Bike</ribbon>
+</jumbotron>
+
+<code html>
+<ribbon type="tick"></ribbon>
+<ribbon right="40px" type="cogs"></ribbon>
+<ribbon right="80px" icon="fa fa-certificate" color="yellow" background="black"></ribbon>
+<ribbon right="120px" icon="fa fa-bicycle" color="red"></ribbon>
+</code>
+
+==== Offsets ====
+Adjust the ribbon offsets using the ''right'' and ''top'' attributes.
+ 
+==== An example utilising the icon plugin (if installed) ====
+
+<jumbotron>
+<ribbon color="yellow" background="black">
+{{fa>star?fw}}
+{{fa>star?fw}}
+{{fa>star?fw}}
+{{fa>star-half-o?fw}}
+{{fa>star-o?fw}} \\
+3<sup>1/2</sup> of 5 Stars
+</ribbon>
+</jumbotron>
+
+<code html>
+<ribbon color="yellow" background="black">
+{{fa>star?fw}}
+{{fa>star?fw}}
+{{fa>star?fw}}
+{{fa>star-half-o?fw}}
+{{fa>star-o?fw}} \\
+3<sup>1/2</sup> of 5 Stars
+</ribbon>
+</code>
+
+
+===== Options =====
+<datatable scroll-x="true" info="false" paging="false" searching="true" ordering="false">
+^ Attribute ^ Default Value ^ Allowed Values ^ Description ^
+| ''type''  | ''up'' | ''flat'' ''up'' ''down'' ''slant-up'' ''slant-down'' ''check'' (''tick'' ''cogs'') | Type of ribbon  \\ \\ ''tick'' and ''cogs'' are a convenience for adding an icon and background. |
+| ''icon'' |  | Icon class from Glyphicon or FontAwesome (eg. ''fa fa-plus'') | Icon of ribbon |
+| ''background'' |  | W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'') | Background color of ribbon |
+| ''color'' | | W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'') | Text and icon color of ribbon |
+|''top'' | ''-2px'' | HTML unit of length (''px'', ''rem'', ''cm'', etc) | Offset of ribbon from top of parent element. Positive values move the ribbon down. If unexpected offset behaviour occurs, check to ensure parent element has attribute ''position:relative'' set. |
+|''right'' | ''5px'' | HTML unit of length (''px'', ''rem'', ''cm'', etc) | Offset of ribbon from right of parent element. Positive values move the ribbon left. |
+</datatable>

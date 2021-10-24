@@ -13,7 +13,7 @@ class syntax_plugin_bootswrapper_grid extends syntax_plugin_bootswrapper_bootstr
     public $p_type         = 'block';
     public $pattern_start  = '<grid>';
     public $pattern_end    = '</grid>';
-    public $template_start = '<div class="bs-wrap bs-wrap-row row">';
+    public $template_start = '<div class="bs-wrap bs-wrap-grid grid" >';
     public $template_end   = '</div>';
     public $tag_name       = 'grid';
 

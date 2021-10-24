@@ -13,6 +13,9 @@ class syntax_plugin_bootswrapper_macros extends DokuWiki_Syntax_Plugin
     private $macros = array(
         '~~CLEARFIX~~',
         '~~PAGEBREAK~~',
+        '~~NOBREAD~~',
+        '~~NOPAGEICONS~~',
+        '~~NOPAGEINFO~~',
     );
 
     public function getType()
@@ -50,11 +53,25 @@ class syntax_plugin_bootswrapper_macros extends DokuWiki_Syntax_Plugin
             return false;
         }
 
+        list($match, $state, $pos) = $data;
+
+        if ($mode == 'metadata'){
+            switch ($match) {
+                case '~~NOBREAD~~':
+                    $renderer->info['nobread'] = true;
+                    break;
+                case '~~NOPAGEICONS~~':
+                    $renderer->info['nopageicons'] = true;
+                    break;
+                case '~~NOPAGEINFO~~':
+                    $renderer->info['nopageinfo'] = true;
+                    break;
+            }
+        }
+
         if ($mode !== 'xhtml') {
             return false;
         }
-
-        list($match, $state, $pos) = $data;
 
         switch ($match) {
             case '~~CLEARFIX~~':

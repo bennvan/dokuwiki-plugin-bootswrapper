@@ -15,6 +15,12 @@ class syntax_plugin_bootswrapper_jumbotron extends syntax_plugin_bootswrapper_bo
     public $tag_name       = 'jumbotron';
     public $tag_attributes = array(
 
+        'background-image' => array(
+            'type'     => 'media',
+            'values'   => null,
+            'required' => false,
+            'default'  => null),
+
         'background' => array(
             'type'     => 'string',
             'values'   => null,
@@ -40,26 +46,35 @@ class syntax_plugin_bootswrapper_jumbotron extends syntax_plugin_bootswrapper_bo
             return false;
         }
 
-        /** @var Doku_Renderer_xhtml $renderer */
         list($state, $match, $pos, $attributes, $is_block) = $data;
 
+        /** @var Doku_Renderer_xhtml $renderer */
         if ($state == DOKU_LEXER_ENTER) {
             $background = $attributes['background'];
+            $background_image = $attributes['background-image'];
             $color      = $attributes['color'];
+            $class = (isset($attributes['class']) ? $attributes['class'] : 'bg-grey');
 
-            $styles = array();
+            $html_attributes = $this->mergeCoreAttributes($attributes);
+            $html_attributes['class'][] = 'bs-wrap bs-wrap-jumbotron jumbotron '.$class ;
 
-            if ($background) {
-                $styles[] = 'background-image:url(' . ml($background) . ')';
+            if ($background_image) {
+                list($url, $exists) = $this->resolveMediaUrl($background_image, $renderer);
+                // Pass url even if doesnt exists, so user can see/fix issue.
+                $html_attributes['style']['background-image'] = 'url(' . $url . ')';
+                $html_attributes['style']['background-size'] = 'cover';
+            } elseif ($background) {
+                $html_attributes['style']['background'] = $background;
             }
 
             if ($color) {
-                $styles[] = 'color:' . hsc($color);
+                $html_attributes['style']['color'] = hsc($color);
             }
 
-            $markup = '<div class="bs-wrap bs-wrap-jumbotron jumbotron" style="' . implode(';', $styles) . '">';
+            $markup = '<div '. $this->buildAttributes($html_attributes) .'>';
 
             $renderer->doc .= $markup;
+
             return true;
         }
 

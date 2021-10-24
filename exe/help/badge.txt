@@ -1,6 +1,15 @@
 ====== Badges ======
 
-===== Examples =====
+===== Basic usage =====
+<badge>Badge</badge>
+
+<code html>
+<badge>[...]</badge>
+</code>
+
+Inbox <badge>42</badge>
+
+<btn type="primary">Messages <badge>4</badge></btn>
 
 <code html>
 Inbox <badge>42</badge>
@@ -8,8 +17,38 @@ Inbox <badge>42</badge>
 <btn type="primary">Messages <badge>4</badge></btn>
 </code>
 
-\\
 
-Inbox <badge>42</badge>
+===== Contextual colors =====
 
-<btn type="primary">Messages <badge>4</badge></btn>
+<badge type="default">Default</badge>
+<badge type="primary">Primary</badge>
+<badge type="success">Success</badge>
+<badge type="danger">Danger</badge>
+<badge type="warning">Warning</badge>
+<badge type="info">Info</badge>
+<badge type="light">Light</badge>
+<badge type="dark">Dark</badge>
+
+<code html>
+<badge type="default">Default</badge>
+<badge type="primary">Primary</badge>
+<badge type="success">Success</badge>
+<badge type="danger">Danger</badge>
+<badge type="warning">Warning</badge>
+<badge type="info">Info</badge>
+<badge type="light">Light</badge>
+<badge type="dark">Dark</badge>
+</code>
+
+===== Custom colors =====
+<badge color="white" background="purple">White and purple</badge>
+
+<code html>
+<badge color="white" background="purple">White and purple</badge>
+</code>
+
+===== Options =====
+^ Attribute ^ Allowed values ^ Description ^
+| ''type'' | ''default'', ''primary'', ''success'', ''warning'', ''danger'', ''info'', ''light'', ''dark''  | Type of badge (set background and colour automatically). Default: ''default''. |
+| ''background'' | W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'') | Background color. |
+| ''color''      | W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'') | Color of text. |

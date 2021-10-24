@@ -6,6 +6,7 @@
  * License  GPL 2 (http://www.gnu.org/licenses/gpl.html)
  */
 
+
 jQuery(document).ready(function () {
 
     jQuery('.bs-wrap .fix-media-list-overlap').removeClass('fix-media-list-overlap');
@@ -268,6 +269,7 @@ jQuery(document).ready(function () {
 
         var $carousel = jQuery(this),
             carousel_id = Math.random().toString(36).substr(2, 9),
+            $wrapped_images = $carousel.find('.lazyImage'),
             $images = $carousel.find('img'),
             $slides = $carousel.find('.bs-wrap-slide'),
             $caption = $carousel.find('.bs-wrap-caption'),
@@ -282,8 +284,13 @@ jQuery(document).ready(function () {
 
         $images.addClass('center-block');
 
-        if (!$slides.length) {
+        if (!$slides.length && !$wrapped_images.length) {
             $images.wrap('<div class="item"/>');
+        }
+
+        if ($wrapped_images.length) {
+            // Wrap the images again
+            $wrapped_images.wrap('<div class="item"/>');
         }
 
         if ($caption.length) {

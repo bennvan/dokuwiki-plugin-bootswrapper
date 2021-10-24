@@ -1,0 +1,331 @@
+======= Cards ======
+~~NOTOC~~
+Cards are very similar to bootstrap panels. This is a custom implementation as bootstrap3 has no card.
+
+
+Cards:
+  * Allow the addition of a thumbnail.
+  * Allow the entire card to act as a link (all dokuwiki links supported).
+  * Are best used in flex alignments when combined with grid and col.
+
+===== Basic usage =====
+<grid>
+<col md="2">
+<card title="Card title">
+Body content
+</card>
+</col>
+</grid>
+
+<code html>
+<card title="Card title">
+Body content
+</card>
+</code>
+
+===== Advanced usage =====
+<grid>
+<col md="2">
+<card 
+title="Title" 
+icon="fa fa-user" 
+subtitle="Subtitle" 
+footer="Footer" 
+type="usyd" 
+background="true" 
+link="#" 
+thumbnail=":wiki:logo.png?100"
+align="start"
+>
+=== Card Body Title ===
+Some content
+</card>
+</col>
+</grid>
+
+<code html>
+<card 
+icon="fa fa-user"
+title="Title" 
+subtitle="Subtitle" 
+footer="Footer" 
+type="usyd" 
+background="true" 
+link="#" 
+thumbnail=":wiki:logo.png?100"
+align="start"
+>
+=== Card Body Title ===
+Some content
+</card>
+</code>
+
+
+===== Cards by Type =====
+By setting the ''type'' attribute, you can implicitly control the text and background colour. To show the background specified in the type, set it to ''"true"''.
+
+<grid>
+
+<col md="2">
+<card type="primary" title="Primary" background="true">
+Primary Card
+</card>
+</col>
+
+<col md="2">
+<card type="success" title="Success" background="true">
+Success Card
+</card>
+</col>
+
+<col md="2">
+<card type="info" title="Info" background="true">
+Info Card
+</card>
+</col>
+
+<col md="2">
+<card type="warning" title="Warning" background="true">
+Warning Card
+</card>
+</col>
+
+<col md="2">
+<card type="danger" title="Danger" background="true">
+Danger Card
+</card>
+</col>
+
+<col md="2">
+<card type="usyd" title="USYD" background="true">
+USYD Colours Card
+</card>
+</col>
+
+</grid>
+
+===== Colours, Backround or Class =====
+You can specify the text and background colour manually or use any css class. Currently there is no implementation to modify the header colour of the card other than by specifying a type. 
+
+<grid>
+<col md="2">
+<card
+title="Custom colours"
+color="teal"
+background="lightblue"
+>
+A custom card with teal text and a lightblue background
+</card>
+</col>
+
+<col md="2">
+<card
+title="Custom class"
+class="bg-primary-light"
+>
+A custom card with class set to "bg-primary-light"
+</card>
+</col>
+
+</grid>
+
+<code html>
+<card
+title="Custom colours"
+color="teal"
+background="lightblue"
+>
+A custom card with teal text and a lightblue background
+</card>
+</code>
+
+<code html>
+<card
+title="Custom class"
+class="bg-primary-light"
+>
+A custom card with class set to "bg-primary-light"
+</card>
+</code>
+
+
+===== Complex grid arrangement =====
+Since cards use flex, complex yet neat nested grid arrangements are possible.
+
+<grid>
+
+<col md="4">
+<card type="primary" background="true" title="I'm a card">
+The body of the cards will adjust their height automatically. This card is using md="4"
+</card>
+</col>
+
+<col md="2">
+<card type="info" background="true" title="Card">
+Card using md="2"
+</card>
+</col>
+
+<col md="2">
+<card type="info" background="true" title="Card">
+Card using md="2"
+</card>
+</col>
+
+<col md="4">
+<grid>
+
+<col md="6">
+<card type="warning" background="true" title="Netsted grid">
+Nested grid card 1
+</card>
+</col>
+
+<col md="6">
+<card type="warning" background="true" title="Netsted grid">
+Nested grid card 2
+</card>
+</col>
+
+<col md="6">
+<card type="warning" background="true" title="Netsted grid">
+Nested grid card 3
+</card>
+</col>
+
+<col md="6">
+<card type="warning" background="true" title="Netsted grid">
+Nested grid card 4
+</card>
+</col>
+
+</grid>
+</col>
+
+</grid>
+
+<code html| A more complex nested grid example using cards>
+<grid>
+
+<col md="4">
+<card type="primary" background="true" title="I'm a card">
+The body of the cards will adjust their height automatically. This card is using md="4"
+</card>
+</col>
+
+<col md="2">
+<card type="info" background="true" title="Card">
+Card using md="2"
+</card>
+</col>
+
+<col md="2">
+<card type="info" background="true" title="Card">
+Card using md="2"
+</card>
+</col>
+
+<col md="4">
+<grid>
+
+<col md="6">
+<card type="warning" background="true" title="Netsted grid">
+Nested grid card 1
+</card>
+</col>
+
+<col md="6">
+<card type="warning" background="true" title="Netsted grid">
+Nested grid card 2
+</card>
+</col>
+
+<col md="6">
+<card type="warning" background="true" title="Netsted grid">
+Nested grid card 3
+</card>
+</col>
+
+<col md="6">
+<card type="warning" background="true" title="Netsted grid">
+Nested grid card 4
+</card>
+</col>
+
+</grid>
+</col>
+
+</grid>
+</code>
+===== Usage with no-body ======
+Sometimes you might only want the card to act as a container, for example when using a list-group. Setting ''nobody'' to ''true'' will remove any inside padding. You can manually specify a body using the ''card-body'' tags.
+
+<grid>
+<col md="3"></col>
+
+<col md="6">
+<card 
+title="Card with no-body content" 
+type="warning" 
+background="true"
+icon="fa fa-exclamation-triangle"
+no-body="true" 
+>
+<card-body>
+Some custom added body content to use with a list-group.
+  * One
+  * Two
+  * Three
+</card-body>
+<list-group>
+  * List group item one
+  * Item two
+  * Item three
+  * Four
+</list-group>
+</card>
+</col>
+
+<col md="3"></col>
+</grid>
+
+<code html>
+<card 
+title="Card with no-body content" 
+type="warning" 
+background="true"
+icon="fa fa-exclamation-triangle"
+no-body="true" 
+>
+<card-body>
+Some custom added body content to use with a list-group.
+  * One
+  * Two
+  * Three
+</card-body>
+<list-group>
+  * List group item one
+  * Item two
+  * Item three
+  * Four
+</list-group>
+</card>
+</code>
+
+===== Options =====
+
+<datatable info="false" paging="false" searching="true">
+
+^ Attribute       ^ Default Value  ^ Allowed Values                                                                                 ^ Description                                                                      ^
+| ''type''        | ''default''    | ''default'' ''primary'' ''success'' ''info'' ''warning'' ''danger'' (''usyd'')                 | Type of card to implicitly define text and background colour.                    |
+| ''title''       |                |                                                                                                | Title of card                                                                    |
+| ''subtitle''    |                |                                                                                                | Subtitle of card                                                                 |
+| ''footer''      |                |                                                                                                | Footer of the card                                                               |
+| ''icon''        |                | ''true'' or icon class from Glyphicon or FontAwesome (eg. ''fa fa-plus'')                      | Icon of callout                                                                  |
+| ''background''  |                | ''true'' or W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'')  | Background color of card                                                         |
+| ''color''       |                | W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'')              | Text colour of the card                                                          |
+| ''thumbnail''   |                | Internal media (relative/absolute) or external links to images are allowed.                    | Image to display above the card                                                  |
+| ''link''        |                | wikilink (relative/absolute), email link, external link, interwiki link, hash                  | Link to where the card leads to. On hover animation is applied when this is set  |
+| ''no-bod''      |                | ''true'' or not set                                                                            | Removes the inner padding from the card body                                     |
+| ''align''       | ''center''     | ''start'' ''center'' ''end'' (flex)                                                            | Alignment of title and footer text of the card                                   |
+</datatable>

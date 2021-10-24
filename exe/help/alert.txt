@@ -20,7 +20,7 @@ Provide contextual feedback messages for typical user actions with the handful o
 **Oh snap!** Change a few things up and try submitting again.
 </alert>
 
-<code html5>
+<code html>
 <alert type="success">...</alert>
 <alert type="info">...</alert>
 <alert type="warning">...</alert>
@@ -33,13 +33,13 @@ Build on any alert by adding an optional ''dismiss'' option.
 
 <alert type="warning" dismiss="true">**Warning!** Better check yourself, you're not looking too good.</alert>
 
-<code html5><alert type="warning" dismiss="true">**Warning!** Better check yourself, you're not looking too good.</alert></code>
+<code html><alert type="warning" dismiss="true">**Warning!** Better check yourself, you're not looking too good.</alert></code>
 
 ==== Alert with icon ====
 
 <alert type="warning" dismiss="true" icon="fa fa-warning">**Warning!** Better check yourself, you're not looking too good.</alert>
 
-<code html5><alert type="warning" dismiss="true" icon="fa fa-warning">**Warning!** Better check yourself, you're not looking too good.</alert></code>
+<code html><alert type="warning" dismiss="true" icon="fa fa-warning">**Warning!** Better check yourself, you're not looking too good.</alert></code>
 
 ===== Options =====
 

@@ -89,7 +89,10 @@ class syntax_plugin_bootswrapper_affix extends syntax_plugin_bootswrapper_bootst
             $position_left   = $attributes['position-left'];
 
             $html5_data = array();
-            $styles     = array();
+
+            $html_attributes            = $this->mergeCoreAttributes($attributes);
+            $html_attributes['class'][] = "bs-wrap bs-wrap-affix";
+            $html_attributes['style']['z-index'] = "1024";
 
             if ($position === 'fixed') {
                 $position = null;
@@ -132,26 +135,27 @@ class syntax_plugin_bootswrapper_affix extends syntax_plugin_bootswrapper_bootst
             }
 
             if ($position) {
-                $styles[] = "position:$position";
+                $html_attributes['style']['position'] = $position;
             }
 
             if ($position_top) {
-                $styles[] = "top:$position_top";
+                $html_attributes['style']['top'] = $position_top;
             }
 
             if ($position_bottom) {
-                $styles[] = "bottom:$position_bottom";
+                $html_attributes['style']['bottom'] = $position_bottom;
             }
 
             if ($position_left) {
-                $styles[] = "left:$position_left";
+                $html_attributes['style']['left'] = $position_left;
             }
 
             if ($position_right) {
-                $styles[] = "right:$position_right";
+                $html_attributes['style']['right'] = $position_right;
             }
 
-            $markup = '<div style="z-index:1024;' . implode(';', $styles) . '" class="bs-wrap bs-wrap-affix" data-spy="affix" ' . implode(' ', $html5_data) . '>';
+
+            $markup = '<div '.$this->buildAttributes($html_attributes).' data-spy="affix" ' . implode(' ', $html5_data) . '>';
 
             $renderer->doc .= $markup;
             return true;

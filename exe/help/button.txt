@@ -12,7 +12,7 @@
 
 \\
 
-<code html5>
+<code html>
 <btn type="default">Default</btn>
 <btn type="primary">Primary</btn>
 <btn type="success">Success</btn>
@@ -50,7 +50,7 @@ Fancy larger or smaller buttons? Add ''size="lg"'', ''size="sm"'', or ''size="xs
 
 \\
 
-<code html5>
+<code html>
 <btn type="primary" size="lg">Large button</btn>
 <btn type="default" size="lg">Large button</btn>
 
@@ -76,7 +76,7 @@ Create block level buttons—those that span the full width of a parent -- by ad
 
 \\
 
-<code html5>
+<code html>
 <btn type="primary" size="lg" block="true">Block level button</btn>
 <btn type="default" size="lg" block="true">Block level button</btn>
 </code>
@@ -90,7 +90,7 @@ Buttons will appear pressed (with a darker background, darker border, and inset 
 
 <btn type="primary">[[button]]</btn> <btn type="default">[[panel]]</btn>
 
-<code html5>
+<code html>
 <btn type="primary">[[button]]</btn> <btn type="default">[[panel]]</btn>
 </code>
 
@@ -102,7 +102,7 @@ Make buttons look unclickable by fading them back with ''opacity''.
 
 <btn type="primary" disabled="true">[[button]]</btn> <btn type="default" disabled="true">[[panel]]</btn>
 
-<code html5>
+<code html>
 <btn type="primary" disabled="true">[[button]]</btn> <btn type="default" disabled="true">[[panel]]</btn>
 </code>
 
