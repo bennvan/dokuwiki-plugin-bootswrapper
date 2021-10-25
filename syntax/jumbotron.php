@@ -53,10 +53,10 @@ class syntax_plugin_bootswrapper_jumbotron extends syntax_plugin_bootswrapper_bo
             $background = $attributes['background'];
             $background_image = $attributes['background-image'];
             $color      = $attributes['color'];
-            $class = (isset($attributes['class']) ? $attributes['class'] : 'bg-grey');
+            $class = (isset($attributes['class']) ? $attributes['class'] : '');
 
             $html_attributes = $this->mergeCoreAttributes($attributes);
-            $html_attributes['class'][] = 'bs-wrap bs-wrap-jumbotron jumbotron '.$class ;
+            $html_attributes['class'][] = 'bs-wrap bs-wrap-jumbotron jumbotron' ;
 
             if ($background_image) {
                 list($url, $exists) = $this->resolveMediaUrl($background_image, $renderer);
@@ -65,6 +65,8 @@ class syntax_plugin_bootswrapper_jumbotron extends syntax_plugin_bootswrapper_bo
                 $html_attributes['style']['background-size'] = 'cover';
             } elseif ($background) {
                 $html_attributes['style']['background'] = $background;
+            } else {
+                $html_attributes['class'][] = 'bg-usyd-grey text-light';
             }
 
             if ($color) {

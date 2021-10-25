@@ -45,4 +45,4 @@ Lorem ipsum dolor sit amet, [...]
 | ''background'' | Background color. Can be a W3C color name/HEX (eg. ''lightblue'' or ''#4098f6'' or ''none''). |
 | ''background-image'' | Background image. Can be a URL or relative/absolute DokuWiki Media link (eg '':wiki:logo.png''). |
 | ''color''      | Color name or HEX (eg. ''#ffffff'') of text. |
-| ''class''      | Any additional classes to apply to element (eg. ''bg-info'' or ''border''). Default is ''bg-grey''. |
+| ''class''      | Any additional classes to apply to element (eg. ''bg-info'' or ''border''). Default is ''bg-usyd-grey text-light''. |
