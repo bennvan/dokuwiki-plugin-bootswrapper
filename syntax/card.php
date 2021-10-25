@@ -208,7 +208,7 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
             }
 
             if ($footer) {
-                $markup .= '<div class="card-footer '.$align.'">' . $footer . '</div>';
+                $markup .= '<div class="card-footer '.$align.'"><h4 class="card-title" >' . $footer . '</h4></div>';
             }
 
             $markup .= '</div>';

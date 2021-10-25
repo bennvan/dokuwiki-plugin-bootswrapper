@@ -105,7 +105,7 @@ USYD Colours Card
 </grid>
 
 ===== Colours, Backround or Class =====
-You can specify the text and background colour manually or use any css class. Currently there is no implementation to modify the header colour of the card other than by specifying a type. 
+You can specify the text and background colour manually or use any css class. If you want to set the background colour of the header/footer, a custom type and class should be implemented.
 
 <grid>
 <col md="2">
