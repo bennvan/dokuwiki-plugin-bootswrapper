@@ -175,8 +175,11 @@
 /*Fixes for jumbotron heading*/
 .jumbotron > .page-header {
   border-bottom: none;
+}
+.dw-content-page .jumbotron > .page-header {
   padding-right: 63px;
 }
+
 
 /*Fixed for carousel*/
 .bs-wrap-carousel > .carousel-inner img:first-of-type,
