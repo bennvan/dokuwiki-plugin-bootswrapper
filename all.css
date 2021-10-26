@@ -176,9 +176,19 @@
 .jumbotron > .page-header {
   border-bottom: none;
 }
-.dw-content-page .jumbotron > .page-header {
+/*temporary class before anchor link is placed*/
+.dw-content-page .jumbotron > .page-header:after {
+  content: '';
   padding-right: 63px;
 }
+
+/*Fixes for icons. icons start in span and get changed to svg*/
+span.iconify {
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+}
+
 
 
 /*Fixed for carousel*/
