@@ -17,7 +17,7 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
 
         'type'  => array(
             'type'     => 'string',
-            'values'   => array('default', 'primary', 'success', 'info', 'warning', 'danger', 'usyd'),
+            'values'   => array('default', 'primary', 'success', 'info', 'warning', 'danger', 'dark', 'usyd', 'usyd-dark'),
             'required' => true,
             'default'  => 'default'),
 
@@ -117,9 +117,13 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
                 case 'primary':
                     $background_class = 'bg-primary-light';
                     break;
+                case 'dark':
+                    $background_class = '';
                 case 'usyd':
                     $background_class = 'bg-usyd-grey text-light';
                     break;
+                case 'usyd-dark':
+                    $background_class = '';
                 default:
                     $background_class = "bg-$type";
                 }

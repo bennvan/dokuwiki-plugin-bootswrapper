@@ -696,3 +696,59 @@ i.bs-callout-icon { font-size: 2em; }
 .text-light {
   color: #fff;
 }
+
+/*USYD DARK*/
+.card-usyd-dark,
+.panel-usyd-dark {
+  border-color: #e64626;
+}
+
+.card-usyd-dark > .card-heading,
+.panel-usyd-dark > .panel-heading {
+  color: #fff;
+  background-color: #363636;
+  border-color: #e64626;
+}
+
+.card-usyd-dark > .card-footer,
+.panel-usyd-dark > .panel-footer {
+  color: #fff;
+  background-color: #363636;
+  border-color: #e64626;
+}
+
+.card-usyd-dark > .card-thumbnail img.media {
+  border-color: #e64626;
+}
+
+.panel-usyd-dark > .panel-heading+.panel-collapse > .panel-body {
+  border-top-color: #e64626;
+}
+
+/*DARK*/
+.card-dark,
+.panel-dark {
+  border-color: #363636;
+}
+
+.card-dark > .card-heading,
+.panel-dark > .panel-heading {
+  color: #fff;
+  background-color: #363636;
+  border-color: #363636;
+}
+
+.card-dark > .card-footer,
+.panel-dark > .panel-footer {
+  color: #fff;
+  background-color: #363636;
+  border-color: #363636;
+}
+
+.card-dark > .card-thumbnail img.media {
+  border-color: #363636;;
+}
+
+.panel-dark > .panel-heading+.panel-collapse > .panel-body {
+  border-top-color: #363636;;
+}
