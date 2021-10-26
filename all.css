@@ -179,7 +179,9 @@
 /*temporary class before anchor link is placed*/
 .dw-content-page .jumbotron > .page-header:after {
   content: '';
-  padding-right: 63px;
+  display: inline-block;
+  color: transparent;
+  width: 63px;
 }
 
 /*Fixes for icons. icons start in span and get changed to svg*/
