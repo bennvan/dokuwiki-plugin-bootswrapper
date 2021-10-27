@@ -33,6 +33,12 @@ class syntax_plugin_bootswrapper_jumbotron extends syntax_plugin_bootswrapper_bo
             'required' => false,
             'default'  => null),
 
+        'align'  => array(
+            'type'     => 'string',
+            'values'   => array('left', 'center', 'right'),
+            'required' => true,
+            'default'  => 'left'),
+
     );
 
     public function render($mode, Doku_Renderer $renderer, $data)
@@ -54,6 +60,7 @@ class syntax_plugin_bootswrapper_jumbotron extends syntax_plugin_bootswrapper_bo
             $background_image = $attributes['background-image'];
             $color      = $attributes['color'];
             $class = (isset($attributes['class']) ? $attributes['class'] : '');
+            $align = $attributes['align'];
 
             $html_attributes = $this->mergeCoreAttributes($attributes);
             $html_attributes['class'][] = 'bs-wrap bs-wrap-jumbotron jumbotron' ;
@@ -72,6 +79,8 @@ class syntax_plugin_bootswrapper_jumbotron extends syntax_plugin_bootswrapper_bo
             if ($color) {
                 $html_attributes['style']['color'] = hsc($color);
             }
+
+            $html_attributes['style']['text-align'] = $align;
 
             $markup = '<div '. $this->buildAttributes($html_attributes) .'>';
 
