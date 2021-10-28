@@ -99,10 +99,17 @@
   list-style: none;
 }
 
-.bs-wrap-nav[data-nav-type="pills"] > ul:not(.nav-pills) > li {
+.bs-wrap-nav[data-nav-type="pills"]:not([data-nav-justified="1"]) > ul:not(.nav-pills) > li {
   margin-bottom: -2px;
   list-style: none;
+  float: left;
+  margin-top: -27px;
 }
+.bs-wrap-nav[data-nav-type="pills"]:not([data-nav-justified="1"]) > ul:not(.nav-pills) > li.node {
+  margin-top: 0;
+  display: inline-block;
+}
+
 
 .bs-wrap-nav[data-nav-justified="1"] > ul > li.node:not(.dropdown),
 .bs-wrap-nav[data-nav-type="tabs"] > ul > li.node:not(.dropdown) {
