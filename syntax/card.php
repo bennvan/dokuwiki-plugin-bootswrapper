@@ -162,8 +162,15 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
             # link attribute
             if ($link) {
                 $html_attributes['class'][] = "card-link";
-            } 
-            
+            }  
+
+            // Prepare the section edit
+            if (defined('SEC_EDIT_PATTERN')) { // for DokuWiki Greebo and more recent versions
+                $secidclass = $renderer->startSectionEdit($pos, array('target' => 'plugin_bootswrapper_card', 'name' => $state));
+            } else {
+                $secidclass = $renderer->startSectionEdit($pos, 'plugin_bootswrapper_card', $state);
+            }
+            $html_attributes['class'][] = $secidclass;           
 
             // Start generating HTML
             $markup = '<div ' . $this->buildAttributes($html_attributes) . '>';
@@ -205,13 +212,6 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
                 $markup .= '<div class="card-body">';
             }
 
-            // Place the edit buttons 
-            if (defined('SEC_EDIT_PATTERN')) { // for DokuWiki Greebo and more recent versions
-                $renderer->startSectionEdit($pos, array('target' => 'plugin_bootswrapper_card', 'name' => $state));
-            } else {
-                $renderer->startSectionEdit($pos, 'plugin_bootswrapper_card', $state);
-            }
-
             $renderer->doc .= $markup;
             return true;
         }
@@ -228,9 +228,7 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
             }
 
             $markup .= '</div>';
-
             $renderer->doc .= $markup;
-
             $renderer->finishSectionEdit($pos + strlen($match));
 
             return true;

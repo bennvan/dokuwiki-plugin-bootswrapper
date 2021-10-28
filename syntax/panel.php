@@ -129,6 +129,14 @@ class syntax_plugin_bootswrapper_panel extends syntax_plugin_bootswrapper_bootst
                 $html_attributes['style']['color'] = hsc($color);
             }
 
+            // Prepare the section edit
+            if (defined('SEC_EDIT_PATTERN')) { // for DokuWiki Greebo and more recent versions
+                $secidclass = $renderer->startSectionEdit($pos, array('target' => 'plugin_bootswrapper_panel', 'name' => $state));
+            } else {
+                $secidclass = $renderer->startSectionEdit($pos, 'plugin_bootswrapper_panel', $state);
+            }
+            $html_attributes['class'][] = $secidclass; 
+
             // Start generating HTML
             $markup = '<div ' . $this->buildAttributes($html_attributes) . '>';
 
@@ -145,12 +153,6 @@ class syntax_plugin_bootswrapper_panel extends syntax_plugin_bootswrapper_bootst
 
             if (!$nobody) {
                 $markup .= '<div class="panel-body">';
-            }
-
-            if (defined('SEC_EDIT_PATTERN')) { // for DokuWiki Greebo and more recent versions
-                $renderer->startSectionEdit($pos, array('target' => 'plugin_bootswrapper_panel', 'name' => $state));
-            } else {
-                $renderer->startSectionEdit($pos, 'plugin_bootswrapper_panel', $state);
             }
 
             $renderer->doc .= $markup;

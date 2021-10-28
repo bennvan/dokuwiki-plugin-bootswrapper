@@ -99,18 +99,20 @@ class syntax_plugin_bootswrapper_carousel extends syntax_plugin_bootswrapper_boo
                 $html5_attributes[] = 'data-' . $attribute . '="' . $value . '"';
             }
 
-            $markup  = '<div class="bs-wrap bs-wrap-carousel carousel '.$transition.'" ';
+            // Place the edit buttons
+            $secidclass = ''; 
+            if (defined('SEC_EDIT_PATTERN')) { // for DokuWiki Greebo and more recent versions
+                $secidclass = $renderer->startSectionEdit($pos, array('target' => 'plugin_bootswrapper_carousel', 'name' => $state));
+            } else {
+                $secidclass = $renderer->startSectionEdit($pos, 'plugin_bootswrapper_carousel', $state);
+            }
+
+            $markup  = '<div class="bs-wrap bs-wrap-carousel carousel '.$transition.' '.$secidclass.'" ';
             $markup .= 'style="width:'.$width.';height:'.$height.';"';
             $markup .= 'data-ride="carousel" '.implode(' ',$html5_attributes).'><ol class="carousel-indicators"></ol><div class="carousel-inner" role="listbox">';
 
             $renderer->doc .= $markup;
 
-            // Place the edit buttons 
-            if (defined('SEC_EDIT_PATTERN')) { // for DokuWiki Greebo and more recent versions
-                $renderer->startSectionEdit($pos, array('target' => 'plugin_bootswrapper_carousel', 'name' => $state));
-            } else {
-                $renderer->startSectionEdit($pos, 'plugin_bootswrapper_carousel', $state);
-            }
             return true;
         }
 
