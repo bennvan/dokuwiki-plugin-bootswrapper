@@ -77,7 +77,7 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
 
         'align'  => array(
             'type'     => 'string',
-            'values'   => array('start', 'center', 'end'),
+            'values'   => array('left', 'center', 'right'),
             'required' => true,
             'default'  => 'center'),
 
@@ -110,6 +110,18 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
             $thumbnail  = $attributes['thumbnail'];
             $link       = $attributes['link'];
             $align      = $attributes['align'];
+            
+            // set align attribute
+            switch ($align) {
+                case 'left':
+                    $align = 'start';
+                    break;
+                case 'right':
+                    $align = 'end';
+                    break;
+                default:
+                    break;
+            }
 
             # Automatic settings of params by type
             $background_class = '';
