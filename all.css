@@ -100,10 +100,12 @@
 }
 
 .bs-wrap-nav[data-nav-type="pills"]:not([data-nav-justified="1"]) > ul:not(.nav-pills) > li {
-  margin-bottom: -2px;
-  list-style: none;
   float: left;
   margin-top: -27px;
+}
+.bs-wrap-nav[data-nav-type="pills"] > ul:not(.nav-pills) > li {
+  margin-bottom: -2px;
+  list-style: none;
 }
 .bs-wrap-nav[data-nav-type="pills"]:not([data-nav-justified="1"]) > ul:not(.nav-pills) > li.node {
   margin-top: 0;
