@@ -43,14 +43,14 @@ class syntax_plugin_bootswrapper_carousel extends syntax_plugin_bootswrapper_boo
         'width'  => array(
             'type'     => 'string',
             'values'   => null,
-            'required' => true,
-            'default'  => 'fit-content'),
+            'required' => false,
+            'default'  => ''),
 
         'height'  => array(
             'type'     => 'string',
             'values'   => null,
-            'required' => true,
-            'default'  => 'fit-content'),
+            'required' => false,
+            'default'  => ''),
 
         'transition'  => array(
             'type'     => 'string',
@@ -107,8 +107,11 @@ class syntax_plugin_bootswrapper_carousel extends syntax_plugin_bootswrapper_boo
                 $secidclass = $renderer->startSectionEdit($pos, 'plugin_bootswrapper_carousel', $state);
             }
 
+            if ($width) $width = "width: $width; ";
+            if ($height) $height = "height: $height;";
+
             $markup  = '<div class="bs-wrap bs-wrap-carousel carousel '.$transition.' '.$secidclass.'" ';
-            $markup .= 'style="width:'.$width.';height:'.$height.';"';
+            if ($width || $height) $markup .= 'style="'.$width.$height.'"';
             $markup .= 'data-ride="carousel" '.implode(' ',$html5_attributes).'><ol class="carousel-indicators"></ol><div class="carousel-inner" role="listbox">';
 
             $renderer->doc .= $markup;

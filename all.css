@@ -220,6 +220,10 @@ span.iconify {
 .bs-wrap-carousel {
   margin: auto;
   margin-bottom: 20px;
+  width: fit-content;
+  width: -moz-fit-content;
+  height: fit-content;
+  height: -moz-fit-content;
 }
 
 /*Blending carousel in slide*/
