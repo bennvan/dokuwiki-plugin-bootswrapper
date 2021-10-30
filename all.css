@@ -458,6 +458,7 @@ i.bs-callout-icon { font-size: 2em; }
   margin-left: -15px;
   margin-right: -15px;
   clear: both;
+  flex: 0;
 }
 
 /*Grid Panel flexbot addition*/
@@ -514,6 +515,7 @@ i.bs-callout-icon { font-size: 2em; }
   border-bottom: 1px solid #d4d4d4;
   display: flex;
   flex-direction: column;
+  width: 100%;
   border-radius: .4rem .4rem 0 0;
 }
 
@@ -541,6 +543,7 @@ i.bs-callout-icon { font-size: 2em; }
   padding: 0.8rem 1.25rem;
   background-color: #eaeaea;
   border-top: 1px solid #d4d4d4;
+  width: 100%;
   display: flex;
   flex-direction: column;
   border-radius: 0 0 .4rem .4rem;
