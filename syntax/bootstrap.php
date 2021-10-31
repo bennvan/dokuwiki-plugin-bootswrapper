@@ -236,7 +236,7 @@ class syntax_plugin_bootswrapper_bootstrap extends DokuWiki_Syntax_Plugin
             case DOKU_LEXER_ENTER:
                 $attributes = array();
                 // & is not allowed in attribute but may sometimes be used. We will encode for only this case and use php urldecode() when needed.
-                $match = str_replace('&', '%26', $match);
+                $match = str_replace('&', '&amp;', $match);
                 $xml        = simplexml_load_string(str_replace('>', '/>', $match));
 
                 if (!is_object($xml)) {
@@ -252,7 +252,7 @@ class syntax_plugin_bootswrapper_bootstrap extends DokuWiki_Syntax_Plugin
                 $tag = $xml->getName();
 
                 foreach ($xml->attributes() as $key => $value) {
-                    $attributes[$key] = (string) str_replace('%26', '&', $value);
+                    $attributes[$key] = (string) $value;
                 }
 
                 if ($tag == strtolower($tag)) {
