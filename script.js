@@ -166,6 +166,8 @@ jQuery(document).ready(function () {
                     var icon = ['<i class="', value, '"/> '].join('');
                     $btn_link.prepend(icon);
                     break;
+                case 'btnHref':
+                    $btn_link.attr('href', value);
             }
 
         }

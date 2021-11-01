@@ -58,6 +58,11 @@ class syntax_plugin_bootswrapper_button extends syntax_plugin_bootswrapper_boots
             'required' => false,
             'default'  => null),
 
+        'href' => array(
+            'type'     => 'string',
+            'values'   => null,
+            'required' => false,
+            'default'  => null),
     );
 
     public function render($mode, Doku_Renderer $renderer, $data)
@@ -77,6 +82,7 @@ class syntax_plugin_bootswrapper_button extends syntax_plugin_bootswrapper_boots
         if ($state == DOKU_LEXER_ENTER) {
             $html_attributes            = $this->mergeCoreAttributes($attributes);
             $html_attributes['class'][] = 'bs-wrap bs-wrap-button';
+            if ($attributes['href']) $attributes['href'] = $attributes['href'];
 
             foreach (array_keys($this->tag_attributes) as $attribute) {
                 if (isset($attributes[$attribute])) {
