@@ -16,6 +16,7 @@ class syntax_plugin_bootswrapper_macros extends DokuWiki_Syntax_Plugin
         '~~NOBREAD~~',
         '~~NOPAGEICONS~~',
         '~~NOPAGEINFO~~',
+        '~~NOPAGETOOLS~~',
     );
 
     public function getType()
@@ -65,6 +66,9 @@ class syntax_plugin_bootswrapper_macros extends DokuWiki_Syntax_Plugin
                     break;
                 case '~~NOPAGEINFO~~':
                     $renderer->info['nopageinfo'] = true;
+                    break;
+                case '~~NOPAGETOOLS~~':
+                    $renderer->info['nopagetools'] = true;
                     break;
             }
         }
