@@ -31,11 +31,12 @@ jQuery(document).ready(function () {
     });
 
 
-    // Nav
+    // Nav. Mostle handles in bootstrap3 Template.php using simpledom.
+    // Left here as a backup
     jQuery('.bs-wrap-nav').each(function () {
 
         var $nav_wrap = jQuery(this),
-            nav_data = $nav_wrap.data(),
+        nav_data = $nav_wrap.data(),
             nav_class = ['nav'];
 
         for (var key in nav_data) {
@@ -57,7 +58,6 @@ jQuery(document).ready(function () {
         }
 
         $nav_wrap.find('ul:first').addClass(nav_class.join(' '));
-
         var $nav = $nav_wrap.find('.nav');
 
         $nav.find('div.li > *').unwrap();
@@ -67,13 +67,13 @@ jQuery(document).ready(function () {
 
         // Drop-down menu
         $nav.find('li ul')
-            .addClass('dropdown-menu')
-            .parent('li')
-            .addClass('dropdown');
+        .addClass('dropdown-menu')
+        .parent('li')
+        .addClass('dropdown');
 
         $nav.find('.dropdown div.li').replaceWith(function () {
-            return jQuery('<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" />')
-                .html(jQuery(this).contents())
+        return jQuery('<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" />')
+            .html(jQuery(this).contents())
         });
 
         // Sidebar (Bootstrap3 template)
@@ -95,7 +95,6 @@ jQuery(document).ready(function () {
             if (nav_data.navFade) {
                 $nav_wrap.find('.tab-content .tab-pane').addClass('fade');
             }
-
             $nav.find('a:first').tab('show');
 
         }
@@ -110,11 +109,6 @@ jQuery(document).ready(function () {
                 $icon.after(' ');
             });
         }
-
-        jQuery(window).on('hashchange', function () {
-            jQuery('.bs-wrap-nav .nav a[href="' + location.hash + '"]').tab('show');
-        });
-
     });
 
 
