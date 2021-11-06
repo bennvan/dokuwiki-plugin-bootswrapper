@@ -335,7 +335,7 @@ i.bs-callout-icon { font-size: 2em; }
 
 .bs-wrap-nav ul.nav-collapse > li > ul{
   list-style: none;
-  border-left: 2px solid #dbdbdb;
+  border-left: 1px solid #dddddd;
   margin-left: 2px;
 }
 
