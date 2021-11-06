@@ -72,7 +72,6 @@
 }
 
 .bs-wrap-nav > ul.nav-justified > li {
-  display: inline-table;
   width: auto;
   word-wrap: break-word;
   flex: 1 1 auto;
@@ -83,12 +82,14 @@
   text-decoration: none;
   padding: 10px 15px;
   position: relative;
-  display: block;
+  display: flex;
   margin-bottom: -1px;
   line-height: 1.42857143;
   margin-right: 0;
   border: 1px solid transparent;;
   border-bottom: 1px solid #ddd;
+  flex: 1 1 auto;
+  justify-content: center;
 }
 
 @media (max-width: 576px) {
