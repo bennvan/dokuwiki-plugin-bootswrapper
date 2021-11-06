@@ -41,6 +41,12 @@ class syntax_plugin_bootswrapper_nav extends syntax_plugin_bootswrapper_bootstra
             'required' => false,
             'default'  => false),
 
+        'collapse' => array(
+            'type'     => 'boolean',
+            'values'   => array(0, 1),
+            'required' => false,
+            'default'  => false),
+
     );
 
     public function render($mode, Doku_Renderer $renderer, $data)

@@ -48,11 +48,11 @@
 
 
 /*Fix to reduce layout shifts on nav lists*/
-.bs-wrap-nav .level1.node > ul {
+.bs-wrap-nav ul:not(.nav-collapse) .level1.node > ul {
   display: none;
 }
 
-.bs-wrap-nav .level1.node.open > ul.dropdown-menu {
+.bs-wrap-nav ul:not(.nav-collapse) .level1.node.open > ul.dropdown-menu {
   display: block;
 }
 
@@ -319,8 +319,39 @@ i.bs-callout-icon { font-size: 2em; }
 .badge-dark { color:#fff; background-color: #343a40; }
 
 
-/*Ribbons*/
+/*Nav dropdowns*/
+.bs-wrap-nav ul.nav-collapse a.dropdown-toggle span.caret {
+  transform: rotate(-180deg);
+  transition: 0.2s ease-in-out;
+}
+.bs-wrap-nav ul.nav-collapse a.dropdown-toggle.collapsed span.caret {
+  transform: rotate(0deg);
+  transition: 0.2s ease-in-out;
+}
+.bs-wrap-nav ul.nav-collapse li:not(.active) a.dropdown-toggle:not(.collapsed) {
+  color: #165ba8;
+  background-color: #eee;
+}
 
+.bs-wrap-nav ul.nav-collapse > li > ul{
+  list-style: none;
+  border-left: 2px solid #dbdbdb;
+  margin-left: 2px;
+}
+
+.bs-wrap-nav ul.nav-collapse > li > ul a {
+  margin: 2px 0px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  display: block;
+}
+.bs-wrap-nav ul.nav-collapse > li > ul > li:not(.active) > a:hover {
+  text-decoration: none;
+  background-color: #eee;
+}
+
+
+/*Ribbons*/
 .ribbon {
   position: absolute;
   right: 5px;
