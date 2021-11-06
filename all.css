@@ -75,6 +75,7 @@
   display: inline-table;
   width: auto;
   word-wrap: break-word;
+  flex: 1 1 auto;
 }
 
 .bs-wrap-nav > ul > li > .curid > a {
