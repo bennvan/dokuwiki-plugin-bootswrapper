@@ -92,6 +92,13 @@
   justify-content: center;
 }
 
+/*temporary class before anchor link is placed*/
+.bs-wrap-nav a.dropdown-toggle:not(.bs-wrap-caret):after {
+  content: '';
+  display: inline-block;
+  width: 10px;
+}
+
 @media (max-width: 576px) {
   .bs-wrap-nav > ul.nav-justified > li {
     width: 100%;

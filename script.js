@@ -100,7 +100,7 @@ jQuery(document).ready(function () {
             return this.nodeType === 3 && this.data.trim().length > 0
         }).wrap('<a class="dropdown-toggle collapsed" data-toggle="collapse" role="button" aria-haspopup="true" aria-expanded="false" />');
 
-        $nav.find('.dropdown-toggle').append(' <span class="caret"/>');
+        $nav.find('.dropdown-toggle').append(' <span class="caret"/>').addClass('bs-wrap-caret');
 
         // Set targets for collapse nav
         $nav.find('.nav-collapse .node').each(function() {
