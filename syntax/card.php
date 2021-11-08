@@ -51,6 +51,12 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
             'required' => false,
             'default'  => false),
 
+        'no-border' => array(
+            'type'     => 'boolean',
+            'values'   => array(0, 1),
+            'required' => false,
+            'default'  => false),
+
         'thumbnail' => array(
             'type'     => 'media',
             'values'   => null,
@@ -110,6 +116,7 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
             $thumbnail  = $attributes['thumbnail'];
             $link       = $attributes['link'];
             $align      = $attributes['align'];
+            $no_border  = $attributes['no-border'];
             
             // set align attribute
             switch ($align) {
@@ -146,6 +153,8 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
             $align = "align-items-$align justify-content-$align";
 
             // Set the attributes
+            #border
+            if ($no_border) $html_attributes['class'][] = 'no-border';
             # background 
             # Bg attribute 
             if (strtolower($background) == 'true') {
