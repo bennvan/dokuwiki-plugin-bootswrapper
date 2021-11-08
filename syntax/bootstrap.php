@@ -332,10 +332,12 @@ class syntax_plugin_bootswrapper_bootstrap extends DokuWiki_Syntax_Plugin
 
             if ($attribute == 'style') {
                 $tmp = '';
-                foreach ($value as $property => $val) {
-                    $tmp .= "$property:$val;";
-                }
-                $value = $tmp;
+                if (is_array($value)){
+                    foreach ($value as $property => $val) {
+                        $tmp .= "$property:$val;";
+                    }
+                    $value = $tmp;
+                }  
             }
 
             if ($value) {
