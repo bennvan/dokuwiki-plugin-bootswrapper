@@ -326,6 +326,7 @@ Some custom added body content to use with a list-group.
 | ''color''       |                | W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'')              | Text colour of the card                                                          |
 | ''thumbnail''   |                | Internal media (relative/absolute) or external links to images are allowed.                    | Image to display above the card                                                  |
 | ''link''        |                | wikilink (relative/absolute), email link, external link, interwiki link, hash                  | Link to where the card leads to. On hover animation is applied when this is set  |
-| ''no-bod''      |                | ''true'' or not set                                                                            | Removes the inner padding from the card body                                     |
+| ''no-body''     |                | ''true'' or not set                                                                            | Removes the inner padding from the card body                                     |
+| ''no-border''   |                | ''true'' or not set                                                                            | Removes the border around the card                                               |
 | ''align''       | ''center''     | ''start'' ''center'' ''end'' (flex)                                                            | Alignment of title and footer text of the card                                   |
 </datatable>

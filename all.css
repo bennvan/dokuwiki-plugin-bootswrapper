@@ -474,7 +474,10 @@ i.bs-callout-icon { font-size: 2em; }
   display: flex;
   flex-direction: column;
   clear: both;
-  overflow: hidden;
+}
+
+.card.no-border {
+  border: none;
 }
 
 .card-thumbnail ~ .card-heading {
