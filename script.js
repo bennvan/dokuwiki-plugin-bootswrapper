@@ -89,6 +89,26 @@ jQuery(document).ready(function () {
             .html(jQuery(this).contents())
         });
 
+        // Detect dropdown offscreen collision
+        $nav.find('li.dropdown').on('click', function (e) {
+            var $dd = jQuery(this),
+            $elm = $dd.find('.dropdown-menu');
+            if ($elm.length) {
+                var off = $dd.offset(),
+                l = off.left,
+                w = $elm.width(),
+                docW = jQuery(window).width();
+
+                var isEntirelyVisible = (l + w <= docW);
+
+                if (!isEntirelyVisible) {
+                    $elm.addClass('dropdown-menu-right');
+                } else {
+                    $elm.removeClass('dropdown-menu-right');
+                }
+            }
+        });
+
         // Sidebar (Bootstrap3 template)
         // Normal dropdown
         $nav.find(':not(.nav-collapse) li.dropdown').contents().filter(function () {
