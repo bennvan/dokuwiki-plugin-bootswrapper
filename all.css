@@ -476,7 +476,8 @@ i.bs-callout-icon { font-size: 2em; }
   clear: both;
 }
 
-.card.no-border {
+.card.no-border,
+.panel.no-border {
   border: none;
 }
 

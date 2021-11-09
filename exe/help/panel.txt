@@ -129,4 +129,5 @@ Panel content
 | ''title''    | optional | | Title of panel |
 | ''subtitle'' | optional | | Subtitle of panel |
 | ''icon''     | optional | | Font icon class (eg. Glyphicon or Font-Awesome) |
-| ''no-body''  | optional | | Don't add a panel body. Useful to add other particular tags (or tables) inside a panels |
+| ''no-body''  | optional | ''true'' or not set | Don't add a panel body. Useful to add other particular tags (or tables) inside a panels |
+| ''no-border''| optional | ''true'' or not set | Removes the border around the panel                                  |

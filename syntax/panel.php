@@ -51,6 +51,12 @@ class syntax_plugin_bootswrapper_panel extends syntax_plugin_bootswrapper_bootst
             'required' => false,
             'default'  => false),
 
+        'no-border' => array(
+            'type'     => 'boolean',
+            'values'   => array(0, 1),
+            'required' => false,
+            'default'  => false),
+
         'color' => array(
             'type'     => 'string',
             'values'   => null,
@@ -97,6 +103,7 @@ class syntax_plugin_bootswrapper_panel extends syntax_plugin_bootswrapper_bootst
             $color      = (isset($attributes['color']) ? $attributes['color'] : false);
             $background = (isset($attributes['background']) ? $attributes['background'] : '');
             $align      = $attributes['align'];
+            $no_border  = $attributes['no-border'];
             
             $align = "text-$align";
 
@@ -116,6 +123,9 @@ class syntax_plugin_bootswrapper_panel extends syntax_plugin_bootswrapper_bootst
             // Set the attributes
             $html_attributes            = $this->mergeCoreAttributes($attributes);
             $html_attributes['class'][] = "bs-wrap bs-wrap-panel panel panel-$type";
+
+            #border
+            if ($no_border) $html_attributes['class'][] = 'no-border';
 
             # Bg attribute 
             if (strtolower($background) == 'true') {
