@@ -13,7 +13,7 @@
  *
  * Add external CSS file to DokuWiki
  */
-class action_plugin_bootswrapper extends DokuWiki_Action_Plugin
+class action_plugin_bootswrapper extends \dokuwiki\Extension\ActionPlugin
 {
 
     /**

@@ -6,16 +6,9 @@
  * @author     Giuseppe Di Terlizzi <giuseppe.diterlizzi@gmail.com>
  * @copyright  (C) 2015-2019, Giuseppe Di Terlizzi
  */
-// must be run within Dokuwiki
-if (!defined('DOKU_INC')) {
-    die();
-}
 
-if (!defined('DOKU_PLUGIN')) {
-    define('DOKU_PLUGIN', DOKU_INC . 'lib/plugins/');
-}
 
-class syntax_plugin_bootswrapper_bootstrap extends DokuWiki_Syntax_Plugin
+class syntax_plugin_bootswrapper_bootstrap extends dokuwiki\Extension\SyntaxPlugin
 {
 
     public $p_type           = 'stack';
