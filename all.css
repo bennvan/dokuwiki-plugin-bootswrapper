@@ -336,7 +336,7 @@ i.bs-callout-icon { font-size: 2em; }
   transform: rotate(0deg);
   transition: 0.2s ease-in-out;
 }
-.bs-wrap-nav ul.nav-collapse li:not(.active) a.dropdown-toggle:not(.collapsed) {
+.bs-wrap-nav > ul.nav-collapse li:not(.active) > a.dropdown-toggle:not(.collapsed) {
   color: #165ba8;
   background-color: #eee;
 }
@@ -345,6 +345,15 @@ i.bs-callout-icon { font-size: 2em; }
   list-style: none;
   border-left: 1px solid #dddddd;
   margin-left: 2px;
+}
+
+.bs-wrap-nav .dropdown>.collapse>.active>a, 
+.bs-wrap-nav .dropdown>.collapse>.active>a:focus, 
+.bs-wrap-nav .dropdown>.collapse>.active>a:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: #2780e3;
+  outline: 0;
 }
 
 .bs-wrap-nav ul.nav-collapse > li > ul a {
