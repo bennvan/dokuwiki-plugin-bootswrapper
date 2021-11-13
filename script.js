@@ -155,7 +155,8 @@ jQuery(document).ready(function () {
             }).wrap('<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" />');
         }
 
-        $nav.find('.dropdown-toggle').append(' <span class="caret"/>').addClass('bs-wrap-caret');
+        $nav.find('.dropdown-toggle[data-toggle="dropdown"]').append('&nbsp;<span class="caret"/>').addClass('bs-wrap-caret');
+        $nav.find('.dropdown-toggle[data-toggle="collapse"]').append('<span class="plus-minus-toggle"/>').addClass('bs-wrap-caret');
 
         // Set targets for collapse nav
         $nav.find('.nav-collapse li.dropdown').each(function() {
@@ -192,7 +193,7 @@ jQuery(document).ready(function () {
                 var $link = jQuery(this),
                     $icon = $link.prev();
                 $icon.prependTo($link);
-                $icon.after(' ');
+                $icon.after('&nbsp;');
             });
         }
     });
@@ -334,7 +335,7 @@ jQuery(document).ready(function () {
 
             $panel.find('.panel-heading').wrapInner('<a role="button" data-toggle="collapse" data-parent="#' + accordion_id + '" href="#' + panel_id + '">');
             $panel.find('.panel-body').wrap('<div id="' + panel_id + '" class="panel-collapse collapse" role="tabpanel">');
-
+            $panel.find('[data-toggle=collapse]');
         });
 
         $accordion.attr('id', accordion_id);
@@ -343,7 +344,10 @@ jQuery(document).ready(function () {
             $accordion.find('.panel-collapse').first().addClass('in');
         }
 
+        $accordion.find('[data-toggle=collapse]').append('<span class="plus-minus-toggle"/>').addClass('bs-wrap-caret collapsed').first().removeClass('collapsed');
     });
+
+
 
 
     // Carousel

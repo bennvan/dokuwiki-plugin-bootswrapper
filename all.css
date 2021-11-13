@@ -335,13 +335,58 @@ span.bs-wrap-button a.btn {
 .bs-wrap-nav li {
   list-style: none;
 }
-.bs-wrap-nav ul.nav-collapse a.dropdown-toggle span.caret {
+/*.bs-wrap-nav ul.nav-collapse a.dropdown-toggle span.caret {
   transform: rotate(-180deg);
   transition: 0.2s ease-in-out;
 }
 .bs-wrap-nav ul.nav-collapse a.dropdown-toggle.collapsed span.caret {
   transform: rotate(0deg);
   transition: 0.2s ease-in-out;
+}*/
+.bs-wrap-nav .dropdown-toggle[data-toggle="collapse"],
+.bs-wrap-accordion [data-toggle="collapse"] {
+  display: flex;
+  justify-content: space-between;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+.bs-wrap-nav .dropdown-toggle[data-toggle="collapse"] {
+  border: 1px solid #ddd;
+  transition: 0.2s ease;
+}
+.plus-minus-toggle {
+  cursor: pointer;
+  height: 4px;
+  position: relative;
+  width: 10px;
+  align-self: center;
+  justify-content: end;
+  margin-top: 4px;
+  margin-left: 8px;
+}
+.plus-minus-toggle:before,
+.plus-minus-toggle:after {
+  background: #363636;
+  mix-blend-mode: luminosity;
+  content: '';
+  height: 2px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 8px;
+  transition: transform 500ms ease;
+  transform-origin: center;
+
+}
+.bs-wrap-nav .active > .collapsed .plus-minus-toggle:after,
+.bs-wrap-nav .active > .collapsed .plus-minus-toggle:before{
+  background: #fff;
+}
+.collapsed .plus-minus-toggle:before{
+  transform: rotate(180deg);
+}
+.collapsed .plus-minus-toggle:after {
+  transform: rotate(90deg);
 }
 .bs-wrap-nav ul.nav-collapse li > a.dropdown-toggle:not(.collapsed),
 .bs-wrap-nav ul.nav-collapse li > a.dropdown-toggle:not(.collapsed):hover {
