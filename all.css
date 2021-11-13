@@ -326,8 +326,15 @@ i.bs-callout-icon { font-size: 2em; }
 .badge-light { color:#212529; background-color: #f8f9fa; }
 .badge-dark { color:#fff; background-color: #343a40; }
 
+/*Buttons*/
+span.bs-wrap-button a.btn {
+  margin-bottom: 0.3rem;
+  }
 
 /*Nav dropdowns*/
+.bs-wrap-nav li {
+  list-style: none;
+}
 .bs-wrap-nav ul.nav-collapse a.dropdown-toggle span.caret {
   transform: rotate(-180deg);
   transition: 0.2s ease-in-out;
@@ -336,18 +343,20 @@ i.bs-callout-icon { font-size: 2em; }
   transform: rotate(0deg);
   transition: 0.2s ease-in-out;
 }
-.bs-wrap-nav > ul.nav-collapse li:not(.active) > a.dropdown-toggle:not(.collapsed) {
+.bs-wrap-nav ul.nav-collapse li > a.dropdown-toggle:not(.collapsed),
+.bs-wrap-nav ul.nav-collapse li > a.dropdown-toggle:not(.collapsed):hover {
   color: #165ba8;
   background-color: #eee;
 }
 
-.bs-wrap-nav ul.nav-collapse > li > ul{
+.bs-wrap-nav ul.nav-collapse li > ul{
   list-style: none;
   border-left: 1px solid #dddddd;
   margin-left: 2px;
 }
 
-.bs-wrap-nav .dropdown>.collapse>.active>a, 
+.bs-wrap-nav .dropdown>.collapse>.active>a,
+.bs-wrap-nav .dropdown>.collapsing>.active>a,  
 .bs-wrap-nav .dropdown>.collapse>.active>a:focus, 
 .bs-wrap-nav .dropdown>.collapse>.active>a:hover {
   color: #fff;
@@ -356,13 +365,13 @@ i.bs-callout-icon { font-size: 2em; }
   outline: 0;
 }
 
-.bs-wrap-nav ul.nav-collapse > li > ul a {
+.bs-wrap-nav ul.nav-collapse li > ul a {
   margin: 2px 0px;
   padding: 5px 10px;
   border-radius: 4px;
   display: block;
 }
-.bs-wrap-nav ul.nav-collapse > li > ul > li:not(.active) > a:hover {
+.bs-wrap-nav ul.nav-collapse li > ul > li > a:hover {
   text-decoration: none;
   background-color: #eee;
 }

@@ -37,7 +37,11 @@ jQuery(document).ready(function () {
 
         var $nav_wrap = jQuery(this),
         nav_data = $nav_wrap.data(),
-            nav_class = ['nav'];
+            nav_class = ['nav'],
+            nav_collapse = false,
+            append_nodelink = false,
+            nodelink_text = false;
+
 
         for (var key in nav_data) {
 
@@ -54,7 +58,16 @@ jQuery(document).ready(function () {
                     if (value) nav_class.push('nav-justified');
                     break;
                 case 'navCollapse':
-                    if (value) nav_class.push('nav-collapse');
+                    if (value) {
+                        nav_class.push('nav-collapse');
+                        nav_collapse = true;
+                    }
+                    break;
+                case 'navAppendNodelink':
+                    append_nodelink = true;
+                    if (value !== true) {
+                        nodelink_text = value;
+                    }
                     break;
 
             }
@@ -66,28 +79,48 @@ jQuery(document).ready(function () {
 
         $nav.find('div.li > *').unwrap();
         $nav.find('li').attr('role', 'presentation');
-        $nav.find('.curid').parent('li').addClass('active').parent('ul').parent('li.node').addClass('active');
+        $nav.find('.curid').parent('li').addClass('active');
         $nav.find('.curid').contents().unwrap(); // Unwrap for Hogfater release
 
-        // Drop-down menu normal
-        $nav.find(':not(.nav-collapse) li ul')
-        .addClass('dropdown-menu')
-        .parent('li')
-        .addClass('dropdown');
         // Drop-down menu collapse
         $nav.find('.nav-collapse li ul').addClass('collapse').parent('li').addClass('dropdown');
 
-        // Normal dropdown
-        $nav.find(':not(.nav-collapse) .dropdown div.li').replaceWith(function () {
-        return jQuery('<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" />')
-            .html(jQuery(this).contents())
-        });
+        // Drop-down menu normal
+        $nav.find('li ul:not(.collapse)')
+        .addClass('dropdown-menu')
+        .parent('li')
+        .addClass('dropdown');
+        
+        $nodelinks = $nav.find('.dropdown > a:not(.dropdown-toggle)');
+        if (append_nodelink) {
+            // Unwrap if node is a link
+            $nodelinks.each(function () {
+                $nodelink = jQuery(this);
+                $ul = $nodelink.siblings('ul');
 
-        // Collapse dropdown
-        $nav.find('.nav-collapse .dropdown div.li').replaceWith(function () {
-        return jQuery('<a class="dropdown-toggle collapsed" data-toggle="collapse" role="button" aria-haspopup="true" aria-expanded="false" />')
-            .html(jQuery(this).contents())
-        });
+                $itm = $nodelink.clone();
+                if (nodelink_text) {
+                    $itm.html(nodelink_text);
+                }
+                $ul.prepend($itm.wrap( "<li role='presentation'></li>" ).parent());
+            });
+        } 
+        $nodelinks.contents().unwrap();
+        
+
+        if (nav_collapse) {
+            // Collapse dropdown
+            $nav.find('.dropdown>div').replaceWith(function () {
+            return jQuery('<a class="dropdown-toggle collapsed" data-toggle="collapse" role="button" aria-haspopup="true" aria-expanded="false" />')
+                .html(jQuery(this).contents())
+            });
+        } else {
+            // Normal dropdown
+            $nav.find('.dropdown>div').replaceWith(function () {
+            return jQuery('<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" />')
+                .html(jQuery(this).contents())
+            });
+        }
 
         // Detect dropdown offscreen collision
         $nav.find('li.dropdown').on('click', function (e) {
@@ -110,27 +143,31 @@ jQuery(document).ready(function () {
         });
 
         // Sidebar (Bootstrap3 template)
-        // Normal dropdown
-        $nav.find(':not(.nav-collapse) li.dropdown').contents().filter(function () {
-            return this.nodeType === 3 && this.data.trim().length > 0
-        }).wrap('<a class="dropdown-toggle collapsed" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" />');
-
-        // Collapse dropdown
-        $nav.find('.nav-collapse li.dropdown').contents().filter(function () {
-            return this.nodeType === 3 && this.data.trim().length > 0
-        }).wrap('<a class="dropdown-toggle collapsed" data-toggle="collapse" role="button" aria-haspopup="true" aria-expanded="false" />');
+        if (nav_collapse) {
+            // Collapse dropdown
+            $nav.find('li.dropdown').contents().filter(function () {
+                return this.nodeType === 3 && this.data.trim().length > 0
+            }).wrap('<a class="dropdown-toggle collapsed" data-toggle="collapse" role="button" aria-haspopup="true" aria-expanded="false" />');
+        } else {
+            // Normal dropdown
+            $nav.find('li.dropdown').contents().filter(function () {
+                return this.nodeType === 3 && this.data.trim().length > 0
+            }).wrap('<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" />');
+        }
 
         $nav.find('.dropdown-toggle').append(' <span class="caret"/>').addClass('bs-wrap-caret');
 
         // Set targets for collapse nav
-        $nav.find('.nav-collapse .node').each(function() {
+        $nav.find('.nav-collapse li.dropdown').each(function() {
             $dropdown = jQuery(this);
             collapse_id = Math.random().toString(36).substr(2, 9);
             $dropdown.find('a.dropdown-toggle').attr('data-target','#'+collapse_id);
             $dropdown.find('ul.collapse').attr('id', collapse_id);
         });
+
+        $nav.find('li.active').parents('li.dropdown').addClass('active');// Set parent classes as active
         // Open nav if active
-        $nav.find('.nav-collapse .active .collapse').collapse('show');
+        $nav.find('.nav-collapse .active>.collapse').collapse('show');
 
         // Tab panels
         if ($nav_wrap.find('.tab-pane').length) {

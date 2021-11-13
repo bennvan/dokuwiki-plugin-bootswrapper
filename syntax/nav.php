@@ -47,6 +47,12 @@ class syntax_plugin_bootswrapper_nav extends syntax_plugin_bootswrapper_bootstra
             'required' => false,
             'default'  => false),
 
+        'append-nodelink' => array(
+            'type'     => 'string',
+            'values'   => null,
+            'required' => false,
+            'default'  => '0'),
+
     );
 
     public function render($mode, Doku_Renderer $renderer, $data)

@@ -241,7 +241,9 @@ I suggest to add ''<nowiki>~~NOTOC~~</nowiki>'' because the TOC is displayed bet
 ===== Attributes =====
 
 ^ Attribute     ^ Default Value ^ Allowed Values ^ Description ^
-| ''type''      | ''pills'' | ''tabs'', ''pills'' | Type of nav |
-| ''stacked''   | optional  | ''true'' | Stacked nav items |
-| ''justified'' | optional  | ''true'' | Justify nav items |
-| ''fade''      | optional  | ''true'' | Enable fade effect on tabs |
+| ''type''                 | ''pills'' | ''tabs'', ''pills'' | Type of nav |
+| ''stacked''              | optional  | ''true'' | Stacked nav items |
+| ''justified''            | optional  | ''true'' | Justify nav items |
+| ''fade''                 | optional  | ''true'' | Enable fade effect on tabs |
+| ''collapse''             | optional  | ''true'' | Enable to use a bootstrap collapse menu instead of a dropdown (for nested lists) |
+| ''append-nodelink''      | optional  | ''true'' or name to assign links (eg. ''Start'') | If a list node/dropdown item is a link, append it to the start of the inner list. |
