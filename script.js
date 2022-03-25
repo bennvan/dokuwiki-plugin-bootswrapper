@@ -177,7 +177,7 @@ jQuery(document).ready(function () {
                 $nav_wrap.find('.tab-pane').wrapAll(jQuery('<div class="tab-content"/>'));
             }
 
-            $nav.find('a').attr('data-toggle', 'tab').attr('role', 'tab');
+            $nav_wrap.find('ul.nav-tabs a').attr('data-toggle', 'tab').attr('role', 'tab');
 
             if (nav_data.navFade) {
                 $nav_wrap.find('.tab-content .tab-pane').addClass('fade');
