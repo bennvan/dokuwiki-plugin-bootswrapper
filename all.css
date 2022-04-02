@@ -556,6 +556,9 @@ span.bs-wrap-button a.btn {
   flex-direction: column;
   width: 100%;
   border-radius: .4rem .4rem 0 0;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .card-title {
@@ -587,6 +590,9 @@ span.bs-wrap-button a.btn {
   flex-direction: column;
   border-radius: 0 0 .4rem .4rem;
   height: 100%;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .card.card-link {
