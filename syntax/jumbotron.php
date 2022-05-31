@@ -70,9 +70,14 @@ class syntax_plugin_bootswrapper_jumbotron extends syntax_plugin_bootswrapper_bo
                 // Pass url even if doesnt exists, so user can see/fix issue.
                 $html_attributes['style']['background-image'] = 'url(' . $url . ')';
                 $html_attributes['style']['background-size'] = 'cover';
-            } elseif ($background) {
-                $html_attributes['style']['background'] = $background;
-            } else {
+                $html_attributes['style']['background-blend-mode'] = 'overlay';
+            }
+            
+            if ($background) {
+                $html_attributes['style']['background-color'] = $background;
+            }
+
+            if (!$background_image && !$background) {
                 $html_attributes['class'][] = 'bg-usyd-grey text-light';
             }
 
@@ -82,8 +87,7 @@ class syntax_plugin_bootswrapper_jumbotron extends syntax_plugin_bootswrapper_bo
 
             $html_attributes['style']['text-align'] = $align;
 
-            $markup = '<div '. $this->buildAttributes($html_attributes) .'>';
-
+            $markup  = '<div '. $this->buildAttributes($html_attributes) .'>';
             $renderer->doc .= $markup;
 
             return true;
