@@ -14,6 +14,7 @@ class syntax_plugin_bootswrapper_bootstrap extends dokuwiki\Extension\SyntaxPlug
     public $p_type           = 'stack';
     public $pattern_start    = '<BOOTSTRAP.+?>';
     public $pattern_end      = '</BOOTSTRAP>';
+    public $pattern_special  = null;
     public $template_start   = '<div class="%s">';
     public $template_content = '%s';
     public $template_end     = '</div>';
@@ -199,6 +200,7 @@ class syntax_plugin_bootswrapper_bootstrap extends dokuwiki\Extension\SyntaxPlug
     public function connectTo($mode)
     {
         $this->Lexer->addEntryPattern($this->pattern_start, $mode, 'plugin_bootswrapper_' . $this->getPluginComponent());
+        if ($this->pattern_special) $this->Lexer->addSpecialPattern($this->pattern_special, $mode, 'plugin_bootswrapper_' . $this->getPluginComponent());
     }
 
     public function postConnect()
