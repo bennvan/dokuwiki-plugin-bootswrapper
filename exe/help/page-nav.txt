@@ -2,9 +2,10 @@
 
 Page-nav conveniently adds previous, next, and start buttons anywhere on a wiki page.
 
+<callout type="info" icon="true" background="true" title="Note">Page navigation is cached with pages. If pages are added or changed, links can take up to 24 hours to update unless a cache expiry is forced.</callout>
 
 ===== How it works =====
-First a list of wiki pages is generated from the current namespace in alphabetical order, then an optional ''regex'' is applied to limit the scope pages.
+First a list of wiki pages is generated from the current namespace in alphabetical order, then an optional ''regex'' is applied to limit the scope of pages.
 
 
 ===== Basic usage =====
