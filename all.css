@@ -825,3 +825,28 @@ span.bs-wrap-button a.btn {
 .panel-dark > .panel-heading+.panel-collapse > .panel-body {
   border-top-color: #363636;;
 }
+
+/*Pagenav*/
+.bs-wrap-pagenav {
+  text-align: center;
+  margin-top: 90px;
+}
+
+.bs-wrap-pagenav>a,
+.bs-wrap-pagenav>button {
+  margin: 5px;
+}
+
+
+.bs-wrap-pagenav .prev {
+   margin-right: 50px;
+}
+.bs-wrap-pagenav .next {
+   margin-left: 50px;
+}
+
+@media (max-width: 576px) {
+  .bs-wrap-pagenav-desc {
+    display: none;
+  }
+}

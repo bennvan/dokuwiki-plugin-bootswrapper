@@ -142,6 +142,7 @@ class action_plugin_bootswrapper extends \dokuwiki\Extension\ActionPlugin
     public function handle_move_register(Doku_Event $event, $params) {
         $event->data['handlers']['bootswrapper_card'] = array($this, 'rewrite_card');
         $event->data['handlers']['bootswrapper_jumbotron'] = array($this, 'rewrite_jumbotron');
+        $event->data['handlers']['bootswrapper_pagenav'] = array($this, 'rewrite_pagenav');
     }
 
     public function rewrite_card($match, $state, $pos, $pluginname, helper_plugin_move_handler $handler) {
@@ -181,6 +182,27 @@ class action_plugin_bootswrapper extends \dokuwiki\Extension\ActionPlugin
 
         // functions to really change the match data
         $match = $this->_handle_move_replace_attr($pluginname, $match, $attributes, 'background-image', 'media', $handler);
+        
+        return $match;
+    }
+
+    public function rewrite_pagenav($match, $state, $pos, $pluginname, helper_plugin_move_handler $handler) {
+        // Dont care unless lexer enter
+        if (!$state == DOKU_LEXER_ENTER) {
+            return $match;
+        }
+        // let plugin handle data parse to get attributes
+        $data = $this->_get_plugin_handle_data($pluginname, $match, $state, $pos);
+
+        // failsafe
+        if (empty($data)) {
+            return $match;
+        }
+        list($state, $match, $pos, $attributes) = $data;
+
+        // functions to really change the match data
+        $match = $this->_handle_move_replace_attr($pluginname, $match, $attributes, 'prev', 'page', $handler);
+        $match = $this->_handle_move_replace_attr($pluginname, $match, $attributes, 'next', 'page', $handler);
         
         return $match;
     }

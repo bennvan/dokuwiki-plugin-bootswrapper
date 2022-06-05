@@ -1,0 +1,25 @@
+====== Page Navigation ======
+
+Page-nav conveniently adds previous, next, and start buttons anywhere on a wiki page.
+
+
+===== How it works =====
+First a list of wiki pages is generated from the current namespace in alphabetical order, then an optional ''regex'' is applied to limit the scope pages.
+
+
+===== Basic usage =====
+<code html>
+<page-nav></page-nav>
+</code>
+
+
+<page-nav></page-nav>
+
+
+===== Attributes =====
+
+^ Attribute     ^ Default Value ^ Allowed Values ^ Description ^
+| ''start''                | ''true''  | ''true'', ''false'' | Control display of start link |
+| ''prev''                 | blank (auto)   | Wikilink e.g. '':mynamespace:mypage'' | Wikilink for previous button (can be relative). |
+| ''next''                 | blank (auto)   | Wikilink e.g. '':mynamespace:mypage''| Wikilink for next button (can be relative). |
+| ''regex''                | blank  | regular expression e.g. ''^a.*'' | Set the scope of the navigation list with a regular expression. |
