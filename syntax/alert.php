@@ -57,6 +57,35 @@ class syntax_plugin_bootswrapper_alert extends syntax_plugin_bootswrapper_bootst
             $html_attributes['class'][] = "alert-$type";
             $html_attributes['role']    = 'alert';
 
+            # Automatic settings of params by type
+            switch ($type) {
+                case 'success':
+                    $icon_class = 'check-circle';
+                    break;
+
+                case 'info':
+                    $icon_class = 'info-circle';
+                    break;
+
+                case 'warning':
+                    $icon_class = 'exclamation-triangle';
+                    break;
+
+                case 'danger':
+                    $icon_class = 'minus-circle';
+                    break;
+
+                default:
+                    $icon_class = '';
+                }
+
+            # Icon attribute empty so defualt is to show type icon
+            if (strtolower($icon) == 'true') {
+                $icon_class = "fa fa-$icon_class";
+            } else {
+                $icon_class = $icon;
+            }
+
             if ($dismiss) {
                 $html_attributes['class'][] = 'alert-dismissible';
             }
@@ -67,8 +96,8 @@ class syntax_plugin_bootswrapper_alert extends syntax_plugin_bootswrapper_bootst
                 $markup .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
             }
 
-            if ($icon) {
-                $markup .= '<i class="' . $icon . '"></i> ';
+            if ($icon && $icon_class) {
+                $markup .= '<i class="' . $icon_class . '"></i> ';
             }
 
             $renderer->doc .= $markup;
