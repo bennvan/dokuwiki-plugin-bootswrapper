@@ -19,7 +19,7 @@ class syntax_plugin_bootswrapper_ribbon extends syntax_plugin_bootswrapper_boots
 
         'type'  => array(
             'type'     => 'string',
-            'values'   => array('flat', 'up', 'down', 'slant-up', 'slant-down', 'check', 'tick', 'cogs'),
+            'values'   => array('flat', 'up', 'down', 'slant-up', 'slant-down', 'check', 'primary', 'success', 'info', 'warning', 'danger', 'tip', 'question', 'cogs'),
             'required' => true,
             'default'  => 'up'),
 
@@ -90,10 +90,40 @@ class syntax_plugin_bootswrapper_ribbon extends syntax_plugin_bootswrapper_boots
 
             # Automatic settings of params by type
             switch ($type) {
-                case 'tick':
+                case 'primary':                
+                    $type = 'up';
+                    $icon_class = 'exclamation-circle';
+                    $background = '#428bca';
+                    break;
+                case 'success':
                     $type = 'check';
                     $icon_class = 'check';
                     $background = 'green'; //'#41ad49';
+                    break;
+                case 'info':
+                    $type = 'up';
+                    $icon_class = 'info-circle';
+                    $background = '#5bc0de';
+                    break;
+                case 'warning':
+                    $type = 'up';
+                    $icon_class = 'exclamation-triangle';
+                    $background = '#f0ad4e';
+                    break;
+                case 'danger':
+                    $type = 'up';
+                    $icon_class = 'minus-circle';
+                    $background = '#d9534f';
+                    break;
+                case 'question':
+                    $type       = 'up';
+                    $icon_class = 'question-circle';
+                    $background = '#428bca';
+                    break;
+                case 'tip':
+                    $type       = 'up';
+                    $icon_class = 'lightbulb-o';
+                    $background = '#f0ad4e';
                     break;
                 case 'cogs':
                     $type = 'up';
@@ -106,11 +136,11 @@ class syntax_plugin_bootswrapper_ribbon extends syntax_plugin_bootswrapper_boots
                 }
 
             # If icon is auto set or present
-            if ($icon) {
-                $icon_class = $icon;
+            if (strtolower($icon) == 'true') {
+                $icon_class = "fa:$icon_class";
             }
-            elseif ($icon_class) {
-                $icon_class = "fa fa-$icon_class";
+            else {
+                $icon_class = $icon;
             }
 
             # Bg attribute 
@@ -136,7 +166,7 @@ class syntax_plugin_bootswrapper_ribbon extends syntax_plugin_bootswrapper_boots
             $markup = '<div ' . $this->buildAttributes($html_attributes) . '><div '. $this->buildAttributes($content_attributes) . '>';
 
             if ($icon_class) {
-                $markup .= '<span><i class="' . $icon_class . '"' . $text_color . '></i></span></br>';
+                $markup .= '<span><i class="iconify" data-icon="' . $icon_class . '"' . $text_color . '></i></span></br>';
             }
 
             $renderer->doc .= $markup;

@@ -9,22 +9,47 @@ See end for full list of attributes.
 ==== Types and Background ====
 
 <jumbotron>
-<ribbon type="check" background="green"></ribbon>
-<ribbon right="40px" type="slant-down" background="orange"></ribbon>
-<ribbon right="75px" type="slant-up" background="purple"></ribbon>
-<ribbon right="110px" type="down" background="black"></ribbon>
-<ribbon right="145px" type="flat" background="red"></ribbon>
-<ribbon right="180px"></ribbon>
+<ribbon type="check"></ribbon>
+<ribbon right="40px" type="slant-down" background="green"></ribbon>
+<ribbon right="75px" type="slant-up" background="orange"></ribbon>
+<ribbon right="110px" type="down" background="purple"></ribbon>
+<ribbon right="145px" type="flat" background="black"></ribbon>
+<ribbon right="180px" type="up" background="red"></ribbon>
 Types: ''up'', ''flat'', ''down'', ''slant-up'', ''slant-down'', ''check''. \\ Default: ''up''.
 </jumbotron>
 
 <code html>
-<ribbon type="check" background="green" icon="fa fa-check"></ribbon>
-<ribbon right="40px" type="slant-down" background="orange"></ribbon>
-<ribbon right="70px" type="slant-up" background="purple"></ribbon>
-<ribbon right="100px" type="down" background="black"></ribbon>
-<ribbon right="130px" type="flat" background="red"></ribbon>
-<ribbon right="160px"></ribbon>
+<ribbon type="check"></ribbon>
+<ribbon right="40px" type="slant-down" background="green"></ribbon>
+<ribbon right="75px" type="slant-up" background="orange"></ribbon>
+<ribbon right="110px" type="down" background="purple"></ribbon>
+<ribbon right="145px" type="flat" background="black"></ribbon>
+<ribbon right="180px" type="up" background="red"></ribbon>
+</code>
+
+==== Ribbons by Context ====
+
+<jumbotron>
+<ribbon type="cogs" icon="true"></ribbon>
+<ribbon right="40px" type="tip" icon="true"></ribbon>
+<ribbon right="75px" type="question" icon="true"></ribbon>
+<ribbon right="110px" type="danger" icon="true"></ribbon>
+<ribbon right="145px" type="warning" icon="true"></ribbon>
+<ribbon right="180px" type="info" icon="true"></ribbon>
+<ribbon right="215px" type="success" icon="true"></ribbon>
+<ribbon right="250px" type="primary" icon="true"></ribbon>
+Types: ''primary'', ''success'', ''info'', ''warning'', ''danger'', ''question'', ''tip'', ''cogs''
+</jumbotron>
+
+<code html>
+<ribbon type="cogs" icon="true"></ribbon>
+<ribbon right="40px" type="tip" icon="true"></ribbon>
+<ribbon right="75px" type="question" icon="true"></ribbon>
+<ribbon right="110px" type="danger" icon="true"></ribbon>
+<ribbon right="145px" type="warning" icon="true"></ribbon>
+<ribbon right="180px" type="info" icon="true"></ribbon>
+<ribbon right="215px" type="success" icon="true"></ribbon>
+<ribbon right="250px" type="primary" icon="true"></ribbon>
 </code>
 
 ==== Icons and Colors ====
@@ -33,15 +58,15 @@ You can add any FontAwesome or Material Design icons to a ribbon and set the col
 <jumbotron>
 <ribbon type="tick"></ribbon>
 <ribbon right="40px" type="cogs"></ribbon>
-<ribbon right="80px" icon="fa fa-certificate" color="yellow" background="black"></ribbon>
-<ribbon right="120px" icon="fa fa-bicycle" color="red">Bike</ribbon>
+<ribbon right="80px" icon="fa:certificate" color="yellow" background="black"></ribbon>
+<ribbon right="120px" icon="fa:bicycle" color="red">Bike</ribbon>
 </jumbotron>
 
 <code html>
 <ribbon type="tick"></ribbon>
 <ribbon right="40px" type="cogs"></ribbon>
-<ribbon right="80px" icon="fa fa-certificate" color="yellow" background="black"></ribbon>
-<ribbon right="120px" icon="fa fa-bicycle" color="red"></ribbon>
+<ribbon right="80px" icon="fa:certificate" color="yellow" background="black"></ribbon>
+<ribbon right="120px" icon="fa:bicycle" color="red"></ribbon>
 </code>
 
 ==== Offsets ====
@@ -75,8 +100,8 @@ Adjust the ribbon offsets using the ''right'' and ''top'' attributes.
 ===== Options =====
 <datatable scroll-x="true" info="false" paging="false" searching="true" ordering="false">
 ^ Attribute ^ Default Value ^ Allowed Values ^ Description ^
-| ''type''  | ''up'' | ''flat'' ''up'' ''down'' ''slant-up'' ''slant-down'' ''check'' (''tick'' ''cogs'') | Type of ribbon  \\ \\ ''tick'' and ''cogs'' are a convenience for adding an icon and background. |
-| ''icon'' |  | Icon class from Glyphicon or FontAwesome (eg. ''fa fa-plus'') | Icon of ribbon |
+| ''type''  | ''up'' | ''flat'' ''up'' ''down'' ''slant-up'' ''slant-down'' ''check'' (''primary'' ''success'' ''info'' ''warning'' ''danger'' ''questing'' ''tip'' ''cogs'') | Type of ribbon  \\ \\ ''success'', ''cogs'' etc. are a convenience for adding an icon and background and use the default shape type. |
+| ''icon''  |  | ''true'' for auto context icon or icon pointer for FontAwesome (or any other available from icon plugin) eg. ''emojione:airplane-departure'', ''logos:google'' | Icon of ribbon |
 | ''background'' |  | W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'') | Background color of ribbon |
 | ''color'' | | W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'') | Text and icon color of ribbon |
 |''top'' | ''-2px'' | HTML unit of length (''px'', ''rem'', ''cm'', etc) | Offset of ribbon from top of parent element. Positive values move the ribbon down. If unexpected offset behaviour occurs, check to ensure parent element has attribute ''position:relative'' set. |
