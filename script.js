@@ -207,7 +207,7 @@ jQuery(document).ready(function () {
             $btn_link = $btn_wrap.find('a'),
             btn_class = ['btn'];
 
-        // Add Fake link
+        // Add Fake link if none exists
         if (!$btn_link.length) {
 
             var btn_label = $btn_wrap.html();
@@ -223,37 +223,14 @@ jQuery(document).ready(function () {
             var value = btn_data[key];
 
             switch (key) {
-                case 'btnType':
-                case 'btnSize':
-                    btn_class.push(['btn-', value].join(''));
-                    break;
-                case 'btnBlock':
-                    btn_class.push('btn-block');
-                    break;
-                case 'btnDisabled':
-                    btn_class.push('disabled');
-                    break;
                 case 'btnCollapse':
-                    $btn_link.attr('data-toggle', 'collapse');
-                    $btn_link.attr('data-target', '#' + value);
-                    $btn_link.on('click', function (e) { e.preventDefault(); });
-                    break;
                 case 'btnModal':
-                    $btn_link.attr('data-toggle', 'modal');
-                    $btn_link.attr('data-target', '#' + value);
                     $btn_link.on('click', function (e) { e.preventDefault(); });
                     break;
-                case 'btnIcon':
-                    var icon = ['<i class="', value, '"/> '].join('');
-                    $btn_link.prepend(icon);
-                    break;
-                case 'btnHref':
-                    $btn_link.attr('href', value);
             }
 
         }
 
-        $btn_link.addClass(btn_class.join(' '));
         $btn_link.attr('role', 'button');
 
         if ($btn_link.hasClass('curid')) {

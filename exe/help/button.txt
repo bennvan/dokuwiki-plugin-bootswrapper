@@ -26,9 +26,9 @@
 
 ==== Link button ====
 
-<code html><btn type="success" size="lg" icon="glyphicon glyphicon-edit">[[:wiki:welcome]]</btn></code>
+<code html><btn type="success" size="lg" icon="fa:edit" link=":wiki:welcome" title="Text that will appear on hover" auto-heading="true"></btn></code>
 
-<btn type="success" icon="glyphicon glyphicon-edit">[[:wiki:welcome]]</btn>
+<btn type="success" size="lg" icon="fa:edit" link=":wiki:welcome" title="Text that will appear on hover" auto-heading="true"></btn>
 
 \\
 
@@ -88,10 +88,10 @@ Create block level buttons—those that span the full width of a parent -- by ad
 
 Buttons will appear pressed (with a darker background, darker border, and inset shadow) when active. Bootstrap Wrapper Plugin detect automatically the active state of current page.
 
-<btn type="primary">[[button]]</btn> <btn type="default">[[panel]]</btn>
+<btn type="primary" link=".button">Button</btn> <btn type="default" link=".panel">Panel</btn>
 
 <code html>
-<btn type="primary">[[button]]</btn> <btn type="default">[[panel]]</btn>
+<btn type="primary" link=".button">Button</btn> <btn type="default" link=".panel">Panel</btn>
 </code>
 
 \\
@@ -100,10 +100,10 @@ Buttons will appear pressed (with a darker background, darker border, and inset 
 
 Make buttons look unclickable by fading them back with ''opacity''.
 
-<btn type="primary" disabled="true">[[button]]</btn> <btn type="default" disabled="true">[[panel]]</btn>
+<btn type="primary" disabled="true" link=".button">Button</btn> <btn type="default" disabled="true" link=".panel">Panel</btn>
 
 <code html>
-<btn type="primary" disabled="true">[[button]]</btn> <btn type="default" disabled="true">[[panel]]</btn>
+<btn type="primary" disabled="true" link=".button">Button</btn> <btn type="default" link=".panel">Panel</btn>
 </code>
 
 ===== Options =====
@@ -111,11 +111,14 @@ Make buttons look unclickable by fading them back with ''opacity''.
 <datatable info="false" paging="false" searching="true">
 ^ Attribute ^ Default Value ^ Allowed Values ^ Description ^
 | ''type'' | ''default'' | ''default'' ''primary'' ''success'' ''info'' ''warning'' ''danger'' ''link'' | Type of button |
-| ''icon'' | optional | | Font icon class (eg. Glyphicon or Font-Awesome) |
-| ''size'' | optional | ''lg'' ''sm'' | Button size |
+| ''icon'' | optional      | ''true'' for auto context icon or icon pointer for FontAwesome (or any other available from icon plugin) eg. ''emojione:airplane-departure'', ''logos:google'' | Icon for button. Icons are also permitted within button syntax. |
+| ''size'' | optional | ''lg'' ''sm'' ''xs'' | Button size |
 | ''block'' | optional | ''true'' ''false'' | Block level buttons |
 | ''collapse'' | optional | | Target element selector to collapse (see [[collapse]]) |
 | ''disabled'' | optional | ''true'' ''false'' | Disable the button |
 | ''modal'' | optional | | Modal ID (see [[modal]]) |
-| ''href''  | optional | Valid URL | If you cannot use dokuwiki link syntax within the button, use this manual href. Useful for creating links relative to the current page, even when included from another. Eg. ''href="?do=edit"'' |
+| ''title'' | optional | | Text which appears when hovering over button |
+| ''link''  | optional | wikilink (relative/absolute), email link, external link, interwiki link, hash   | Link to where the card button leads to.|
+| ''auto-heading'' | optional | ''true'' ''false'' | Automatically set the button text from the title of the wiki page set under the ''link'' attribute. |
+| ''href''  | optional | Valid URL | Manual href attribute setting. Useful for creating links relative to the current page, even when included from another. Eg. ''href="?do=edit"''. Use only if the ''link'' attribute does not work for your purposes. |
 </datatable>

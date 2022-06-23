@@ -5,6 +5,10 @@
  * Author   Giuseppe Di Terlizzi <giuseppe.diterlizzi@gmail.com>
  * License  GPL 2 (http://www.gnu.org/licenses/gpl.html)
  */
+.bs-wrap-button[data-btn-disabled="1"],
+.btn.disabled {
+ cursor: not-allowed;
+}
 
 .bs-wrap .nav-tabs {
   margin-bottom: 15px;
