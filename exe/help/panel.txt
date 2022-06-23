@@ -113,13 +113,20 @@ Easily include full-width [[list-group|list groups]] within any panel.
 
 ===== With icons =====
 
-<panel type="default" title="Panel title" subtitle="Panel subtitle" icon="glyphicon glyphicon-home">
+<panel type="default" title="Panel title" subtitle="Panel subtitle" icon="fa:home">
 Panel content
 </panel>
+<panel type="success" title="Panel title" subtitle="Panel subtitle" icon="true">
+A success panel with icon
+</panel>
 \\
-<code html><panel type="default" title="Panel title" subtitle="Panel subtitle" icon="glyphicon glyphicon-home">
+<code html><panel type="default" title="Panel title" subtitle="Panel subtitle" icon="fa:home">
 Panel content
-</panel></code>
+</panel>
+<panel type="success" title="Panel title" subtitle="Panel subtitle" icon="true">
+A success panel with icon
+</panel>
+</code>
 
 
 ==== Attributes ====
@@ -128,6 +135,6 @@ Panel content
 | ''type''     | ''default'' | ''default'', ''primary'', ''success'', ''info'', ''warning'', ''danger'' | Type of panel |
 | ''title''    | optional | | Title of panel |
 | ''subtitle'' | optional | | Subtitle of panel |
-| ''icon''     | optional | | Font icon class (eg. Glyphicon or Font-Awesome) |
+| ''icon''     | optional | ''true'' for auto context icon or icon pointer for FontAwesome (or any other available from icon plugin) eg. ''emojione:airplane-departure'', ''logos:google'' | Icon of panel |
 | ''no-body''  | optional | ''true'' or not set | Don't add a panel body. Useful to add other particular tags (or tables) inside a panels |
 | ''no-border''| optional | ''true'' or not set | Removes the border around the panel                                  |

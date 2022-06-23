@@ -51,10 +51,17 @@ class syntax_plugin_bootswrapper_label extends syntax_plugin_bootswrapper_bootst
             $type      = $attributes['type'];
             $icon      = $attributes['icon'];
 
+            # Set icon attribute manually or by context
+            if (strtolower($icon) == 'true') {
+                $icon_class = $this->getContextIcon($type);
+            } else {
+                $icon_class = $icon;
+            }
+
             $markup = '<' . $label_tag . ' class="bs-wrap bs-wrap-label label label-' . $type . '">';
 
-            if ($icon) {
-                $markup .= '<i class="' . $icon . '"></i> ';
+            if ($icon && $icon_class) {
+                $markup .= '<i class="iconify" data-icon="' . $icon_class . '"></i> ';
             }
 
             $renderer->doc .= $markup;

@@ -111,7 +111,7 @@ class syntax_plugin_bootswrapper_panel extends syntax_plugin_bootswrapper_bootst
             $background_class = '';
             switch ($type) {
                 case 'primary':
-                    $background_class = 'bg-primary-callout';
+                    $background_class = 'bg-primary-light';
                     break;
                 case 'usyd':
                     $background_class = 'bg-usyd-grey text-light';
@@ -123,6 +123,13 @@ class syntax_plugin_bootswrapper_panel extends syntax_plugin_bootswrapper_bootst
             // Set the attributes
             $html_attributes            = $this->mergeCoreAttributes($attributes);
             $html_attributes['class'][] = "bs-wrap bs-wrap-panel panel panel-$type";
+
+            # Set icon attribute manually or by context
+            if (strtolower($icon) == 'true') {
+                $icon_class = $this->getContextIcon($type);
+            } else {
+                $icon_class = $icon;
+            }
 
             #border
             if ($no_border) $html_attributes['class'][] = 'no-border';
@@ -153,8 +160,8 @@ class syntax_plugin_bootswrapper_panel extends syntax_plugin_bootswrapper_bootst
 
             if ($title || $subtitle) {
 
-                if ($icon) {
-                    $title = '<i class="' . $icon . '"></i> ' . $title;
+                if ($icon && $icon_class) {
+                    $title = '<i class="iconify" data-icon="' . $icon_class . '"></i> ' . $title;
                 }
 
                 $markup .= '<div class="panel-heading '.$align.'"><h4 class="panel-title">' . $title . '</h4>' . $subtitle . '</div>';

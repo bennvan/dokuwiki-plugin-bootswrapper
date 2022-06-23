@@ -110,7 +110,7 @@ class syntax_plugin_bootswrapper_callout extends syntax_plugin_bootswrapper_boot
                 case 'question':
                     $type       = 'primary';
                     $icon_class = 'question-circle';
-                    $background_class = 'primary-callout';
+                    $background_class = 'primary-light';
                     break;
 
                 case 'tip':
@@ -125,7 +125,7 @@ class syntax_plugin_bootswrapper_callout extends syntax_plugin_bootswrapper_boot
 
             # Icon attribute empty so defualt is to show type icon
             if (strtolower($icon) == 'true') {
-                $icon_class = "fa fa-$icon_class";
+                $icon_class = "fa:$icon_class";
             } else {
                 $icon_class = $icon;
             }
@@ -149,7 +149,7 @@ class syntax_plugin_bootswrapper_callout extends syntax_plugin_bootswrapper_boot
 
 
             if ($icon && $icon_class) {
-                $markup .= '<div class="row"><div class="col-xs-1"><i class="bs-callout-icon ' . $icon_class . '"' . $text_color . '></i></div><div class="col-xs-11">';
+                $markup .= '<div class="row"><div class="col-xs-1"><i class="bs-callout-icon iconify" data-icon="' . $icon_class . '"' . $text_color . '></i></div><div class="col-xs-11">';
             }
 
             if ($title) {

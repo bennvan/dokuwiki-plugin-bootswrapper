@@ -37,9 +37,15 @@ Build on any alert by adding an optional ''dismiss'' option.
 
 ==== Alert with icon ====
 
-<alert type="warning" dismiss="true" icon="fa fa-warning">**Warning!** Better check yourself, you're not looking too good.</alert>
+<alert type="warning" dismiss="true" icon="true">**Warning!** Better check yourself, you're not looking too good.</alert>
 
-<code html><alert type="warning" dismiss="true" icon="fa fa-warning">**Warning!** Better check yourself, you're not looking too good.</alert></code>
+<code html><alert type="warning" dismiss="true" icon="true">**Warning!** Better check yourself, you're not looking too good.</alert></code>
+
+=== Custom icon ===
+
+<alert type="success" icon="logos:google">A success alert with a custom icon (icon requires ''icons plugin'' to show)</alert>
+
+<code html><alert type="success" icon="logos:google">A success alert with a custom icon (icon requires ''icons plugin'' to show)</alert></code>
 
 ===== Options =====
 
@@ -47,5 +53,5 @@ Build on any alert by adding an optional ''dismiss'' option.
 ^ Name ^ Default ^ Values ^ Description ^
 | ''type''     | ''info'' | ''success'' ''info'' ''warning'' ''danger'' | Type of alert |
 | ''dismiss''  | optional | ''true'' | Create a dismissible alert |
-| ''icon''     | optional | | Font icon class (eg. Glyphicon or Font-Awesome) |
+| ''icon''     | optional | ''true'' for auto context icon or icon pointer for FontAwesome (or any other available from icon plugin) eg. ''emojione:airplane-departure'', ''logos:google'' | Font icon class (eg. Glyphicon ''glyphicon'' or Font-Awesome ''fa'') |
 </datatable>

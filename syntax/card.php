@@ -138,6 +138,7 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
                     break;
                 case 'dark':
                     $background_class = '';
+                    break;
                 case 'usyd':
                     $background_class = 'bg-usyd-grey text-light';
                     break;
@@ -146,6 +147,13 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
                 default:
                     $background_class = "bg-$type";
                 }
+
+            # Set icon attribute manually or by context
+            if (strtolower($icon) == 'true') {
+                $icon_class = $this->getContextIcon($type);
+            } else {
+                $icon_class = $icon;
+            }
 
             $html_attributes            = $this->mergeCoreAttributes($attributes);
             $html_attributes['class'][] = "bs-wrap bs-wrap-card card card-$type";
@@ -188,12 +196,13 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
             if ($link) {
                 list($url, $exists) = $this->resolveLinkUrl($link, $renderer);
                 if ($exists) {
-                    $attrs = 'class="wikilink1"';
+                    $attrs = 'class="wikilink1" ';
+                    if ($link['type'] == 'externallink') {
+                        $attrs .= 'target="_blank" rel="ugc nofollow noopener"';
+                    }
                 } else {
-
-                    $attrs = 'rel="nofollow" ';
-
-                    if (!$is_external) {
+                    $attrs = 'rel="ugc nofollow noopener" ';
+                    if ($link['type'] != 'externallink') {
                         $attrs .= 'class="wikilink2"';
                     }
 
@@ -210,8 +219,8 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
             // Place the Title
             if ($title || $subtitle) {
 
-                if ($icon) {
-                    $title = '<i class="' . $icon . '"></i> ' . $title;
+                if ($icon && $icon_class) {
+                    $title = '<i class="iconify" data-icon="' . $icon_class . '"></i> ' . $title;
                 }
 
                 $markup .= '<div class="card-heading '.$align.'"><h4 class="card-title" >' . $title . '</h4>'.$subtitle.'</div>';

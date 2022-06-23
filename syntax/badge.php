@@ -68,6 +68,13 @@ class syntax_plugin_bootswrapper_badge extends syntax_plugin_bootswrapper_bootst
             $html_attributes            = $this->mergeCoreAttributes($attributes);
             $html_attributes['class'][] = 'bs-wrap bs-wrap-badge badge badge-'.$type;
 
+            # Set icon attribute manually or by context
+            if (strtolower($icon) == 'true') {
+                $icon_class = $this->getContextIcon($type);
+            } else {
+                $icon_class = $icon;
+            }
+
             # Bg attribute 
             if ($background) {
                 $html_attributes['style']['background-color'] = hsc($background) .';';
@@ -80,8 +87,8 @@ class syntax_plugin_bootswrapper_badge extends syntax_plugin_bootswrapper_bootst
 
             $markup = '<'.$badge_tag . ' ' . $this->buildAttributes($html_attributes) . '>';
 
-            if ($icon) {
-                $markup .= '<i class="' . $icon . '"></i> ';
+            if ($icon && $icon_class) {
+                $markup .= '<i class="iconify" data-icon="' . $icon_class . '"></i> ';
             }
 
             $renderer->doc .= $markup;

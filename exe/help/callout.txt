@@ -152,26 +152,26 @@ This is a tip callout (alias of ''warning'').
 
 Add custom icon via ''icon'' attribute.
 
-<callout icon="fa fa-user">
-This is default callout with ''fa fa-user'' icon
+<callout icon="fa:user">
+This is a default callout with ''fa:user'' icon
 </callout>
 
-<code html><callout icon="fa fa-user"> [...] </callout></code>
+<code html><callout icon="fa:user"> [...] </callout></code>
 
-<callout type="success" icon="fa fa-plus">
-This is success callout with ''fa fa-plus'' icon
+<callout type="success" icon="fa:plus">
+This is a success callout with ''fa:plus'' icon
 </callout>
 
-<code html><callout type="success" icon="fa fa-plus"> [...] </callout></code>
+<code html><callout type="success" icon="fa:plus"> [...] </callout></code>
 
 ===== Custom colors =====
 
-<callout icon="fa fa-user" color="blue" background="#d184e4" title="Custom color + icon">
-This is callout with custom color (''blue''), icon (''fa fa-user''), and background (''#d184e4'')
+<callout icon="fa-solid:syringe" color="blue" background="#d184e4" title="Custom color + icon">
+This is a callout with custom color (''blue''), icon (''fa-solid:syringe''), and background (''#d184e4'')
 </callout>
 
 <code html>
-<callout icon="fa fa-user" color="blue" background="#d184e4" title="Custom color + icon"> [...] </callout>
+<callout icon="fa-solid:syringe" color="blue" background="#d184e4" title="Custom color + icon"> [...] </callout>
 </code>
 
 ===== Options =====
@@ -180,7 +180,7 @@ This is callout with custom color (''blue''), icon (''fa fa-user''), and backgro
 ^ Attribute ^ Default Value ^ Allowed Values ^ Description ^
 | ''type''  | ''default'' | ''default'' ''primary'' ''success'' ''info'' ''warning'' ''danger'' (''question'' ''tip'') | Type of callout  \\ \\ ''question'' and ''tip'' are available only for ''icon'' attribute. |
 | ''title'' |  |  | Title of callout |
-| ''icon'' |  | ''true'' or icon class from Glyphicon or FontAwesome (eg. ''fa fa-plus'') | Icon of callout |
+| ''icon'' |  | ''true'' for auto context icon or icon pointer for FontAwesome (or any other available from icon plugin) eg. ''emojione:airplane-departure'', ''logos:google'' | Icon of callout |
 | ''background'' |  | ''true'' or W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'') | Background color of callout |
 | ''color'' | | W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'') | Color of callout |
 </datatable>

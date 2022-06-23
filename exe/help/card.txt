@@ -28,7 +28,7 @@ Body content
 <col md="2">
 <card 
 title="Title" 
-icon="fa fa-user" 
+icon="fa:user" 
 subtitle="Subtitle" 
 footer="Footer" 
 type="usyd" 
@@ -45,7 +45,7 @@ Some content
 
 <code html>
 <card 
-icon="fa fa-user"
+icon="fa:user"
 title="Title" 
 subtitle="Subtitle" 
 footer="Footer" 
@@ -62,36 +62,37 @@ Some content
 
 
 ===== Cards by Type =====
-By setting the ''type'' attribute, you can implicitly control the text and background colour. To show the background specified in the type, set it to ''"true"''.
+By setting the ''type'' attribute, you can implicitly control the text, background colour and icon. To show the background or icon of the specified type, set the respective attribute to ''"true"''. 
+<alert type="info" icon="true">**Note:** Not all types have associated icons, however you may always set these manually.</alert>
 
 <grid>
 
 <col md="2">
-<card type="primary" title="Primary" background="true">
+<card type="primary" title="Primary" background="true" icon="true">
 Primary Card
 </card>
 </col>
 
 <col md="2">
-<card type="success" title="Success" background="true">
+<card type="success" title="Success" background="true" icon="true">
 Success Card
 </card>
 </col>
 
 <col md="2">
-<card type="info" title="Info" background="true">
+<card type="info" title="Info" background="true" icon="true">
 Info Card
 </card>
 </col>
 
 <col md="2">
-<card type="warning" title="Warning" background="true">
+<card type="warning" title="Warning" background="true" icon="true">
 Warning Card
 </card>
 </col>
 
 <col md="2">
-<card type="danger" title="Danger" background="true">
+<card type="danger" title="Danger" background="true" icon="true">
 Danger Card
 </card>
 </col>
@@ -105,7 +106,7 @@ USYD Colours Card
 </grid>
 
 ===== Colours, Backround or Class =====
-You can specify the text and background colour manually or use any css class. If you want to set the background colour of the header/footer, a custom type and class should be implemented.
+You can specify the text and background colour manually or use any css class. If you want to set the background colour of the header/footer, a custom type and class should be implemented (speak to site admin). 
 
 <grid>
 <col md="2">
@@ -268,7 +269,7 @@ Sometimes you might only want the card to act as a container, for example when u
 title="Card with no-body content" 
 type="warning" 
 background="true"
-icon="fa fa-exclamation-triangle"
+icon="true"
 no-body="true" 
 >
 <card-body>
@@ -294,7 +295,7 @@ Some custom added body content to use with a list-group.
 title="Card with no-body content" 
 type="warning" 
 background="true"
-icon="fa fa-exclamation-triangle"
+icon="true"
 no-body="true" 
 >
 <card-body>
@@ -321,7 +322,7 @@ Some custom added body content to use with a list-group.
 | ''title''       |                |                                                                                                | Title of card                                                                    |
 | ''subtitle''    |                |                                                                                                | Subtitle of card                                                                 |
 | ''footer''      |                |                                                                                                | Footer of the card                                                               |
-| ''icon''        |                | ''true'' or icon class from Glyphicon or FontAwesome (eg. ''fa fa-plus'')                      | Icon of callout                                                                  |
+| ''icon''        |                | ''true'' for auto context icon or icon pointer for FontAwesome (or any other available from icon plugin) eg. ''emojione:airplane-departure'', ''logos:google'' | Icon for callout                                                                 |
 | ''background''  |                | ''true'' or W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'')  | Background color of card                                                         |
 | ''color''       |                | W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'')              | Text colour of the card                                                          |
 | ''thumbnail''   |                | Internal media (relative/absolute) or external links to images are allowed.                    | Image to display above the card                                                  |

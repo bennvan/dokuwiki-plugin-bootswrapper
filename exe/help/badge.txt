@@ -40,6 +40,22 @@ Inbox <badge>42</badge>
 <badge type="dark">Dark</badge>
 </code>
 
+===== Contextual icons =====
+
+<badge type="primary" icon="true">Primary</badge>
+<badge type="success" icon="true">Success</badge>
+<badge type="danger" icon="true">Danger</badge>
+<badge type="warning" icon="true">Warning</badge>
+<badge type="info" icon="true">Info</badge>
+
+<code html>
+<badge type="primary" icon="true">Primary</badge>
+<badge type="success" icon="true">Success</badge>
+<badge type="danger" icon="true">Danger</badge>
+<badge type="warning" icon="true">Warning</badge>
+<badge type="info" icon="true">Info</badge>
+</code>
+
 ===== Custom colors =====
 <badge color="white" background="purple">White and purple</badge>
 
@@ -47,8 +63,16 @@ Inbox <badge>42</badge>
 <badge color="white" background="purple">White and purple</badge>
 </code>
 
+===== Custom icons =====
+<badge icon="emojione:airplane-departure" color="white" background="purple">White and purple with ''emojione:airplane-departure'' icon</badge>
+
+<code html>
+<badge icon="emojione:airplane-departure" color="white" background="purple">White and purple with ''emojione:airplane-departure'' icon</badge>
+</code>
+
 ===== Options =====
 ^ Attribute ^ Allowed values ^ Description ^
 | ''type'' | ''default'', ''primary'', ''success'', ''warning'', ''danger'', ''info'', ''light'', ''dark''  | Type of badge (set background and colour automatically). Default: ''default''. |
+| ''icon'' | ''true'' for auto context icon or icon pointer for FontAwesome (or any other available from icon plugin) eg. ''emojione:airplane-departure'', ''logos:google'' | Icon for badge |
 | ''background'' | W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'') | Background color. |
 | ''color''      | W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'') | Color of text. |
