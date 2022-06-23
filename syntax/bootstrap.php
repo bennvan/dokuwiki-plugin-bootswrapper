@@ -449,6 +449,35 @@ class syntax_plugin_bootswrapper_bootstrap extends dokuwiki\Extension\SyntaxPlug
         // If exists is null it was an external link. Set to true.
         $exists = ($exists === null ? true : false);
         return array($url, $exists);
+    }
+
+    public function getContextIcon($type) {
+    # Automatic settings of icon by context
+        switch ($type) {
+            case 'primary':
+                $icon_class = 'exclamation-circle';
+                break;
+                
+            case 'success':
+                $icon_class = 'check-circle';
+                break;
+
+            case 'info':
+                $icon_class = 'info-circle';
+                break;
+
+            case 'warning':
+                $icon_class = 'exclamation-triangle';
+                break;
+
+            case 'danger':
+                $icon_class = 'minus-circle';
+                break;
+
+            default:
+                $icon_class = '';
+            }
+        return "fa:$icon_class";
     } 
 
 }
