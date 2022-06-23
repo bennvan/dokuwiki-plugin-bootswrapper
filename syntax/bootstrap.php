@@ -12,6 +12,7 @@ class syntax_plugin_bootswrapper_bootstrap extends dokuwiki\Extension\SyntaxPlug
 {
 
     public $p_type           = 'stack';
+    public $t_type           = 'formatting';
     public $pattern_start    = '<BOOTSTRAP.+?>';
     public $pattern_end      = '</BOOTSTRAP>';
     public $pattern_special  = null;
@@ -179,7 +180,7 @@ class syntax_plugin_bootswrapper_bootstrap extends dokuwiki\Extension\SyntaxPlug
 
     public function getType()
     {
-        return 'formatting';
+        return $this->t_type;
     }
 
     public function getAllowedTypes()
