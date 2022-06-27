@@ -523,12 +523,12 @@ function Bootstrap_Handler_Parse_Media($match, $handler=null) {
     //get linking command
     if(preg_match('/nolink/i',$param)){
         $linking = 'nolink';
-    }else if(preg_match('/direct/i',$param)){
-        $linking = 'direct';
+    }else if(preg_match('/details/i',$param)){
+        $linking = 'details';
     }else if(preg_match('/linkonly/i',$param)){
         $linking = 'linkonly';
     }else{
-        $linking = 'details';
+        $linking = 'direct';
     }
 
     //get caching command
