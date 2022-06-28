@@ -70,6 +70,8 @@ class action_plugin_bootswrapper extends \dokuwiki\Extension\ActionPlugin
         }
 
         $event->data['name'] = $lang['btn_secedit'] . ' - ' . ucfirst(str_replace('plugin_bootswrapper_', '', $event->data['target']));
+        // Use wikitext editor
+        $event->data['target'] = 'section';
     }
 
     /**
