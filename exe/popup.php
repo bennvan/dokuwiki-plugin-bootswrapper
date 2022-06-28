@@ -115,11 +115,11 @@ header('X-UA-Compatible: IE=edge,chrome=1');
     pre#preview { white-space: pre-wrap; }
   </style>
 </head>
-<body class="container-fluid dokuwiki">
+<body class="container-fluid dokuwiki" style="overflow: hidden;">
 
   <div class="row">
-    <aside class="small col-xs-2">
-      <ul class="nav nav-pills nav-stacked" role="tablist">
+    <aside class="small col-xs-5 col-sm-2">
+      <ul class="nav nav-pills nav-stacked" role="tablist" style="height: calc(100vh - 78px);overflow: scroll;white-space: nowrap;">
 
         <?php foreach (array_keys($syntax) as $tag): ?>
         <li>
@@ -130,7 +130,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
       </ul>
     </aside>
 
-    <main class="col-xs-10 tab-content">
+    <main class="col-xs-7 col-sm-10 tab-content" style="height: calc(100vh - 78px);overflow-y: scroll;">
 
       <?php foreach ($syntax as $tag => $item): ?>
       <div id="tab-<?php echo $tag ?>" class="tab-pane fade">
