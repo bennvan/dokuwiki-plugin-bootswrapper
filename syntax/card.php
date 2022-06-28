@@ -75,6 +75,24 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
             'required' => false,
             'default'  => null),
 
+        'header-background' => array(
+            'type'     => 'string',
+            'values'   => null,
+            'required' => false,
+            'default'  => null),
+
+        'header-color' => array(
+            'type'     => 'string',
+            'values'   => null,
+            'required' => false,
+            'default'  => null),
+
+        'border-color' => array(
+            'type'     => 'string',
+            'values'   => null,
+            'required' => false,
+            'default'  => null),
+
         'background' => array(
             'type'     => 'string',
             'values'   => null,
@@ -102,12 +120,15 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
 
         list($state, $match, $pos, $attributes) = $data;
 
-        global $no_body, $footer, $align;
+        global $no_body, $footer, $footer_attributes;
 
         if ($state == DOKU_LEXER_ENTER) {
             $type       = $attributes['type'];
             $icon       = (isset($attributes['icon']) ? $attributes['icon'] : '');
             $color      = (isset($attributes['color']) ? $attributes['color'] : false);
+            $header_background = (isset($attributes['header-background']) ? $attributes['header-background'] : false);
+            $header_color = (isset($attributes['header-color']) ? $attributes['header-color'] : false);
+            $border_color = (isset($attributes['border-color']) ? $attributes['border-color'] : false);
             $title      = (isset($attributes['title']) ? $attributes['title'] : false);
             $footer   = (isset($attributes['footer']) ? $attributes['footer'] : false);
             $subtitle = (isset($attributes['subtitle']) ? $attributes['subtitle'] : false);
@@ -160,6 +181,10 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
 
             $align = "align-items-$align justify-content-$align";
 
+            $header_attributes['class'][] = 'card-heading '.$align;
+            $footer_attributes['class'][] = 'card-footer '.$align;
+            $thumbnail_attributes = [];  
+
             // Set the attributes
             #border
             if ($no_border) $html_attributes['class'][] = 'no-border';
@@ -174,6 +199,25 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
             // Color
             if ($color) {
                 $html_attributes['style']['color'] = hsc($color);
+            }
+            if ($header_background) {
+                $header_attributes['style']['background'] = hsc($header_background);
+                $footer_attributes['style']['background'] = hsc($header_background);
+                if (!$border_color) {
+                    $header_attributes['style']['border-color'] = hsc($header_background);
+                    $footer_attributes['style']['border-color'] = hsc($header_background);
+                    $thumbnail_attributes['style']['border-color'] = hsc($header_background);
+                }
+            }
+            if ($header_color) {
+                $header_attributes['style']['color'] = hsc($header_color);
+                $footer_attributes['style']['color'] = hsc($header_color);
+            }
+            if ($border_color) {
+                $html_attributes['style']['border-color'] = hsc($border_color);
+                $header_attributes['style']['border-color'] = hsc($border_color);
+                $footer_attributes['style']['border-color'] = hsc($border_color);
+                $thumbnail_attributes['style']['border-color'] = hsc($border_color);
             }
 
             # link attribute
@@ -213,7 +257,7 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
             // Place the thumbnail image
             if ($thumbnail) {
                 list($url, $exists) = $this->resolveMediaUrl($thumbnail, $renderer);
-                $markup .= '<span class="card-thumbnail"><img src="'.$url.'" class="media" alt=""></span>';
+                $markup .= '<span class="card-thumbnail"><img src="'.$url.'" class="media" alt="" '.$this->buildAttributes($thumbnail_attributes).' ></span>';
             }
 
             // Place the Title
@@ -223,7 +267,7 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
                     $title = '<i class="iconify" data-icon="' . $icon_class . '"></i> ' . $title;
                 }
 
-                $markup .= '<div class="card-heading '.$align.'"><h4 class="card-title" >' . $title . '</h4>'.$subtitle.'</div>';
+                $markup .= '<div ' . $this->buildAttributes($header_attributes) . '><h4 class="card-title" >' . $title . '</h4>'.$subtitle.'</div>';
             } 
 
             if (!$no_body) {
@@ -242,7 +286,7 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
             }
 
             if ($footer) {
-                $markup .= '<div class="card-footer '.$align.'"><h4 class="card-title" >' . $footer . '</h4></div>';
+                $markup .= '<div ' . $this->buildAttributes($footer_attributes) . '><h4 class="card-title" >' . $footer . '</h4></div>';
             }
 
             $markup .= '</div>';

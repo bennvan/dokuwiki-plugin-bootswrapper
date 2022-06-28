@@ -25,7 +25,7 @@ Body content
 
 ===== Advanced usage =====
 <grid>
-<col md="2">
+<col md="4">
 <card 
 title="Title" 
 icon="fa:user" 
@@ -105,13 +105,16 @@ USYD Colours Card
 
 </grid>
 
-===== Colours, Backround or Class =====
-You can specify the text and background colour manually or use any css class. If you want to set the background colour of the header/footer, a custom type and class should be implemented (speak to site admin). 
+===== Colours, Backround, Borders and Class =====
+You can specify the text and background colour manually or use any css class. If you want to set colours of the header/footer, use the ''header-color'' and ''header-background'' attributes. Use the ''border-color'' attribute to set the border colour. If a certain colour combination is used regulary, consider contacting site admin to add it as a custom type. 
 
 <grid>
 <col md="2">
 <card
 title="Custom colours"
+header-color="red"
+header-background="orange"
+border-color="black"
 color="teal"
 background="lightblue"
 >
@@ -133,12 +136,14 @@ A custom card with class set to "bg-primary-light"
 <code html>
 <card
 title="Custom colours"
+header-color="red"
+header-background="orange"
+border-color="black"
 color="teal"
 background="lightblue"
 >
 A custom card with teal text and a lightblue background
 </card>
-</code>
 
 <code html>
 <card
@@ -325,6 +330,9 @@ Some custom added body content to use with a list-group.
 | ''icon''        |                | ''true'' for auto context icon or icon pointer for FontAwesome (or any other available from icon plugin) eg. ''emojione:airplane-departure'', ''logos:google'' | Icon for callout                                                                 |
 | ''background''  |                | ''true'' or W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'')  | Background color of card                                                         |
 | ''color''       |                | W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'')              | Text colour of the card                                                          |
+| ''header-color''       |                | W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'')       | Text colour of the card header/footer                                                          |
+| ''header-background''       |                | W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'')  | Background colour of the card header/footer                                                          |
+| ''border-color''       |                | W3C Color name (eg. ''blue'', ''orange'', etc) or HEX (eg. ''#FF3300'', ''#777'')       | Explicitly set the border colour of the card                                                          |
 | ''thumbnail''   |                | Internal media (relative/absolute) or external links to images are allowed.                    | Image to display above the card                                                  |
 | ''link''        |                | wikilink (relative/absolute), email link, external link, interwiki link, hash                  | Link to where the card leads to. On hover animation is applied when this is set  |
 | ''no-body''     |                | ''true'' or not set                                                                            | Removes the inner padding from the card body                                     |
