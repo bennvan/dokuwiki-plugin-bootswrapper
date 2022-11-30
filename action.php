@@ -37,23 +37,83 @@ class action_plugin_bootswrapper extends \dokuwiki\Extension\ActionPlugin
     {
         $controller->register_hook('TOOLBAR_DEFINE', 'AFTER', $this, '_insert_button');
         $controller->register_hook('HTML_SECEDIT_BUTTON', 'BEFORE', $this, '_secedit_button');
-        $controller->register_hook('HTML_EDIT_FORMSELECTION', 'BEFORE', $this, '_editform');
+        $controller->register_hook('ACTION_ACT_PREPROCESS', 'BEFORE', $this, 'handleDoReadOnly');
+        $controller->register_hook('AUTH_ACL_CHECK', 'AFTER', $this, 'handleReadOnlyAcl');
         $controller->register_hook('PLUGIN_MOVE_HANDLERS_REGISTER', 'BEFORE', $this, 'handle_move_register');
     }
 
     /**
-     * Edit Form
+     * Readonly mode to couple with bootswrap3 plugin.
      *
-     * @param  Doku_Event  &$event
+     * @param Doku_Event $event
+     * @return bool
      */
-    public function _editform(Doku_Event $event)
+    public function handleDoReadOnly(Doku_Event $event)
     {
-        if (!in_array($event->data['target'], $this->section_edit_buttons)) {
-            return;
-        }
+        global $ID;
+        global $INFO;
+        global $INPUT;
 
-        $event->data['target'] = 'section';
-        return;
+        if ($event->data != 'readonly') return true;
+
+        // Readonly status is toggled and saved in user page metadata
+        $user = $INPUT->server->str('REMOTE_USER');
+        $is_user = auth_isMember('@user,@admin',$user,$INFO['userinfo']['grps']);
+
+        // Dont allow non users to have settings
+        if (!$is_user) send_redirect(wl($ID));
+
+        $hlp = plugin_load('helper', 'bootswrapper');
+        // Get the last value from metadata and toggle it
+        $readonly = $hlp->get_user_settings('render readonly');
+
+        // Set readonly state accordinly
+        if ($readonly === null) {
+        	// Turning on readonly for first time
+        	$readonly = true;
+        } else {
+        	// Toggle the value
+        	$readonly = !$readonly;
+        }
+        // Save the state in persistent metadata
+        $hlp->set_user_settings(array('render' => array('readonly' => $readonly)));
+        
+        header('Clear-Site-Data: "cache"');
+        send_redirect(wl($ID,['t'=>time()], true, '&'));
+        return true; // never reached
+    }
+
+    /**
+     * Readonly mode to couple with bootswrap3 plugin.
+     *
+     * @param Doku_Event $event
+     * @return bool
+     */
+    public function handleReadOnlyAcl(Doku_Event $event)
+    {
+        global $ID;
+        global $INPUT;
+        global $READONLY;
+
+        // Readonly status is loaded from metadata and applied
+        if ($READONLY === null) {
+        	$hlp = plugin_load('helper', 'bootswrapper');
+        	$READONLY = $hlp->get_user_settings('render readonly');
+        	// Still null or false?
+        	if (!$READONLY) {
+        		$READONLY = false;
+        		return;
+        	}
+        }
+        
+        if (!$READONLY) return;
+        // return if user does already has or lower than read permissions
+        if ($event->result <= 1) return;
+
+        // reach this if readonly is set true
+        $event->result = 1;
+
+        return true;
     }
 
     /**
