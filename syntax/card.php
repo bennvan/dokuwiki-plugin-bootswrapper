@@ -101,7 +101,7 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
 
         'align'  => array(
             'type'     => 'string',
-            'values'   => array('left', 'center', 'right'),
+            'values'   => array('left', 'center', 'right', 'start', 'end'),
             'required' => true,
             'default'  => 'center'),
 
