@@ -25,7 +25,7 @@
 
 /*----------- Layout shfit fixes ------------*/
 /*Fix to reduce layout shifts on accordion loading*/
-.bs-wrap-accordion > .panel:first-child > .panel-body {
+.bs-wrap-accordion:not(.bs-wrap-accordion-collapsed) > .panel:first-child > .panel-body {
   display: block;
 }
 

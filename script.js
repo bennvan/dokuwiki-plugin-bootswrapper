@@ -317,11 +317,13 @@ jQuery(document).ready(function () {
 
         $accordion.attr('id', accordion_id);
 
-        if ($accordion.find('.panel-collapse').length > 1 && !is_collapsed) {
-            $accordion.find('.panel-collapse').first().addClass('in');
-        }
+        $panels = $accordion.find('[data-toggle=collapse]');
+        $panels.append('<span class="plus-minus-toggle"/>').addClass('bs-wrap-caret collapsed');
 
-        $accordion.find('[data-toggle=collapse]').append('<span class="plus-minus-toggle"/>').addClass('bs-wrap-caret collapsed').first().removeClass('collapsed');
+        if ($accordion.find('.panel-collapse').length >= 1 && !is_collapsed) {
+            $accordion.find('.panel-collapse').first().addClass('in');
+            $panels.first().removeClass('collapsed');
+        } 
     });
 
 

@@ -42,12 +42,11 @@ class syntax_plugin_bootswrapper_accordion extends syntax_plugin_bootswrapper_bo
         }
 
         /** @var Doku_Renderer_xhtml $renderer */
-        list($state, $match, $pos, $pos, $attributes) = $data;
+        list($state, $match, $pos, $attributes) = $data;
 
         if ($state == DOKU_LEXER_ENTER) {
             $html_attributes            = $this->mergeCoreAttributes($attributes);
             $html_attributes['class'][] = 'bs-wrap bs-wrap-accordion panel-group';
-
             if ($attributes['collapsed']) {
                 $html_attributes['class'][] = 'bs-wrap-accordion-collapsed';
             }
