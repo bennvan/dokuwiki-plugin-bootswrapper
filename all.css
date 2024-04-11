@@ -515,7 +515,7 @@ span.bs-wrap-button a.btn {
 
 
 /*Flex secedit*/
-.section_highlight {
+.section_highlight_wrapper {
   height: 100%;
 }
 
@@ -524,12 +524,13 @@ span.bs-wrap-button a.btn {
 }
 
 /*Card*/
-
 /*Flex grid section edit fix*/
-.bs-wrap-grid > .bs-wrap-col > .section_highlight {
-  height: ~"calc(100% - 20px)";
+.bs-wrap-grid > .bs-wrap-col > .section_highlight_wrapper,
+.bs-wrap-grid > .bs-wrap-col > .section_highlight_wrapper > .bs-wrap-card {
+  height: ~"calc(100% - 10px)";
 }
 
+/*Flex grid section edit fix*/
 .bs-wrap-grid > .bs-wrap-col > .bs-wrap-card {
   height: ~"calc(100% - 20px)";
 }
