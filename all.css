@@ -474,6 +474,11 @@ span.bs-wrap-button a.btn {
   border-color: inherit;
 }
 
+.bs-wrap-accordion > .panel + .secedit + .panel,
+.bs-wrap-accordion > .section_highlight_wrapper + .section_highlight_wrapper {
+  margin-top: 5px;
+}
+
 .bs-wrap-card > .bs-wrap-list-group > .list-group > .list-group-item:first-child,
 .bs-wrap-panel > .bs-wrap-list-group > .list-group > .list-group-item:first-child{
   border-top-left-radius: 0;
