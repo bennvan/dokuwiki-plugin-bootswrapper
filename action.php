@@ -78,8 +78,8 @@ class action_plugin_bootswrapper extends \dokuwiki\Extension\ActionPlugin
         // Save the state in persistent metadata
         $hlp->set_user_settings(array('render' => array('readonly' => $readonly)));
         
-        header('Clear-Site-Data: "cache"');
-        send_redirect(wl($ID,['t'=>time()], true, '&'));
+        // Permissions are recalculated on the next request; retain cached assets.
+        send_redirect(wl($ID, [], true, '&'));
         return true; // never reached
     }
 
