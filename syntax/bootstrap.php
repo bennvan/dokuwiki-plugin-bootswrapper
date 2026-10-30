@@ -425,6 +425,7 @@ class syntax_plugin_bootswrapper_bootstrap extends dokuwiki\Extension\SyntaxPlug
         $height = $media['height'];
         $cache = $media['cache'];
         $exists = null;
+        $hash = '';
 
         if (strpos($src, '#') !== false) {
                 list($src, $hash) = explode('#', $src, 2);
@@ -549,7 +550,7 @@ function Bootstrap_Handler_Parse_Media($match, $handler=null) {
         'type'=>$call,
         'src'=>$src,
         'title'=>$link[1],
-        'align'=>$align,
+        'align'=>null,
         'width'=>$w,
         'height'=>$h,
         'cache'=>$cache,

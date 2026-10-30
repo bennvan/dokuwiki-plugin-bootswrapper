@@ -133,11 +133,11 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
             $footer   = (isset($attributes['footer']) ? $attributes['footer'] : false);
             $subtitle = (isset($attributes['subtitle']) ? $attributes['subtitle'] : false);
             $background = (isset($attributes['background']) ? $attributes['background'] : '');
-            $no_body    = $attributes['no-body'];
-            $thumbnail  = $attributes['thumbnail'];
-            $link       = $attributes['link'];
+            $no_body    = $attributes['no-body'] ?? false;
+            $thumbnail  = $attributes['thumbnail'] ?? null;
+            $link       = $attributes['link'] ?? null;
             $align      = $attributes['align'];
-            $no_border  = $attributes['no-border'];
+            $no_border  = $attributes['no-border'] ?? false;
             
             // set align attribute
             switch ($align) {

@@ -45,8 +45,8 @@ class syntax_plugin_bootswrapper_collapse extends syntax_plugin_bootswrapper_boo
         list($state, $match, $pos, $attributes) = $data;
 
         if ($state == DOKU_LEXER_ENTER) {
-            $id        = $attributes['id'];
-            $collapsed = $attributes['collapsed'];
+            $id        = $attributes['id'] ?? '';
+            $collapsed = $attributes['collapsed'] ?? false;
             $markup    = '<div class="bs-wrap bs-wrap-collapse collapse ' . ($collapsed ? '' : 'in') . '" id="' . $id . '">';
 
             $renderer->doc .= $markup;

@@ -37,7 +37,7 @@ class syntax_plugin_bootswrapper_image extends syntax_plugin_bootswrapper_bootst
         list($state, $match, $pos, $attributes) = $data;
 
         if ($state == DOKU_LEXER_ENTER) {
-            extract($attributes);
+            $shape = $attributes['shape'] ?? '';
 
             $html5_data = array();
 

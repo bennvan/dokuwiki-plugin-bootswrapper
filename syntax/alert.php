@@ -50,7 +50,9 @@ class syntax_plugin_bootswrapper_alert extends syntax_plugin_bootswrapper_bootst
         list($state, $match, $pos, $attributes) = $data;
 
         if ($state == DOKU_LEXER_ENTER) {
-            extract($attributes);
+            $type = $attributes['type'];
+            $icon = $attributes['icon'] ?? '';
+            $dismiss = $attributes['dismiss'] ?? false;
 
             $html_attributes            = $this->mergeCoreAttributes($attributes);
             $html_attributes['class'][] = 'bs-wrap alert';

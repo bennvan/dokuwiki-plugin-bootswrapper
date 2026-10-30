@@ -79,14 +79,14 @@ class syntax_plugin_bootswrapper_affix extends syntax_plugin_bootswrapper_bootst
         list($state, $match, $pos, $attributes) = $data;
 
         if ($state == DOKU_LEXER_ENTER) {
-            $top             = $attributes['offset-top'];
-            $bottom          = $attributes['offset-bottom'];
-            $target          = $attributes['target'];
-            $position        = $attributes['position'];
-            $position_top    = $attributes['position-top'];
-            $position_bottom = $attributes['position-bottom'];
-            $position_right  = $attributes['position-right'];
-            $position_left   = $attributes['position-left'];
+            $top             = $attributes['offset-top'] ?? null;
+            $bottom          = $attributes['offset-bottom'] ?? null;
+            $target          = $attributes['target'] ?? null;
+            $position        = $attributes['position'] ?? 'fixed';
+            $position_top    = $attributes['position-top'] ?? null;
+            $position_bottom = $attributes['position-bottom'] ?? null;
+            $position_right  = $attributes['position-right'] ?? null;
+            $position_left   = $attributes['position-left'] ?? null;
 
             $html5_data = array();
 

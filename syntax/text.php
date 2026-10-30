@@ -60,11 +60,12 @@ class syntax_plugin_bootswrapper_text extends syntax_plugin_bootswrapper_bootstr
         }
 
         /** @var Doku_Renderer_xhtml $renderer */
-        list($state, $match, $pos, $attributes, $is_block) = $data;
+        list($state, $match, $pos, $attributes) = $data;
 
         global $text_tag;
 
         if ($state == DOKU_LEXER_ENTER) {
+            $is_block = $data[4] ?? false;
             $text_tag   = (($is_block) ? 'div' : 'span');
             $color      = (isset($attributes['type']) ? $attributes['type'] : null);
             $size       = (isset($attributes['size']) ? $attributes['size'] : null);

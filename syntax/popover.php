@@ -90,7 +90,13 @@ class syntax_plugin_bootswrapper_popover extends syntax_plugin_bootswrapper_boot
         if ($state == DOKU_LEXER_ENTER) {
             $html5_data = array();
 
-            extract($attributes);
+            $title = $attributes['title'] ?? '';
+            $content = $attributes['content'] ?? '';
+            $html = $attributes['html'] ?? false;
+            $trigger = $attributes['trigger'] ?? '';
+            $animation = $attributes['animation'] ?? false;
+            $placement = $attributes['placement'] ?? '';
+            $delay = $attributes['delay'] ?? null;
 
             if ($html) {
                 $title   = hsc(p_render('xhtml', p_get_instructions($title), $info));
@@ -121,10 +127,10 @@ class syntax_plugin_bootswrapper_popover extends syntax_plugin_bootswrapper_boot
                 $html5_data[] = 'data-delay="' . $delay . '"';
             }
 
-            if (!$delay && ($attributes['delay-hide'] || $attributes['delay-show'])) {
+            if (!$delay && (!empty($attributes['delay-hide']) || !empty($attributes['delay-show']))) {
                 $delays = array();
-                $show   = $attributes['delay-show'];
-                $hide   = $attributes['delay-hide'];
+                $show   = $attributes['delay-show'] ?? null;
+                $hide   = $attributes['delay-hide'] ?? null;
 
                 if ($hide) {
                     $delays['hide'] = $hide;

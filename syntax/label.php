@@ -42,14 +42,15 @@ class syntax_plugin_bootswrapper_label extends syntax_plugin_bootswrapper_bootst
         }
 
         /** @var Doku_Renderer_xhtml $renderer */
-        list($state, $match, $pos, $attributes, $is_block) = $data;
+        list($state, $match, $pos, $attributes) = $data;
 
         global $label_tag;
 
         if ($state == DOKU_LEXER_ENTER) {
+            $is_block = $data[4] ?? false;
             $label_tag = (($is_block) ? 'div' : 'span');
             $type      = $attributes['type'];
-            $icon      = $attributes['icon'];
+            $icon      = $attributes['icon'] ?? '';
 
             # Set icon attribute manually or by context
             if (strtolower($icon) == 'true') {

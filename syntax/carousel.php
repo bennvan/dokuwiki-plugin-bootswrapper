@@ -75,9 +75,9 @@ class syntax_plugin_bootswrapper_carousel extends syntax_plugin_bootswrapper_boo
         list($state, $match, $pos, $attributes) = $data;
 
         if ($state == DOKU_LEXER_ENTER) {
-            $width = $attributes['width'];
+            $width = $attributes['width'] ?? '';
             unset($attributes['width']); 
-            $height = $attributes['height'];
+            $height = $attributes['height'] ?? '';
             unset($attributes['height']);
             $transition = $attributes['transition'];
             unset($attributes['transition']); 

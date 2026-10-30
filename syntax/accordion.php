@@ -47,7 +47,7 @@ class syntax_plugin_bootswrapper_accordion extends syntax_plugin_bootswrapper_bo
         if ($state == DOKU_LEXER_ENTER) {
             $html_attributes            = $this->mergeCoreAttributes($attributes);
             $html_attributes['class'][] = 'bs-wrap bs-wrap-accordion panel-group';
-            if ($attributes['collapsed']) {
+            if (!empty($attributes['collapsed'])) {
                 $html_attributes['class'][] = 'bs-wrap-accordion-collapsed';
             }
 

@@ -88,15 +88,15 @@ class syntax_plugin_bootswrapper_modal extends syntax_plugin_bootswrapper_bootst
         list($state, $match, $pos, $attributes) = $data;
 
         if ($state == DOKU_LEXER_ENTER) {
-            $id       = $attributes['id'];
-            $size     = $attributes['size'];
-            $title    = $attributes['title'];
-            $keyboard = $attributes['keyboard'];
-            $dismiss  = $attributes['dismiss'];
-            $show     = $attributes['show'];
-            $fade     = $attributes['fade'] === true ? 'fade' : '';
-            $backdrop = $attributes['backdrop'];
-            $remote   = $attributes['remote'];
+            $id       = $attributes['id'] ?? '';
+            $size     = $attributes['size'] ?? '';
+            $title    = $attributes['title'] ?? '';
+            $keyboard = $attributes['keyboard'] ?? false;
+            $dismiss  = $attributes['dismiss'] ?? false;
+            $show     = $attributes['show'] ?? false;
+            $fade     = ($attributes['fade'] ?? false) === true ? 'fade' : '';
+            $backdrop = $attributes['backdrop'] ?? false;
+            $remote   = $attributes['remote'] ?? '';
 
             $html5_attributes = array();
 

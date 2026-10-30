@@ -59,11 +59,12 @@ class syntax_plugin_bootswrapper_badge extends syntax_plugin_bootswrapper_bootst
         global $badge_tag;
 
         if ($state == DOKU_LEXER_ENTER) {
+            $is_block = $data[4] ?? false;
             $badge_tag  = (($is_block) ? 'div' : 'span');
             $type       = $attributes['type'];
             $color      = (isset($attributes['color']) ? $attributes['color'] : false);
             $background = (isset($attributes['background']) ? $attributes['background'] : '');
-            $icon       = $attributes['icon'];
+            $icon       = $attributes['icon'] ?? '';
 
             $html_attributes            = $this->mergeCoreAttributes($attributes);
             $html_attributes['class'][] = 'bs-wrap bs-wrap-badge badge badge-'.$type;

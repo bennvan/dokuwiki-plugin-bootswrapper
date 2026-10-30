@@ -100,20 +100,20 @@ class syntax_plugin_bootswrapper_button extends syntax_plugin_bootswrapper_boots
         if ($state == DOKU_LEXER_ENTER) {
             // Wrapper
             $heading = '';
-            $auto_heading = $attributes['auto-heading'];
+            $auto_heading = $attributes['auto-heading'] ?? false;
             $type = $attributes['type'];
-            $icon = $attributes['icon'];
-            $link = $attributes['link'];
-            $href = $attributes['href']; 
+            $icon = $attributes['icon'] ?? '';
+            $link = $attributes['link'] ?? null;
+            $href = $attributes['href'] ?? '';
             $html_attributes            = $this->mergeCoreAttributes($attributes);
             $html_attributes['class'][] = 'bs-wrap bs-wrap-button';
 
             // Button
             $btn_attributes['class'][] = "btn btn-$type";
-            $btn_attributes['class'][] = $attributes['size'] ? 'btn-'.$attributes['size'] : '';
-            $btn_attributes['class'][] = $attributes['block'] ? 'btn-block' : '';
-            $btn_attributes['class'][] = $attributes['disabled'] ? 'disabled' : '';
-            $btn_attributes['title'] = $attributes['title'] ? $attributes['title'] : '';
+            $btn_attributes['class'][] = !empty($attributes['size']) ? 'btn-'.$attributes['size'] : '';
+            $btn_attributes['class'][] = !empty($attributes['block']) ? 'btn-block' : '';
+            $btn_attributes['class'][] = !empty($attributes['disabled']) ? 'disabled' : '';
+            $btn_attributes['title'] = $attributes['title'] ?? '';
 
 
             // Resolve the link
@@ -139,11 +139,11 @@ class syntax_plugin_bootswrapper_button extends syntax_plugin_bootswrapper_boots
                 $btn_attributes['href'] = $href ? $href : 'javascript:void(0)';    
             }
 
-            if ($attributes['modal']) {
+            if (!empty($attributes['modal'])) {
                 $btn_attributes['data-toggle'] = 'modal';
                 $btn_attributes['data-target'] = '#'.$attributes['modal'];
             }
-            elseif ($attributes['collapse']) {
+            elseif (!empty($attributes['collapse'])) {
                 $btn_attributes['data-toggle'] = 'collapse';
                 $btn_attributes['data-target'] = '#'.$attributes['collapse'];
             }
@@ -156,7 +156,7 @@ class syntax_plugin_bootswrapper_button extends syntax_plugin_bootswrapper_boots
             }
 
             foreach (array_keys($this->tag_attributes) as $attribute) {
-                if (isset($attributes[$attribute])) {
+                if (isset($attributes[$attribute]) && is_scalar($attributes[$attribute])) {
                     $html_attributes["data-btn-$attribute"] = $attributes[$attribute];
                 }
             }

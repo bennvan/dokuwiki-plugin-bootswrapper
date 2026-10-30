@@ -51,8 +51,8 @@ class syntax_plugin_bootswrapper_tooltip extends syntax_plugin_bootswrapper_boot
 
         if ($state == DOKU_LEXER_ENTER) {
             $placement = $attributes['placement'];
-            $title     = $attributes['title'];
-            $html      = $attributes['html'];
+            $title     = $attributes['title'] ?? '';
+            $html      = $attributes['html'] ?? false;
 
             if ($html) {
                 $title = hsc(p_render('xhtml', p_get_instructions($title), $info));

@@ -103,7 +103,7 @@ class syntax_plugin_bootswrapper_panel extends syntax_plugin_bootswrapper_bootst
             $color      = (isset($attributes['color']) ? $attributes['color'] : false);
             $background = (isset($attributes['background']) ? $attributes['background'] : '');
             $align      = $attributes['align'];
-            $no_border  = $attributes['no-border'];
+            $no_border  = $attributes['no-border'] ?? false;
             
             $align = "text-$align";
 

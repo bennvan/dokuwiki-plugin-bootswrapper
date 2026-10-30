@@ -42,16 +42,16 @@ class syntax_plugin_bootswrapper_wrapper extends syntax_plugin_bootswrapper_boot
         }
 
         /** @var Doku_Renderer_xhtml $renderer */
-        list($state, $match, $pos, $attributes, $is_block) = $data;
+        list($state, $match, $pos, $attributes) = $data;
 
         global $wrapper_tag;
 
         if ($state == DOKU_LEXER_ENTER) {
+            $is_block = $data[4] ?? false;
             $wrapper_tag                    = ($is_block) ? 'div' : 'span';
             $html_attributes                = $this->mergeCoreAttributes($attributes);
             $html_attributes['class'][]     = 'bs-wrapper';
-            $styles                         = (($attributes['style']) ? 'style="'.$attributes['style'].'"' : '');
-            $markup             = '<'.$wrapper_tag.' '.$this->buildAttributes($html_attributes).' '.$styles.'>';
+            $markup             = '<'.$wrapper_tag.' '.$this->buildAttributes($html_attributes).'>';
 
             $renderer->doc .= $markup;
 

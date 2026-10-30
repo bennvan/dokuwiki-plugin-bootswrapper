@@ -52,13 +52,13 @@ class syntax_plugin_bootswrapper_jumbotron extends syntax_plugin_bootswrapper_bo
             return false;
         }
 
-        list($state, $match, $pos, $attributes, $is_block) = $data;
+        list($state, $match, $pos, $attributes) = $data;
 
         /** @var Doku_Renderer_xhtml $renderer */
         if ($state == DOKU_LEXER_ENTER) {
-            $background = $attributes['background'];
-            $background_image = $attributes['background-image'];
-            $color      = $attributes['color'];
+            $background = $attributes['background'] ?? null;
+            $background_image = $attributes['background-image'] ?? null;
+            $color      = $attributes['color'] ?? null;
             $class = (isset($attributes['class']) ? $attributes['class'] : '');
             $align = $attributes['align'];
 

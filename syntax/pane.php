@@ -39,7 +39,7 @@ class syntax_plugin_bootswrapper_pane extends syntax_plugin_bootswrapper_bootstr
         list($state, $match, $pos, $attributes) = $data;
 
         if ($state == DOKU_LEXER_ENTER) {
-            $id     = $attributes['id'];
+            $id     = $attributes['id'] ?? '';
             $markup = '<div role="tabpanel" class="bs-wrap bs-wrap-tab-pane tab-pane" id="' . $id . '">';
 
             $renderer->doc .= $markup;
