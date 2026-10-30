@@ -17,7 +17,7 @@ class syntax_plugin_bootswrapper_panel extends syntax_plugin_bootswrapper_bootst
 
         'type'     => array(
             'type'     => 'string',
-            'values'   => array('default', 'primary', 'success', 'info', 'warning', 'danger', 'usyd'),
+            'values'   => array('default', 'primary', 'success', 'info', 'warning', 'danger', 'usyd', 'spl'),
             'required' => true,
             'default'  => 'default'),
 
