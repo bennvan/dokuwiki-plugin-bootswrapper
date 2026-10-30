@@ -60,10 +60,11 @@ class syntax_plugin_bootswrapper_pagenav extends syntax_plugin_bootswrapper_boot
         list($state, $match, $pos, $attributes) = $data;
         if ($state == DOKU_LEXER_ENTER) {
 
-            $glob       = $attributes['regex'];
-            $show_start = $attributes['start'];
-            $next       = $attributes['next'];
-            $prev       = $attributes['prev'];
+            $glob       = $attributes['regex'] ?? '';
+            // The parser supplies true by default, but removes an explicit false.
+            $show_start = $attributes['start'] ?? false;
+            $next       = $attributes['next'] ?? '';
+            $prev       = $attributes['prev'] ?? '';
             $last       = '';
 
             $glob = preg_quote($glob, '/');
@@ -79,11 +80,10 @@ class syntax_plugin_bootswrapper_pagenav extends syntax_plugin_bootswrapper_boot
             $id = $INFO['id'];
 
             // find the start page and prepend to list (start is always first)
-            $exist = false;
             $ns    = getNS($INFO['id']);
-            $start = $ns . ':';
-            resolve_pageid($ns, $start, $exist);
-            if ($exist) {
+            $resolver = new \dokuwiki\File\PageResolver($id);
+            $start = $resolver->resolveId($ns . ':');
+            if (page_exists($start)) {
                 array_unshift($list, array('id' => $start));
             }
             $cnt = count($list);
@@ -91,12 +91,10 @@ class syntax_plugin_bootswrapper_pagenav extends syntax_plugin_bootswrapper_boot
             // Set custom defined ID's
             $cust_prev = false;
             if ($next) {
-                $next = $next['src'];
-                resolve_pageid($ns, $next, $exists);
+                $next = $resolver->resolveId($next['src']);
             }
             if ($prev) {
-                $prev = $prev['src'];
-                resolve_pageid($ns, $prev, $exists);
+                $prev = $resolver->resolveId($prev['src']);
                 $cust_prev = true;
             } else {
                 $prev = $start;
@@ -134,7 +132,7 @@ class syntax_plugin_bootswrapper_pagenav extends syntax_plugin_bootswrapper_boot
             $start_txt = ($id == $start)? ' ('. $this->getLang('start') . ')' : '';
             $renderer->doc .= '<div class="bs-wrap-pagenav">';
             $renderer->doc .= '<div class="bs-wrap-pagenav-current"> <b>' . $this->getLang('current'). ':</b> ';
-            $renderer->doc .= hsc(p_get_first_heading($id)) . $start_txt . '</div>';
+            $renderer->doc .= hsc(p_get_first_heading($id) ?: noNS($id)) . $start_txt . '</div>';
 
             $renderer->doc                  .= $this->buildImgLink($prev, 'prev', 'arrow-left', true);
             if ($show_start) $renderer->doc .= $this->buildImgLink($start, 'start', 'bars', true);
@@ -166,11 +164,11 @@ class syntax_plugin_bootswrapper_pagenav extends syntax_plugin_bootswrapper_boot
         }
 
 
-        $title = p_get_first_heading($page);
+        $title = p_get_first_heading($page) ?: noNS($page);
         
         $attr = [
             'href' => wl($page),
-            'title' => $this->getLang($cmd) . ': ' . hsc($title),
+            'title' => $this->getLang($cmd) . ': ' . $title,
             'class' => 'btn btn-primary wikilink1 ' . $cmd,
         ];
         if ($cmd == 'current') {

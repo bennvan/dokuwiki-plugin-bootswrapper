@@ -62,7 +62,7 @@ class syntax_plugin_bootswrapper_bootstrap extends dokuwiki\Extension\SyntaxPlug
      *
      * @param   array  $attributes
      */
-    protected function checkAttributes($attributes = array(), Doku_Handler $handler)
+    protected function checkAttributes($attributes, Doku_Handler $handler)
     {
 
         global $ACT;
