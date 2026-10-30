@@ -886,6 +886,10 @@ span.bs-wrap-button a.btn {
 
 .bs-wrap-pagenav>a,
 .bs-wrap-pagenav>button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25em;
   margin: 5px;
 }
 
