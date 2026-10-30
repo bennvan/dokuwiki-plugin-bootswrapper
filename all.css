@@ -809,6 +809,47 @@ span.bs-wrap-button a.btn {
   border-top-color: #e64626;
 }
 
+/* Sydney Propulsion Lab: neutral grey with the logo's blue accent. */
+.card-spl,
+.panel-spl {
+  border-color: #0064de;
+}
+
+.card-spl > .card-heading,
+.panel-spl > .panel-heading,
+.card-spl > .card-footer,
+.panel-spl > .panel-footer {
+  color: #fff;
+  background-color: #383838;
+  border-color: #0064de;
+}
+
+.card-spl > .card-thumbnail img.media {
+  border-color: #0064de;
+}
+
+.panel-spl > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #0064de;
+}
+
+.bg-spl {
+  background-color: #383838;
+  color: #fff;
+}
+
+.bg-spl-grey {
+  background-color: #383838;
+}
+
+.bs-wrap-jumbotron.bg-spl-grey {
+  border-left: 5px solid #0064de;
+}
+
+.bg-spl a:not(.btn),
+.bs-wrap-jumbotron.bg-spl-grey a:not(.btn) {
+  color: #a9cfff;
+}
+
 /*DARK*/
 .card-dark,
 .panel-dark {

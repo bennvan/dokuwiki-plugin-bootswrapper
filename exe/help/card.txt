@@ -23,6 +23,22 @@ Body content
 </card>
 </code>
 
+===== SPL colours =====
+Use ''type="spl"'' for grey headings and footers with SPL blue borders.
+Add ''background="true"'' to give the card body the same grey background and light text.
+
+<code html>
+<card type="spl" title="Sydney Propulsion Lab" footer="Lab resources">
+Card content
+</card>
+
+<card type="spl" title="Lab notices" background="true">
+Card content on grey
+</card>
+</code>
+
+The same type is available for panels. Jumbotrons without an explicit background now use the darker SPL grey; ''background'', ''background-image'' and ''color'' overrides still apply.
+
 ===== Advanced usage =====
 <grid>
 <col md="4">

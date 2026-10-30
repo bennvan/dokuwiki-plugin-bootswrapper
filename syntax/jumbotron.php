@@ -78,7 +78,7 @@ class syntax_plugin_bootswrapper_jumbotron extends syntax_plugin_bootswrapper_bo
             }
 
             if (!$background_image && !$background) {
-                $html_attributes['class'][] = 'bg-usyd-grey text-light';
+                $html_attributes['class'][] = 'bg-spl-grey text-light';
             }
 
             if ($color) {
