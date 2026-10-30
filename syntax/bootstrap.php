@@ -226,7 +226,7 @@ class syntax_plugin_bootswrapper_bootstrap extends dokuwiki\Extension\SyntaxPlug
 
                 $title = trim($title, '=');
                 $title = trim($title);
-                $handler->_addCall('header', array($title, $level, $pos), $pos);
+                $handler->addCall('header', array($title, $level, $pos), $pos);
                 break;
 
             case DOKU_LEXER_ENTER:
@@ -391,15 +391,15 @@ class syntax_plugin_bootswrapper_bootstrap extends dokuwiki\Extension\SyntaxPlug
 
         // For empty $id we need to know the current $ID
         // We need this check because _simpleTitle needs
-        // correct $id and resolve_pageid() use cleanID($id)
+        // correct $id and page resolution use cleanID($id)
         // (some things could be lost)
         if($id === '') {
             $id = $ID;
         }
 
         // now first resolve and clean up the $id
-        $exists = null;
-        resolve_pageid(getNS($ID), $id, $exists, $renderer->date_at, true);
+        $id = (new \dokuwiki\File\PageResolver($ID))->resolveId($id, $renderer->date_at, true);
+        $exists = page_exists($id, $renderer->date_at, false, true);
 
         //keep hash anchor
         @list($id, $hash) = explode('#', $id, 2);
@@ -432,7 +432,8 @@ class syntax_plugin_bootswrapper_bootstrap extends dokuwiki\Extension\SyntaxPlug
             }
 
         if ($media['type'] == 'internalmedia') {
-            resolve_mediaid(getNS($ID), $src, $exists, $renderer->date_at, true);
+            $src = (new \dokuwiki\File\MediaResolver($ID))->resolveId($src, $renderer->date_at, true);
+            $exists = media_exists($src, $renderer->date_at, false, true);
         }
 
         $url = ml(
