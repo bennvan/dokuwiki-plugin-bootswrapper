@@ -53,7 +53,7 @@ $JSINFO['namespace'] = '';
 $NS = cleanID($INPUT->str('ns'));
 
 $tmp = array();
-trigger_event('MEDIAMANAGER_STARTED', $tmp);
+\dokuwiki\Extension\Event::createAndTrigger('MEDIAMANAGER_STARTED', $tmp);
 session_write_close(); //close session
 
 $syntax = array();
