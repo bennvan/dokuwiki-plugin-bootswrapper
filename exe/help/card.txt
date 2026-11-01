@@ -23,21 +23,21 @@ Body content
 </card>
 </code>
 
-===== SPL colours =====
-Use ''type="spl"'' for grey headings and footers with SPL blue borders.
-Add ''background="true"'' to give the card body the same grey background and light text.
+===== Dark accent colours =====
+Use ''type="dark-blue"'' for grey headings and footers with blue borders, or ''type="dark-orange"'' for dark grey headings and orange borders.
+For ''dark-blue'', add ''background="true"'' to give the card body the same grey background and light text.
 
 <code html>
-<card type="spl" title="Sydney Propulsion Lab" footer="Lab resources">
+<card type="dark-blue" title="Resources" footer="Useful links">
 Card content
 </card>
 
-<card type="spl" title="Lab notices" background="true">
+<card type="dark-blue" title="Notices" background="true">
 Card content on grey
 </card>
 </code>
 
-The same type is available for panels. Jumbotrons without an explicit background now use the darker SPL grey; ''background'', ''background-image'' and ''color'' overrides still apply.
+These types are also available for panels. Jumbotrons without an explicit background use a plain dark-grey background without an accent border; ''background'', ''background-image'' and ''color'' overrides still apply.
 
 ===== Advanced usage =====
 <grid>
@@ -47,7 +47,7 @@ title="Title"
 icon="fa:user" 
 subtitle="Subtitle" 
 footer="Footer" 
-type="usyd" 
+type="orange"
 background="true" 
 link="#" 
 thumbnail=":wiki:logo.png?100"
@@ -65,7 +65,7 @@ icon="fa:user"
 title="Title" 
 subtitle="Subtitle" 
 footer="Footer" 
-type="usyd" 
+type="orange"
 background="true" 
 link="#" 
 thumbnail=":wiki:logo.png?100"
@@ -114,8 +114,8 @@ Danger Card
 </col>
 
 <col md="2">
-<card type="usyd" title="USYD" background="true">
-USYD Colours Card
+<card type="orange" title="Orange" background="true">
+Orange Card
 </card>
 </col>
 
@@ -339,7 +339,7 @@ Some custom added body content to use with a list-group.
 <datatable info="false" paging="false" searching="true">
 
 ^ Attribute       ^ Default Value  ^ Allowed Values                                                                                 ^ Description                                                                      ^
-| ''type''        | ''default''    | ''default'' ''primary'' ''success'' ''info'' ''warning'' ''danger'' (''usyd'')                 | Type of card to implicitly define text and background colour.                    |
+| ''type''        | ''default''    | ''default'' ''primary'' ''success'' ''info'' ''warning'' ''danger'' ''dark'' ''orange'' ''dark-orange'' ''dark-blue''                 | Type of card to implicitly define text and background colour.                    |
 | ''title''       |                |                                                                                                | Title of card                                                                    |
 | ''subtitle''    |                |                                                                                                | Subtitle of card                                                                 |
 | ''footer''      |                |                                                                                                | Footer of the card                                                               |

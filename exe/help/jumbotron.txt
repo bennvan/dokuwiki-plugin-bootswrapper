@@ -26,6 +26,8 @@ content or information.
 
 ===== Background and text colors =====
 
+Jumbotrons use a plain dark-grey background and light text by default, with no accent border. Use ''background'' and ''color'' to override these colours.
+
 <jumbotron background="black" color="#fff">
 ====== Lorem ipsum! ======
 
@@ -45,4 +47,4 @@ Lorem ipsum dolor sit amet, [...]
 | ''background'' | Background color. Can be a W3C color name/HEX (eg. ''lightblue'' or ''#4098f6'' or ''none''). Can be used in conjunction with ''backround-image'' to make overlays of specific color and opacity (eg. ''rgb(255,255,255,0.5)'' for a white overlay of 50% opacity). |
 | ''background-image'' | Background image. Can be a URL or relative/absolute DokuWiki Media link (eg '':wiki:logo.png''). |
 | ''color''      | Color name or HEX (eg. ''#ffffff'') of text. |
-| ''class''      | Any additional classes to apply to element (eg. ''bg-info'' or ''border''). Default is ''bg-usyd-grey text-light''. |
+| ''class''      | Any additional classes to apply to element (eg. ''bg-info'' or ''border''). Default is ''bg-dark-grey text-light''. |

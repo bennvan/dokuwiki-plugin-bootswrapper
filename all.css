@@ -741,141 +741,133 @@ span.bs-wrap-button a.btn {
   border-color: #df382c;
 }
 
-/*USYD*/
-.card-usyd,
-.panel-usyd {
-  border-color: #e64626;
+/* Orange */
+.card-orange,
+.panel-orange {
+  border-color: #df542f;
 }
 
-.card-usyd > .card-heading,
-.panel-usyd > .panel-heading {
+.card-orange > .card-heading,
+.panel-orange > .panel-heading {
   color: #fff;
-  background-color: #e64626;
-  border-color: #e64626;
+  background-color: #df542f;
+  border-color: #df542f;
 }
 
-.card-usyd > .card-footer,
-.panel-usyd > .panel-footer {
+.card-orange > .card-footer,
+.panel-orange > .panel-footer {
   color: #fff;
-  background-color: #e64626;
-  border-color: #e64626;
+  background-color: #df542f;
+  border-color: #df542f;
 }
 
-.card-usyd > .card-thumbnail img.media {
-  border-color: #e64626;
+.card-orange > .card-thumbnail img.media {
+  border-color: #df542f;
 }
 
-.panel-usyd > .panel-heading+.panel-collapse > .panel-body {
-  border-top-color: #e64626;
+.panel-orange > .panel-heading+.panel-collapse > .panel-body {
+  border-top-color: #df542f;
 }
 
-.bg-usyd-grey {
-  background-color: #363636
+.bg-dark-grey {
+  background-color: #3b3b3b;
 }
 
-.bg-usyd-orange {
-  background-color: #e64626;
+.bg-orange {
+  background-color: #df542f;
 }
 
 .text-light {
   color: #fff;
 }
 
-/*USYD DARK*/
-.card-usyd-dark,
-.panel-usyd-dark {
-  border-color: #e64626;
+/* Dark orange */
+.card-dark-orange,
+.panel-dark-orange {
+  border-color: #df542f;
 }
 
-.card-usyd-dark > .card-heading,
-.panel-usyd-dark > .panel-heading {
+.card-dark-orange > .card-heading,
+.panel-dark-orange > .panel-heading {
   color: #fff;
-  background-color: #363636;
-  border-color: #e64626;
+  background-color: #3b3b3b;
+  border-color: #df542f;
 }
 
-.card-usyd-dark > .card-footer,
-.panel-usyd-dark > .panel-footer {
+.card-dark-orange > .card-footer,
+.panel-dark-orange > .panel-footer {
   color: #fff;
-  background-color: #363636;
-  border-color: #e64626;
+  background-color: #3b3b3b;
+  border-color: #df542f;
 }
 
-.card-usyd-dark > .card-thumbnail img.media {
-  border-color: #e64626;
+.card-dark-orange > .card-thumbnail img.media {
+  border-color: #df542f;
 }
 
-.panel-usyd-dark > .panel-heading+.panel-collapse > .panel-body {
-  border-top-color: #e64626;
+.panel-dark-orange > .panel-heading+.panel-collapse > .panel-body {
+  border-top-color: #df542f;
 }
 
-/* Sydney Propulsion Lab: neutral grey with the logo's blue accent. */
-.card-spl,
-.panel-spl {
+/* Dark blue: neutral grey with blue accents. */
+.card-dark-blue,
+.panel-dark-blue {
   border-color: #0064de;
 }
 
-.card-spl > .card-heading,
-.panel-spl > .panel-heading,
-.card-spl > .card-footer,
-.panel-spl > .panel-footer {
+.card-dark-blue > .card-heading,
+.panel-dark-blue > .panel-heading,
+.card-dark-blue > .card-footer,
+.panel-dark-blue > .panel-footer {
   color: #fff;
-  background-color: #383838;
+  background-color: #3b3b3b;
   border-color: #0064de;
 }
 
-.card-spl > .card-thumbnail img.media {
+.card-dark-blue > .card-thumbnail img.media {
   border-color: #0064de;
 }
 
-.panel-spl > .panel-heading + .panel-collapse > .panel-body {
+.panel-dark-blue > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #0064de;
 }
 
-.bg-spl {
-  background-color: #383838;
+.bg-dark-blue {
+  background-color: #3b3b3b;
   color: #fff;
 }
 
-.bg-spl-grey {
-  background-color: #383838;
-}
-
-.bs-wrap-jumbotron.bg-spl-grey {
-  border-left: 5px solid #0064de;
-}
-
-.bg-spl a:not(.btn),
-.bs-wrap-jumbotron.bg-spl-grey a:not(.btn) {
+.bg-dark-blue a:not(.btn),
+.bs-wrap-jumbotron.bg-dark-grey a:not(.btn) {
   color: #a9cfff;
 }
 
 /*DARK*/
 .card-dark,
 .panel-dark {
-  border-color: #363636;
+  border-color: #3b3b3b;
 }
 
 .card-dark > .card-heading,
 .panel-dark > .panel-heading {
   color: #fff;
-  background-color: #363636;
-  border-color: #363636;
+  background-color: #3b3b3b;
+  border-color: #3b3b3b;
 }
 
 .card-dark > .card-footer,
 .panel-dark > .panel-footer {
   color: #fff;
-  background-color: #363636;
-  border-color: #363636;
+  background-color: #3b3b3b;
+  border-color: #3b3b3b;
 }
 
 .card-dark > .card-thumbnail img.media {
-  border-color: #363636;;
+  border-color: #3b3b3b;;
 }
 
 .panel-dark > .panel-heading+.panel-collapse > .panel-body {
-  border-top-color: #363636;;
+  border-top-color: #3b3b3b;;
 }
 
 /*Pagenav*/
