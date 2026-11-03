@@ -3,6 +3,38 @@ Bootstrap Wrapper Plugin for DokuWiki
 
 Bootstrap Wrapper for DokuWiki
 
+## Nested wrappers
+
+Use lowercase `<wrapper>` for a block container. Wrappers can be nested:
+
+```text
+<wrapper class="text-center">
+Outer content
+
+<wrapper class="well">
+Inner content
+</wrapper>
+
+More outer content
+</wrapper>
+```
+
+By default a wrapper produces a `<div>`. Use `inline="true"` to style text inside
+a sentence without breaking the paragraph:
+
+```text
+Status: <wrapper inline="true" class="text-danger">Out of service</wrapper> today.
+```
+
+Inline wrappers produce `<span>` elements and can contain other inline wrappers.
+Block wrappers can contain both block and inline wrappers. Keep block content
+(paragraphs, headings, lists and tables) outside inline wrappers.
+
+Both forms accept the usual `class`, `id` and `style` attributes. Uppercase
+`<WRAPPER>` is no longer supported; change existing tags to lowercase. For older
+lowercase wrappers used within sentences, add `inline="true"` to retain inline
+formatting.
+
 All documentation for this plugin can be found at
 http://www.dokuwiki.org/plugin:bootswrapper
 
