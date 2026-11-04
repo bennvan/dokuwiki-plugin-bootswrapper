@@ -40,6 +40,16 @@ class action_plugin_bootswrapper extends \dokuwiki\Extension\ActionPlugin
         $controller->register_hook('ACTION_ACT_PREPROCESS', 'BEFORE', $this, 'handleDoReadOnly');
         $controller->register_hook('AUTH_ACL_CHECK', 'AFTER', $this, 'handleReadOnlyAcl');
         $controller->register_hook('PLUGIN_MOVE_HANDLERS_REGISTER', 'BEFORE', $this, 'handle_move_register');
+        $controller->register_hook('RENDERER_CONTENT_POSTPROCESS', 'AFTER', $this, 'pdfTags');
+    }
+
+    /** Give Tag plugin lists printable labels and badges, only in DW2PDF. */
+    public function pdfTags(Doku_Event $event)
+    {
+        if ($event->data[0] !== 'dw2pdf') return;
+        $event->data[1] = \dokuwiki\plugin\bootswrapper\PdfTags::render(
+            $event->data[1], $this->getLang('pdf_tags')
+        );
     }
 
     /**

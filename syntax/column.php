@@ -71,7 +71,22 @@ class syntax_plugin_bootswrapper_column extends syntax_plugin_bootswrapper_boots
                 $col .= isset($attributes[$device]) ? "col-$device-{$attributes[$device]} " : '';
             }
 
-            $markup = '<div class="bs-wrap bs-wrap-col ' . trim($col) . '">';
+            $pdf_style = '';
+            if ($renderer instanceof renderer_plugin_dw2pdf) {
+                // Paper has no responsive viewport. Prefer the desktop layout,
+                // falling back to the smaller or larger explicit breakpoint.
+                $span = 12;
+                foreach (array('md', 'sm', 'xs', 'lg') as $device) {
+                    if (isset($attributes[$device])) {
+                        $span = (int) $attributes[$device];
+                        break;
+                    }
+                }
+                // mPDF uses content-box widths: leave space for the two gutters.
+                $width = rtrim(rtrim(number_format($span * 100 / 12 - 2, 4, '.', ''), '0'), '.');
+                $pdf_style = ' style="float:left;width:' . $width . '%;margin-left:1%;margin-right:1%;padding:0"';
+            }
+            $markup = '<div class="bs-wrap bs-wrap-col ' . trim($col) . '"' . $pdf_style . '>';
 
             $renderer->doc .= $markup;
             return true;

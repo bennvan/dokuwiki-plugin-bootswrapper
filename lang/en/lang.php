@@ -12,3 +12,4 @@ $lang['start'] = 'Start';
 $lang['last'] = 'Last';
 $lang['first'] = 'First';
 $lang['current'] = 'Current page';
+$lang['pdf_tags'] = 'Tags:';
