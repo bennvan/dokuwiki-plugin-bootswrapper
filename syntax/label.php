@@ -62,7 +62,7 @@ class syntax_plugin_bootswrapper_label extends syntax_plugin_bootswrapper_bootst
             $markup = '<' . $label_tag . ' class="bs-wrap bs-wrap-label label label-' . $type . '">';
 
             if ($icon && $icon_class) {
-                $markup .= '<i class="iconify" data-icon="' . $icon_class . '"></i> ';
+                $markup .= $this->renderIcon($icon_class, $renderer, '', '1em', '', $this->getPdfContextColor($type)) . ' ';
             }
 
             $renderer->doc .= $markup;

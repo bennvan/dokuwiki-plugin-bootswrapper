@@ -165,7 +165,7 @@ class syntax_plugin_bootswrapper_button extends syntax_plugin_bootswrapper_boots
             $markup .= '<a ' . $this->buildAttributes($btn_attributes) . '>';
 
             if ($icon && $icon_class) {
-                $markup .= '<i class="iconify" data-icon="'. $icon_class . '"></i>&nbsp;' . $heading;
+                $markup .= $this->renderIcon($icon_class, $renderer, '', '1em', '', $this->getPdfContextColor($type)) . '&nbsp;' . $heading;
             }
 
             $renderer->doc .= $markup;

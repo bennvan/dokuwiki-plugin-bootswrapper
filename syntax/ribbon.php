@@ -166,7 +166,7 @@ class syntax_plugin_bootswrapper_ribbon extends syntax_plugin_bootswrapper_boots
             $markup = '<div ' . $this->buildAttributes($html_attributes) . '><div '. $this->buildAttributes($content_attributes) . '>';
 
             if ($icon_class) {
-                $markup .= '<span><i class="iconify" data-icon="' . $icon_class . '"' . $text_color . '></i></span></br>';
+                $markup .= '<span>' . $this->renderIcon($icon_class, $renderer, '', '1em', $color) . '</span><br />';
             }
 
             $renderer->doc .= $markup;

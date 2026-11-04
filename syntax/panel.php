@@ -161,7 +161,7 @@ class syntax_plugin_bootswrapper_panel extends syntax_plugin_bootswrapper_bootst
             if ($title || $subtitle) {
 
                 if ($icon && $icon_class) {
-                    $title = '<i class="iconify" data-icon="' . $icon_class . '"></i> ' . $title;
+                    $title = $this->renderIcon($icon_class, $renderer, '', '1em', $color, $this->getPdfContextColor($type)) . ' ' . $title;
                 }
 
                 $markup .= '<div class="panel-heading '.$align.'"><h4 class="panel-title">' . $title . '</h4>' . $subtitle . '</div>';

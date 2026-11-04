@@ -152,7 +152,9 @@ class syntax_plugin_bootswrapper_callout extends syntax_plugin_bootswrapper_boot
 
 
             if ($icon && $icon_class) {
-                $markup .= '<div class="row"><div class="col-xs-1"><i class="bs-callout-icon iconify" data-icon="' . $icon_class . '"' . $text_color . '></i></div><div class="col-xs-11">';
+                $icon_markup = $this->renderIcon($icon_class, $renderer, 'bs-callout-icon', '32px', $color,
+                    $this->getPdfContextColor($type));
+                $markup .= '<div class="row"><div class="col-xs-1">' . $icon_markup . '</div><div class="col-xs-11">';
             }
 
             if ($title) {

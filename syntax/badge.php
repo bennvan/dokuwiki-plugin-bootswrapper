@@ -89,7 +89,7 @@ class syntax_plugin_bootswrapper_badge extends syntax_plugin_bootswrapper_bootst
             $markup = '<'.$badge_tag . ' ' . $this->buildAttributes($html_attributes) . '>';
 
             if ($icon && $icon_class) {
-                $markup .= '<i class="iconify" data-icon="' . $icon_class . '"></i> ';
+                $markup .= $this->renderIcon($icon_class, $renderer, '', '1em', $color, $this->getPdfContextColor($type)) . ' ';
             }
 
             $renderer->doc .= $markup;

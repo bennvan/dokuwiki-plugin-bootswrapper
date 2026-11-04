@@ -453,6 +453,31 @@ class syntax_plugin_bootswrapper_bootstrap extends dokuwiki\Extension\SyntaxPlug
         return array($url, $exists);
     }
 
+    /** One icon path for browser placeholders and DW2PDF's local SVG images. */
+    protected function renderIcon($id, Doku_Renderer $renderer, $class = '', $size = '1em', $color = '', $pdfColor = '#000000')
+    {
+        $display = $class === 'bs-callout-icon' ? 'block' : 'inline-block';
+        $style = 'display:' . $display . ';width:' . $size . ';height:' . $size . ';vertical-align:-0.125em';
+        if ($color) $style .= ';color:' . $color;
+        if ($renderer instanceof renderer_plugin_dw2pdf && class_exists(\dokuwiki\plugin\icons\PdfIcon::class)) {
+            $file = \dokuwiki\plugin\icons\PdfIcon::file($id, $color ?: $pdfColor);
+            if ($file) {
+                return '<img class="bs-wrap-icon ' . hsc($class) . '" src="' . hsc('dw2pdf://' . $file)
+                    . '" style="' . hsc('width:' . $size . ';height:' . $size . ';vertical-align:middle') . '" alt="" />';
+            }
+        }
+        return '<i class="iconify bs-wrap-icon ' . hsc($class) . '" data-icon="' . hsc($id)
+            . '" style="' . hsc($style) . '"></i>';
+    }
+
+    /** Match the contextual text colours in pdf.less. */
+    protected function getPdfContextColor($type)
+    {
+        return ['primary' => '#245580', 'success' => '#3c763d', 'info' => '#31708f',
+                'warning' => '#8a6d3b', 'danger' => '#a94442', 'dark' => '#ffffff',
+                'dark-blue' => '#ffffff', 'dark-orange' => '#ffffff', 'orange' => '#ffffff'][$type] ?? '#333333';
+    }
+
     public function getContextIcon($type) {
     # Automatic settings of icon by context
         switch ($type) {

@@ -267,7 +267,7 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
             if ($title || $subtitle) {
 
                 if ($icon && $icon_class) {
-                    $title = '<i class="iconify" data-icon="' . $icon_class . '"></i> ' . $title;
+                    $title = $this->renderIcon($icon_class, $renderer, '', '1em', $header_color, $this->getPdfContextColor($type)) . ' ' . $title;
                 }
 
                 $markup .= '<div ' . $this->buildAttributes($header_attributes) . '><h4 class="card-title" >' . $title . '</h4>'.$subtitle.'</div>';
