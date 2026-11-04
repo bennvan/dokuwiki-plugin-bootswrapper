@@ -92,7 +92,7 @@ class syntax_plugin_bootswrapper_ribbon extends syntax_plugin_bootswrapper_boots
             switch ($type) {
                 case 'primary':                
                     $type = 'up';
-                    $icon_class = 'exclamation-circle';
+                    $icon_class = 'circle-exclamation';
                     $background = '#428bca';
                     break;
                 case 'success':
@@ -102,32 +102,32 @@ class syntax_plugin_bootswrapper_ribbon extends syntax_plugin_bootswrapper_boots
                     break;
                 case 'info':
                     $type = 'up';
-                    $icon_class = 'info-circle';
+                    $icon_class = 'circle-info';
                     $background = '#5bc0de';
                     break;
                 case 'warning':
                     $type = 'up';
-                    $icon_class = 'exclamation-triangle';
+                    $icon_class = 'triangle-exclamation';
                     $background = '#f0ad4e';
                     break;
                 case 'danger':
                     $type = 'up';
-                    $icon_class = 'minus-circle';
+                    $icon_class = 'circle-minus';
                     $background = '#d9534f';
                     break;
                 case 'question':
                     $type       = 'up';
-                    $icon_class = 'question-circle';
+                    $icon_class = 'circle-question';
                     $background = '#428bca';
                     break;
                 case 'tip':
                     $type       = 'up';
-                    $icon_class = 'lightbulb-o';
+                    $icon_class = 'lightbulb';
                     $background = '#f0ad4e';
                     break;
                 case 'cogs':
                     $type = 'up';
-                    $icon_class = 'cogs';
+                    $icon_class = 'gears';
                     $background = 'orange';
                     break;
 
@@ -137,7 +137,7 @@ class syntax_plugin_bootswrapper_ribbon extends syntax_plugin_bootswrapper_boots
 
             # If icon is auto set or present
             if (strtolower($icon) == 'true') {
-                $icon_class = "fa:$icon_class";
+                $icon_class = $icon_class !== '' ? "fa:$icon_class" : '';
             }
             else {
                 $icon_class = $icon;

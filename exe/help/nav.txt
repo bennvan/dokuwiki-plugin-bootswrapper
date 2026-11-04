@@ -135,7 +135,7 @@ Instead of ''<nowiki><nav type="pills"></nowiki>'' you can use ''<nowiki><pills>
 ===== With Icons Plugin =====
 
 <tabs>
-  * {{fa>home}} DokuWiki
+  * {{fa>house}} DokuWiki
     * [[wiki:welcome]]
     * [[wiki:syntax]]
 </tabs>
@@ -144,7 +144,7 @@ Instead of ''<nowiki><nav type="pills"></nowiki>'' you can use ''<nowiki><pills>
 
 <code .html5>
 <tabs>
-  * {{fa>home}} DokuWiki
+  * {{fa>house}} DokuWiki
     * [[wiki:welcome]]
     * [[wiki:syntax]]
 </tabs>
@@ -154,10 +154,10 @@ Instead of ''<nowiki><nav type="pills"></nowiki>'' you can use ''<nowiki><pills>
 
 <tabs>
   * File
-    * {{fa>file-o?fw}} [[#new|New]]
+    * {{fa>file?fw}} [[#new|New]]
     * {{fa>folder-open?fw}} [[#open|Open]]
     * {{fa>print?fw}} [[#print|Print]]
-    * {{fa>close?fw}} [[#close|Close]]
+    * {{fa>xmark?fw}} [[#close|Close]]
   * ?
     * {{fa>info?fw}} [[#about|About...]]
 </tabs>
@@ -167,10 +167,10 @@ Instead of ''<nowiki><nav type="pills"></nowiki>'' you can use ''<nowiki><pills>
 <code html>
 <tabs>
   * File
-    * {{fa>file-o?fw}} [[#new|New]]
+    * {{fa>file?fw}} [[#new|New]]
     * {{fa>folder-open?fw}} [[#open|Open]]
     * {{fa>print?fw}} [[#print|Print]]
-    * {{fa>close?fw}} [[#close|Close]]
+    * {{fa>xmark?fw}} [[#close|Close]]
   * ?
     * {{fa>info?fw}} [[#about|About...]]
 </tabs>

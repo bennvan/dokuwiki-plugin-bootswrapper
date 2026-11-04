@@ -457,29 +457,29 @@ class syntax_plugin_bootswrapper_bootstrap extends dokuwiki\Extension\SyntaxPlug
     # Automatic settings of icon by context
         switch ($type) {
             case 'primary':
-                $icon_class = 'exclamation-circle';
+                $icon_class = 'circle-exclamation';
                 break;
                 
             case 'success':
-                $icon_class = 'check-circle';
+                $icon_class = 'circle-check';
                 break;
 
             case 'info':
-                $icon_class = 'info-circle';
+                $icon_class = 'circle-info';
                 break;
 
             case 'warning':
-                $icon_class = 'exclamation-triangle';
+                $icon_class = 'triangle-exclamation';
                 break;
 
             case 'danger':
-                $icon_class = 'minus-circle';
+                $icon_class = 'circle-minus';
                 break;
 
             default:
                 $icon_class = '';
             }
-        return "fa:$icon_class";
+        return $icon_class !== '' ? "fa:$icon_class" : '';
     } 
 
 }

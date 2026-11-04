@@ -79,8 +79,8 @@ Adjust the ribbon offsets using the ''right'' and ''top'' attributes.
 {{fa>star?fw}}
 {{fa>star?fw}}
 {{fa>star?fw}}
-{{fa>star-half-o?fw}}
-{{fa>star-o?fw}} \\
+{{fa>star-half-stroke?fw}}
+{{icon>fa-regular:star?fw}} \\
 3<sup>1/2</sup> of 5 Stars
 </ribbon>
 </jumbotron>
@@ -90,8 +90,8 @@ Adjust the ribbon offsets using the ''right'' and ''top'' attributes.
 {{fa>star?fw}}
 {{fa>star?fw}}
 {{fa>star?fw}}
-{{fa>star-half-o?fw}}
-{{fa>star-o?fw}} \\
+{{fa>star-half-stroke?fw}}
+{{icon>fa-regular:star?fw}} \\
 3<sup>1/2</sup> of 5 Stars
 </ribbon>
 </code>

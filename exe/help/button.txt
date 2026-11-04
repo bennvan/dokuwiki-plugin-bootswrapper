@@ -26,9 +26,9 @@
 
 ==== Link button ====
 
-<code html><btn type="success" size="lg" icon="fa:edit" link=":wiki:welcome" title="Text that will appear on hover" auto-heading="true"></btn></code>
+<code html><btn type="success" size="lg" icon="fa:pen-to-square" link=":wiki:welcome" title="Text that will appear on hover" auto-heading="true"></btn></code>
 
-<btn type="success" size="lg" icon="fa:edit" link=":wiki:welcome" title="Text that will appear on hover" auto-heading="true"></btn>
+<btn type="success" size="lg" icon="fa:pen-to-square" link=":wiki:welcome" title="Text that will appear on hover" auto-heading="true"></btn>
 
 \\
 

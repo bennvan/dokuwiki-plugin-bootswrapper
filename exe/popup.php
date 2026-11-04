@@ -138,7 +138,7 @@ header('X-UA-Compatible: IE=edge,chrome=1');
         <?php if (file_exists(dirname(__FILE__) . '/help/' . $tag . '.txt')): ?>
         <div class="text-right">
           <button title="Help <?php echo $tag ?>" type="button" data-help="help.php?syntax=<?php echo $tag ?>" data-toggle="modal" data-target="#help-modal" class="btn btn-xs btn-primary help-btn">
-            <i class="fa fa-question-circle"></i>
+            <i class="fa fa-circle-question"></i>
         </button>
         </div>
         <?php endif;?>
@@ -218,12 +218,12 @@ header('X-UA-Compatible: IE=edge,chrome=1');
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title"><i class="fa fa-question-circle"></i> Help</h4>
+          <h4 class="modal-title"><i class="fa fa-circle-question"></i> Help</h4>
         </div>
         <div class="modal-body px-5"></div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default btn-primary" data-dismiss="modal">
-            <i class="fa fa-times"></i> Close
+            <i class="fa fa-xmark"></i> Close
           </button>
         </div>
       </div>

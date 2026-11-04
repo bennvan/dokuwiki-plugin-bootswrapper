@@ -113,14 +113,14 @@ Easily include full-width [[list-group|list groups]] within any panel.
 
 ===== With icons =====
 
-<panel type="default" title="Panel title" subtitle="Panel subtitle" icon="fa:home">
+<panel type="default" title="Panel title" subtitle="Panel subtitle" icon="fa:house">
 Panel content
 </panel>
 <panel type="success" title="Panel title" subtitle="Panel subtitle" icon="true">
 A success panel with icon
 </panel>
 \\
-<code html><panel type="default" title="Panel title" subtitle="Panel subtitle" icon="fa:home">
+<code html><panel type="default" title="Panel title" subtitle="Panel subtitle" icon="fa:house">
 Panel content
 </panel>
 <panel type="success" title="Panel title" subtitle="Panel subtitle" icon="true">

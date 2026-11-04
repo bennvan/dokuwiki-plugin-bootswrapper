@@ -82,53 +82,56 @@ class syntax_plugin_bootswrapper_callout extends syntax_plugin_bootswrapper_boot
             # Automatic settings of params by type
             switch ($type) {
                 case 'success':
-                    $icon_class = 'check-circle';
+                    $icon_class = 'circle-check';
                     $background_class = 'success';
                     break;
 
                 case 'info':
-                    $icon_class = 'info-circle';
+                    $icon_class = 'circle-info';
                     $background_class = 'info';
                     break;
 
                 case 'danger':
-                    $icon_class = 'minus-circle';
+                    $icon_class = 'circle-minus';
                     $background_class = 'danger';
                     break;
 
                 case 'primary':
-                    $icon_class = 'exclamation-circle';
+                    $icon_class = 'circle-exclamation';
                     $background_class = 'primary-light';
                     break;
 
                 case 'warning':
-                    $icon_class = 'exclamation-triangle';
+                    $icon_class = 'triangle-exclamation';
                     $background_class = 'warning';
                     break;
 
                 // Extra
                 case 'question':
                     $type       = 'primary';
-                    $icon_class = 'question-circle';
+                    $icon_class = 'circle-question';
                     $background_class = 'primary-light';
                     break;
 
                 case 'tip':
                     $type       = 'warning';
-                    $icon_class = 'lightbulb-o';
+                    $icon_class = 'lightbulb';
                     $background_class = 'warning';
                     break;
 
                 default:
-                    $icon_class = $type;
+                    $icon_class = '';
                 }
 
             # Icon attribute empty so defualt is to show type icon
             if (strtolower($icon) == 'true') {
-                $icon_class = "fa:$icon_class";
+                $icon_class = $icon_class !== '' ? "fa:$icon_class" : '';
             } else {
                 $icon_class = $icon;
             }
+
+            // Only close the icon columns when an icon was actually added.
+            $icon = $icon_class;
 
 
             # Bg attribute 

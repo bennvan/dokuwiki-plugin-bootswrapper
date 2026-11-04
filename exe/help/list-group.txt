@@ -71,11 +71,11 @@
 ===== Icons Plugin =====
 
 <code html><list-group>
-  * {{fa>home}} [[:start|Home-Page]]
+  * {{fa>house}} [[:start|Home-Page]]
 </list-group></code>
 
 \\
 
 <list-group>
-  * {{fa>home}} [[:start|Home-Page]]
+  * {{fa>house}} [[:start|Home-Page]]
 </list-group>
