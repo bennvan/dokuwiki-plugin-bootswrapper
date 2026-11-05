@@ -23,6 +23,18 @@ Body content
 </card>
 </code>
 
+===== Icon thumbnails =====
+
+Use the Icons plugin's ''icon>'' prefix followed by the icon identifier. The optional size is in pixels and defaults to 64.
+
+<code html>
+<card thumbnail="icon>iso7010:m003?64" no-body="true" no-border="true">
+<card-body>
+**Wear hearing protection**
+</card-body>
+</card>
+</code>
+
 ===== Dark accent colours =====
 Use ''type="dark-blue"'' for grey headings and footers with blue borders, or ''type="dark-orange"'' for dark grey headings and orange borders.
 For ''dark-blue'', add ''background="true"'' to give the card body the same grey background and light text.

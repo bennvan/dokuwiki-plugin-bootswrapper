@@ -233,7 +233,8 @@ class syntax_plugin_bootswrapper_bootstrap extends dokuwiki\Extension\SyntaxPlug
                 $attributes = array();
                 // & is not allowed in attribute but may sometimes be used. We will encode for only this case and use php urldecode() when needed.
                 $match = str_replace('&', '&amp;', $match);
-                $xml        = simplexml_load_string(str_replace('>', '/>', $match));
+                // Close only the tag itself; preserve > inside quoted attributes.
+                $xml        = simplexml_load_string(preg_replace('/>\s*$/', '/>', $match));
 
                 if (!is_object($xml)) {
                     $xml = simplexml_load_string('<foo />');

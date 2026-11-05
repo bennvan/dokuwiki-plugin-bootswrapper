@@ -10,7 +10,7 @@
 class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstrap
 {
 
-    public $pattern_start  = '<card.*?>\s(?=.*?</card>)';
+    public $pattern_start  = '<card\b(?:[^>"\']|"[^"]*"|\'[^\']*\')*>\s(?=.*?</card>)';
     public $pattern_end    = '</card>';
     public $tag_name       = 'card';
     public $tag_attributes = array(
@@ -111,7 +111,7 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
     protected function checkAttributes($attributes, Doku_Handler $handler)
     {
         $thumbnail = $attributes['thumbnail'] ?? '';
-        if (strpos($thumbnail, 'icon:') !== 0) {
+        if (strpos($thumbnail, 'icon>') !== 0) {
             return parent::checkAttributes($attributes, $handler);
         }
 
