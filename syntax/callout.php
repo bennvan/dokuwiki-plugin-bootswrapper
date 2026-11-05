@@ -71,6 +71,11 @@ class syntax_plugin_bootswrapper_callout extends syntax_plugin_bootswrapper_boot
             $title      = (isset($attributes['title']) ? $attributes['title'] : false);
             $background = (isset($attributes['background']) ? $attributes['background'] : '');
 
+            // Match the Icons plugin's ?pixel-size shorthand, including true?64.
+            [$icon, $requested_size] = array_pad(explode('?', $icon, 2), 2, '');
+            $icon_size = filter_var($requested_size, FILTER_VALIDATE_INT,
+                ['options' => ['min_range' => 1, 'max_range' => 512]]) ?: 32;
+
             $icon_class       = '';
             $text_color       = '';
             $callout_color    = '';
@@ -152,9 +157,17 @@ class syntax_plugin_bootswrapper_callout extends syntax_plugin_bootswrapper_boot
 
 
             if ($icon && $icon_class) {
-                $icon_markup = $this->renderIcon($icon_class, $renderer, 'bs-callout-icon', '32px', $color,
+                $icon_markup = $this->renderIcon($icon_class, $renderer, 'bs-callout-icon', $icon_size . 'px', $color,
                     $this->getPdfContextColor($type));
-                $markup .= '<div class="row"><div class="col-xs-1">' . $icon_markup . '</div><div class="col-xs-11">';
+                $icon_style = $body_style = '';
+                if ($renderer instanceof renderer_plugin_dw2pdf) {
+                    if ($icon_size !== 32) {
+                        $icon_style = ' style="width:' . $icon_size . 'px"';
+                        $body_style = ' style="float:none;width:auto;margin-left:' . ($icon_size + 8) . 'px"';
+                    }
+                }
+                $markup .= '<div class="row"><div class="col-xs-1"' . $icon_style . '>'
+                    . $icon_markup . '</div><div class="col-xs-11"' . $body_style . '>';
             }
 
             if ($title) {

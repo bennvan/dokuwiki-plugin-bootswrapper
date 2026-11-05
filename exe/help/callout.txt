@@ -164,6 +164,21 @@ This is a success callout with ''fa:plus'' icon
 
 <code html><callout type="success" icon="fa:plus"> [...] </callout></code>
 
+==== Icon size ====
+
+Append ''?96'' to the icon name to use a 96×96px icon in the page and PDF.
+Sizes from 1 to 512 pixels are supported; omitted or invalid sizes use 32px.
+The SVG keeps its proportions within this box. The text moves below the icon
+and fills the callout width on narrow screens.
+
+<code html>
+<callout type="info" title="Ear Protection" icon="iso7010:m003?96">
+Hearing protection must be worn.
+</callout>
+
+<callout type="warning" icon="true?64">A larger contextual icon.</callout>
+</code>
+
 ===== Custom colors =====
 
 <callout icon="fa-solid:syringe" color="blue" background="#d184e4" title="Custom color + icon">

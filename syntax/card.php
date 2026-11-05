@@ -107,6 +107,28 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
 
     );
 
+    /** Icon thumbnails use the icon renderer; ordinary media keeps its parser. */
+    protected function checkAttributes($attributes, Doku_Handler $handler)
+    {
+        $thumbnail = $attributes['thumbnail'] ?? '';
+        if (strpos($thumbnail, 'icon:') !== 0) {
+            return parent::checkAttributes($attributes, $handler);
+        }
+
+        unset($attributes['thumbnail']);
+        $checked = parent::checkAttributes($attributes, $handler);
+        [$id, $size] = array_pad(explode('?', substr($thumbnail, 5), 2), 2, '');
+        if ($id !== '') {
+            $checked['thumbnail'] = [
+                'type' => 'icon',
+                'src' => $id,
+                'size' => filter_var($size, FILTER_VALIDATE_INT,
+                    ['options' => ['min_range' => 1, 'max_range' => 512]]) ?: 64,
+            ];
+        }
+        return $checked;
+    }
+
     public function render($mode, Doku_Renderer $renderer, $data)
     {
         if (empty($data)) {
@@ -257,10 +279,16 @@ class syntax_plugin_bootswrapper_card extends syntax_plugin_bootswrapper_bootstr
                 $markup .= '<a href="' . $url . '" '.$attrs.'></a>';     
             }
 
-            // Place the thumbnail image
+            // Icon thumbnails reserve their requested size in both renderers.
             if ($thumbnail) {
-                list($url, $exists) = $this->resolveMediaUrl($thumbnail, $renderer);
-                $markup .= '<span class="card-thumbnail"><img src="'.$url.'" class="media" alt="" '.$this->buildAttributes($thumbnail_attributes).' ></span>';
+                if ($thumbnail['type'] === 'icon') {
+                    $markup .= '<div class="card-thumbnail card-thumbnail-icon">'
+                        . $this->renderIcon($thumbnail['src'], $renderer, '', $thumbnail['size'] . 'px',
+                            $color, $this->getPdfContextColor($type)) . '</div>';
+                } else {
+                    list($url, $exists) = $this->resolveMediaUrl($thumbnail, $renderer);
+                    $markup .= '<span class="card-thumbnail"><img src="'.$url.'" class="media" alt="" '.$this->buildAttributes($thumbnail_attributes).' ></span>';
+                }
             }
 
             // Place the Title

@@ -3,6 +3,30 @@ Bootstrap Wrapper Plugin for DokuWiki
 
 Bootstrap Wrapper for DokuWiki
 
+## Cards in grids
+
+Browser card columns wrap instead of shrinking below their contents or a 180px
+card width. This also works with section-edit wrappers. If the grid is narrower
+than a single card, it scrolls horizontally; icons are not scaled and footer
+words are not split. The normal PDF column layout is unchanged.
+
+For an Icons-plugin thumbnail with a native card footer:
+
+```text
+<grid>
+<col xs="12" sm="6" md="4">
+<card class="text-center" thumbnail="icon:iso7010:m003?64" no-body="true" no-border="true" footer="Wear hearing protection">
+</card>
+</col>
+</grid>
+```
+
+Prefix icon thumbnails with `icon:` followed by an Icons-plugin identifier, such
+as `iso7010:m003` or `fa:wrench`. The optional `?64` sets the icon size in pixels;
+the default is 64px, and valid sizes are 1–512px. Invalid sizes use the default.
+Bundled icons use local SVG files in DW2PDF and browser icon placeholders on screen.
+Ordinary media thumbnails keep their existing syntax and behaviour.
+
 ## Nested wrappers
 
 Use lowercase `<wrapper>` for a block container. Wrappers can be nested:

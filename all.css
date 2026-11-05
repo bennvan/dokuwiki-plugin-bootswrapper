@@ -247,6 +247,10 @@ aside ul.dropdown-menu {
   margin-top: 0;
   margin-bottom: 5px;
 }
+.bs-callout > h4,
+.bs-callout > .row > .col-xs-11 > h4 {
+  margin-bottom: 12px;
+}
 .bs-callout p:last-child {
   margin-bottom: 0;
 }
@@ -301,18 +305,26 @@ aside ul.dropdown-menu {
 i.bs-callout-icon { font-size: 2em; }
 
 @media screen {
-  /* Wrapped text grows to fill the row instead of keeping its grid width. */
-  .bs-callout > .row { display: flex; flex-wrap: wrap; }
+  /* Use the actual icon width; stack when too little space remains for text. */
+  .bs-callout > .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px clamp(12px, 5%, 64px);
+    margin-left: 0;
+    margin-right: 0;
+  }
   .bs-callout > .row::before,
   .bs-callout > .row::after { display: none; }
   .bs-callout > .row > .col-xs-1 {
-    flex: 0 0 calc(8.33333333% + 6px);
-    min-width: 36px;
-    margin-bottom: 4px;
+    flex: 0 0 auto;
+    width: auto;
+    padding: 0;
   }
   .bs-callout > .row > .col-xs-11 {
-    flex: 1 0 calc(91.66666667% - 6px);
+    flex: 1 1 14em;
+    width: auto;
     min-width: 0;
+    padding: 0;
   }
 }
 
@@ -545,10 +557,32 @@ span.bs-wrap-button a.btn {
 }
 
 /*Card*/
+@media screen {
+  /* Card columns need room for their contents, including section-edit wrappers.
+     Wrap whole cards instead of squeezing fixed-size media or footer words. */
+  .bs-wrap-grid > .bs-wrap-col:has(> .bs-wrap-card, > .section_highlight_wrapper > .bs-wrap-card) {
+    min-width: min-content;
+  }
+  .bs-wrap-grid > .bs-wrap-col > .bs-wrap-card,
+  .bs-wrap-grid > .bs-wrap-col > .section_highlight_wrapper > .bs-wrap-card {
+    min-width: 180px;
+  }
+  /* If even one card cannot fit, keep its contents intact and allow scrolling. */
+  .bs-wrap-grid:has(> .bs-wrap-col > .bs-wrap-card, > .bs-wrap-col > .section_highlight_wrapper > .bs-wrap-card) {
+    overflow-x: auto;
+  }
+}
+
 /*Flex grid section edit fix*/
-.bs-wrap-grid > .bs-wrap-col > .section_highlight_wrapper,
-.bs-wrap-grid > .bs-wrap-col > .section_highlight_wrapper > .bs-wrap-card {
+.bs-wrap-grid > .bs-wrap-col > .section_highlight_wrapper {
   height: ~"calc(100% - 10px)";
+}
+
+/* The edit button belongs to this wrapper too. Let both card and button
+   contribute to its height instead of overflowing a percentage-height box. */
+.bs-wrap-grid > .bs-wrap-col > .section_highlight_wrapper:has(> .bs-wrap-card),
+.bs-wrap-grid > .bs-wrap-col > .section_highlight_wrapper > .bs-wrap-card {
+  height: auto;
 }
 
 /*Flex grid section edit fix*/
@@ -602,6 +636,11 @@ span.bs-wrap-button a.btn {
   background-color: #fff;
 }
 
+.bs-wrap-card .card-thumbnail-icon {
+  padding: 12px;
+  text-align: center;
+}
+
 .card-body {
   padding: 0.8rem 1.25rem;
   margin-bottom: 0;
@@ -616,10 +655,11 @@ span.bs-wrap-button a.btn {
   display: flex;
   flex-direction: column;
   border-radius: 0 0 .4rem .4rem;
-  height: 100%;
-  word-wrap: break-word;
-  word-break: break-word;
-  hyphens: auto;
+  height: auto;
+  flex-shrink: 0;
+  word-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }
 
 .card.card-link {
