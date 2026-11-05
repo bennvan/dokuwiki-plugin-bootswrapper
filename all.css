@@ -300,6 +300,22 @@ aside ul.dropdown-menu {
 
 i.bs-callout-icon { font-size: 2em; }
 
+@media screen {
+  /* Wrapped text grows to fill the row instead of keeping its grid width. */
+  .bs-callout > .row { display: flex; flex-wrap: wrap; }
+  .bs-callout > .row::before,
+  .bs-callout > .row::after { display: none; }
+  .bs-callout > .row > .col-xs-1 {
+    flex: 0 0 calc(8.33333333% + 6px);
+    min-width: 36px;
+    margin-bottom: 4px;
+  }
+  .bs-callout > .row > .col-xs-11 {
+    flex: 1 0 calc(91.66666667% - 6px);
+    min-width: 0;
+  }
+}
+
 
 .bs-callout-info    .bs-callout-icon { color: #5bc0de; }
 .bs-callout-warning .bs-callout-icon { color: #f0ad4e; }
