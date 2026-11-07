@@ -562,10 +562,29 @@ span.bs-wrap-button a.btn {
      Wrap whole cards instead of squeezing fixed-size media or footer words. */
   .bs-wrap-grid > .bs-wrap-col:has(> .bs-wrap-card, > .section_highlight_wrapper > .bs-wrap-card) {
     min-width: min-content;
+    display: flex;
+    flex-direction: column;
   }
   .bs-wrap-grid > .bs-wrap-col > .bs-wrap-card,
   .bs-wrap-grid > .bs-wrap-col > .section_highlight_wrapper > .bs-wrap-card {
     min-width: 180px;
+    flex: 1 0 auto;
+    height: auto;
+  }
+  /* Stretch through DokuWiki's editor wrapper, leaving room for its button. */
+  .bs-wrap-grid > .bs-wrap-col > .section_highlight_wrapper:has(> .bs-wrap-card) {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    height: auto;
+  }
+  .bs-wrap-grid > .bs-wrap-col > .section_highlight_wrapper:has(> .bs-wrap-card) > .secedit {
+    align-self: flex-end;
+  }
+  /* Thumbnail-only cards fill their remaining height with the footer. */
+  .bs-wrap-grid > .bs-wrap-col > .bs-wrap-card:not(:has(> .card-body)) > .card-footer,
+  .bs-wrap-grid > .bs-wrap-col > .section_highlight_wrapper > .bs-wrap-card:not(:has(> .card-body)) > .card-footer {
+    flex-grow: 1;
   }
   /* If even one card cannot fit, keep its contents intact and allow scrolling. */
   .bs-wrap-grid:has(> .bs-wrap-col > .bs-wrap-card, > .bs-wrap-col > .section_highlight_wrapper > .bs-wrap-card) {
@@ -574,20 +593,8 @@ span.bs-wrap-button a.btn {
 }
 
 /*Flex grid section edit fix*/
-.bs-wrap-grid > .bs-wrap-col > .section_highlight_wrapper {
+.bs-wrap-grid > .bs-wrap-col > .section_highlight_wrapper:not(:has(> .bs-wrap-card)) {
   height: ~"calc(100% - 10px)";
-}
-
-/* The edit button belongs to this wrapper too. Let both card and button
-   contribute to its height instead of overflowing a percentage-height box. */
-.bs-wrap-grid > .bs-wrap-col > .section_highlight_wrapper:has(> .bs-wrap-card),
-.bs-wrap-grid > .bs-wrap-col > .section_highlight_wrapper > .bs-wrap-card {
-  height: auto;
-}
-
-/*Flex grid section edit fix*/
-.bs-wrap-grid > .bs-wrap-col > .bs-wrap-card {
-  height: ~"calc(100% - 20px)";
 }
 
 .card {
