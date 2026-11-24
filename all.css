@@ -355,7 +355,7 @@ i.bs-callout-icon { font-size: 2em; }
 .badge-success { color:#fff; background-color: #28a745; }
 .badge-primary { color:#fff; background-color: #007bff; }
 .badge-default { color:#fff; background-color: #6c757d; }
-.badge-light { color:#212529; background-color: #f8f9fa; }
+.badge-light { color:#212529; background-color: #ebebeb; }
 .badge-dark { color:#fff; background-color: #343a40; }
 
 /*Buttons*/
